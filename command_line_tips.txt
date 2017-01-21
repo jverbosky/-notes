@@ -1,0 +1,176 @@
+$PSVersionTable	lists version info about the currently running PowerShell
+# List full version info (major, minor, build, revision):
+# $PSVersionTable.PSVersionTable
+
+attrib			displays, sets or removes attributes to directories/files
+# Use "+" to add or "-" to remove
+# r <read-only>
+# a <archive>
+# s <system>
+# h <hidden>
+# i <not content indexed>
+# Ex: Assign the read-only attribute to a file
+# attrib +r file.txt
+# Ex: Remove the read-only attribute from a file
+# attrib -r file.txt
+
+cat				output the entire file contents to the screen
+# Can chain to output text of multiple files
+# Windows:  cat file1.txt,file2.txt
+# Mac/Lin:  cat file1.txt file2.txt
+
+cd				change directory
+# cd directory/directory/directory
+# Navigate down through multiple levels
+# cd ../../..
+# Navigate up through multiple levels
+# Tip - can use Tab to autocomplete directory names
+# If multiple matches, hit Tab to cycle through matches
+# Navigate to /temp in home directory:  cd ~/temp
+
+cls				clears the terminal
+# Useful to start with a clean slate
+
+cp				copy a file or directory
+# Recursively copy folder and contents to specified location
+# cp -r
+# Copy file from the current directory into /temp in home directory
+# cp test.txt ~/temp/test.txt
+
+dir				find files
+# Old DOS/Windows version of "ls" command - prefer using "ls"
+# Current PowerShell variant is "get-childitem"
+# Recursively find all text files for the current directory (and subdirectories):
+# dir . -include *.txt -recurse -force
+# Same, using get-childitem:
+# get-childitem . -include *.txt -recurse -force
+
+echo			outputs the specified text
+# Ex: echo Hello World!
+# Use echo to populate and create a new file in the current directory:
+# echo "Hello World!" > hello.txt
+# Note: Use quotes around argument or will have a carriage return after each space in string
+
+exit			exit the shell (terminal)
+# Closes the terminal program
+
+findstr			search specified files for a specified string
+# Note that select-string is more robust
+# findstr <string> *.*
+# Locate all files in the current directory that contain the string "test":
+# findstr test *.*
+
+forfiles		run a command on lots of files
+# To list help:
+# forfiles /?
+# List all text files:
+# forfiles /m *.txt
+# Recursively list all text files (all subdirectories):
+# forfiles /m *.txt /s
+# List all files modified since 01/01/2017:
+# forfiles /d 01/01/2017
+
+help			read a manual page
+# get-help *<cmd>*
+# Ex: get-help *dir*
+# Search for commands related to a keyword
+# help <keyword>
+
+helpctr			find what man page is appropriate
+# Doesn't appear to work in PowerShell 2.0 (Windows 7 native version)
+
+hostname		list my computer's network name
+# Outputs the computer name 
+
+icacls			display/modify file permissions (discretionary access control lists - DACLs)
+# List permissions for a file
+# icacls file.txt
+# I = inherited
+# F = full access
+# M = modify access
+# RX = read/execute access
+# R = read-only access
+# W = write-only access
+# For more see: https://technet.microsoft.com/en-us/library/cc753525(v=ws.11).aspx
+
+ls				list directory
+# List contents recursively:
+# ls -R <or> dir -R
+# List contents of a directory:
+# ls <path>
+# Ex: ls c:/sandbox
+
+mkdir			make a new directory
+# On Windows, can create an entire path in one shot
+# Ex: mkdir 1/2/3/4/5
+# Creates hierarchy of directories named 1, 2, 3, 4 and 5 in current directory
+# Ex: C:\Users\something\temp\1\2\3\4\5
+
+more			page through a file
+# Outputs the contents of a file
+# Ex: more test.txt
+# For multiple pages:
+# Use Enter to advance line-by-line
+# Use the spacebar to advance page-by-page
+# Use CTRL+C to exit and return to the prompt
+
+mv				move a file or directory
+# Move a file from one directory to another while higher up in path
+# Ex: Move file.txt from c:\temp\old to c:\temp\new while in c:\temp
+# mv old/file.txt new/file.txt
+# Can also use to rename a file/directory in the same directory:
+# mv test.txt renamed.txt
+
+pushd			push a directory onto the stack (FIFO)
+popd			pop the topmost directory from the stack
+# Temporary "bookmarks" for locations using the stack
+# Excellent overview of pushd/popd:
+# https://youtu.be/rqYlloaVVEA
+
+pwd				print working directory
+# List the current directory
+
+rm				remove (delete) a file
+# Remove a file from a target directory
+# Ex: rm target_directory/file.txt
+# Remove a directory and contents recursively (be careful with this one)
+# Ex: rm -r directory
+# Remove all contents for a directory
+# rm -r directory/*
+
+rmdir			remove directory
+# Remove target directory and contents recursively (or just use "rmdir" with prompt)
+# rmdir -r <directory>
+# Same as "rm -r"
+
+robocopy		robust copy
+# Useful for copying lots of files/directories in a batch job with logging capabilities
+# For more see: https://technet.microsoft.com/en-us/library/ee851678.aspx
+# robocopy "E:test" \\server\public\test /MIR /W:20 /R:15 /LOG: \\server\public\logs
+
+runas			run a command/program with a different account
+# Can type "runas" and hit Enter to get help info
+# Ex1: Launch notepad and open a file as a specific user:
+# runas /user:<username> "notepad c:\directory\file.txt"
+# <prompt to enter password for specified account>
+# Ex2: Same syntax for directories/files with spaces in names:
+# runas /user:<username> "notepad c:\directory 2\file 2.txt"
+
+select-string	search for strings inside files
+# This is a very basic example, run "get-help Select-String -examples" for more
+# Locate all files in the current directory that contain the string "test":
+# select-string -path *.* -pattern "test"
+
+set				export/set a new environment variable
+# Used in command line to list/set environment variables, such as Path (used for executables)
+# To list environment variables in PowerShell:
+# Get-ChildItem Env:
+# For more see: https://technet.microsoft.com/en-us/library/ff730964.aspx
+# Typing "get-help set" will list info for "Set-Variable" which is useful
+# but unrelated to environment variables
+
+type			print the whole file
+# same as "cat" command
+_______________________________________
+
+2017-01-12 - jv

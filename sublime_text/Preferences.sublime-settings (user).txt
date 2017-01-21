@@ -1,0 +1,12 @@
+{
+  "font_size": 13,
+  "highlight_modified_tabs": true,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "auto_complete_commit_on_tab": true,
+  "auto_complete_cycle": true,
+  "preview_on_click": false,
+  "always_show_minimap_viewport": true,
+  // could be useful // "save_on_focus_lost": true
+  // Mac only // "open_files_in_new_windows": false
+}

@@ -1,0 +1,143 @@
+Windows
+- tested on Windows 7 x86 & x64
+_______________________________________________________________________
+
+Keyboard shortcuts:
+CTRL + b = run the current file's code (build) and show output in Sublime Text console
+- automatically saves file before running (by default - Tools > Save All on Build)
+- hit Esc key to close console window
+CTRL + / = comment/uncomment the currently selected line(s)
+CTRL + [ = unindent (tab) the currently selected line(s)
+CTRL + ] = indent (tab) the currently selected line(s)
+CTRL + m = go to matching parenthesis/bracket/brace
+_______________________________
+
+*Launch files from Powershell / Command Line*
+_______________________________
+
+Initial Setup (Add Sublime Text 3 program directory to user's PATH):
+1) Start
+2) Type "envi" and select "Control Panel - Edit environment variables for your account"
+3) In the "User variables" section, select the Path variable and hit Edit
+4) Go to the end of the field and paste this in:
+	- Win x86 and 64-bit version on Win x64
+		C:\Program Files\Sublime Text 3
+	- 32-bit version on Win x64
+		C:\Program Files (x86)\Sublime Text 3
+	*******************************************************************	
+	Note: If there's a preceding entry, add a semi-colon before pasting
+	Ex: C:\Ruby23\bin;C:\Program Files\Sublime Text 3
+	*******************************************************************
+5) Click OK
+6) Click OK again on the Environment Variables screen
+_______________________________
+
+To launch files:
+1) Open Powershell (or command prompt)
+2) Navigate to the desired file directory
+3) Run "subl" followed by the target file name to launch it in Sublime Text
+
+For example:  subl sandbox.rb
+_______________________________
+
+If the directory sidebar (on the left) doesn't appear:
+1) Verify that View > Side Bar doesn't list "Show Side Bar"
+	- If it does, select it
+2) Manually open the Folder sidebar
+	- File > Open Folder... > select a directory > click Select Folder > Folders sidebar should appear
+3) Once the sidebar appears, open a file via subl
+	- Sidebar should appear
+4) Closed all instances of Sublime Text and open a file via subl again
+	- Sidebar should appear
+_______________________________________________________________________
+
+Linux
+- tested on Ubuntu 14.04 & 16.04
+- Windows keyboard
+_______________________________________________________________________
+
+Keyboard shortcuts:
+CTRL + b = run the current file's code (build) and show output in Sublime Text console
+- automatically saves file before running (by default - Tools > Save All on Build)
+- hit Esc key to close console window
+CTRL + / = comment/uncomment the currently selected line(s)
+CTRL + [ = unindent (tab) the currently selected line(s)
+CTRL + ] = indent (tab) the currently selected line(s)
+CTRL + m = go to matching parenthesis/bracket/brace
+_______________________________
+
+*Launch files from terminal*
+- Sublime Text 3 was already in bin path for Ubuntu after install, so no additional setup was needed
+_______________________________
+
+To launch files:
+1) Open terminal
+2) Navigate to the desired file directory
+3) Run "subl" followed by the target file name to launch it in Sublime Text
+
+For example:  subl sandbox.rb
+_______________________________
+
+If the directory sidebar (on the left) doesn't appear:
+1) Verify that View > Side Bar doesn't list "Show Side Bar"
+	- If it does, select it
+2) Manually open the Folder sidebar
+	- File > Open Folder... > select a directory > click Open > Folders sidebar should appear
+3) Once the sidebar appears, open a file via subl
+	- Sidebar should appear
+4) Closed all instances of Sublime Text and open a file via subl again
+	- Sidebar should appear
+_______________________________________________________________________
+
+Mac
+- tested on 10.10.5 (Yosemite) and 10.12.2 (Sierra)
+- Windows keyboard
+_______________________________________________________________________
+
+Keyboard shortcuts:
+Windows key + b = run the current file's code (build) and show output in Sublime Text console
+- automatically saves file before running
+- hit Esc key to close console window
+Windows key + / = comment/uncomment the currently selected line(s)
+Windows key + [ = unindent (tab) the currently selected line(s)
+Windows key + ] = indent (tab) the currently selected line(s)
+CTRL + m = go to matching parenthesis/bracket/brace
+_______________________________
+
+*Launch files from terminal*
+
+Initial Setup (Add Sublime Text 3 program directory to user's PATH):
+1) Verify that you can launch Sublime Text 3 from the terminal:
+	open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl
+2) Create a symlink for subl:
+	sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+3) Verify that "/usr/local/bin" is specified in the PATH environment variable:
+	echo $PATH
+
+Example output: /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+- If /usr/local/bin is not listed, research how to create/update ~/.bash_profile
+_______________________________
+
+To launch files:
+1) Open Powershell (or command prompt)
+2) Navigate to the desired file directory
+3) Run "subl" followed by the target file name to launch it in Sublime Text
+
+For example:  subl sandbox.rb
+_______________________________
+
+If the directory sidebar (on the left) doesn't appear:
+1) Verify that View > Side Bar doesn't list "Show Side Bar"
+	- If it does, select it
+2) Manually open the Folder sidebar
+	- File > Open... > select a directory > click Open > Folders sidebar should appear
+3) Once the sidebar appears, open a file via subl
+	- File should open in current instance of Sublime Text
+
+Note: For Mac, the sidebar appeared to get reset each time after closing Sublime Text
+
+As a shortcut to have the sidebar appear:
+	- File > Open > Recent > select a recently opened directory
+_______________________________________________________________________
+
+2017-01-21 - jv

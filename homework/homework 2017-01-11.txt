@@ -1,0 +1,10 @@
+Your homework is to complete exercises 0-3 at https://learnrubythehardway.org/book/. 
+
+You must also commit your work into github
+[3:50]
+* Should create a new repository for homework exercises
+
+You must also complete the Appendix from the book
+[3:51]  
+
+If you run into any troubles, reach out in this channel and we will help you through.

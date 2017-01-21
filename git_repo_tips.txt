@@ -1,0 +1,45 @@
+New git repo:
+
+in browser:
+create new repo at github.com
+
+in powershell/terminal:
+1) git init (initializes new repo - only need once)
+2) git add . (adds all changes)
+3) git status (shows what you will push to github)
+4) git commit -m "initial commit"
+5) git remote add origin <your link here from github>
+6) git push origin master
+
+in browser:
+check the changes have pushed by refreshing the page
+
+for future commits:
+1) git add .
+2) git status
+3) git commit -m "message relevant to what you have done"
+4) git push origin master
+_____________________
+
+JV notes:
+
+git config --get remote.origin.url
+# Lists the origin associated with the current directory
+
+git remote set-url origin https://github.com/jverbosky/sonicpi_examples.git
+# Used to change origin URL after renaming directory
+
+git push origin master --force
+# Used after getting error message following directory rename:
+#
+# PS F:\Documents\Dropbox\MindedMinds\sonic_pi_examples> git push origin master
+# To https://github.com/jverbosky/sonicpi_examples.git
+# ! [rejected]        master -> master (non-fast-forward)
+# error: failed to push some refs to 'https://github.com/jverbosky/sonicpi_examples.git'
+# hint: Updates were rejected because the tip of your current branch is behind
+# hint: its remote counterpart. Integrate the remote changes (e.g.
+# hint: 'git pull ...') before pushing again.
+# hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+_____________________
+
+2017-01-11 - jv
