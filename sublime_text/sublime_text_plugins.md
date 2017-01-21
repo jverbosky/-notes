@@ -3,7 +3,7 @@ __________________________________________
 
 *To start, open the Sublime Text console so you can view status and installation messages:
 - View > Show Console
-____________________
+__________________________________________
 
 [Package Control](https://packagecontrol.io/packages/Package%20Control)
 - install this before any others
@@ -14,20 +14,20 @@ ____________________
 	- Package Control: Install Package
 		- Click on this to show a list of all available packages that are available for install
 	- Type a package name to search and click on the result to install the package
-____________________
+__________________________________________
 	
 [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
 - Underlines selected and matching parenthesis, bracket & brace
 - Not a huge deal now, but will be very useful later
-____________________
+__________________________________________
 
 [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements)
 - Adds more file options when right-clicking on items in the Folders sidebar
-____________________
+__________________________________________
 
 [TrailingSpaces](https://github.com/SublimeText/TrailingSpaces)
 - Highlights trailing (unwanted) spaces at the end of lines
-____________________
+__________________________________________
 
 [Scratch](https://packagecontrol.io/packages/Scratch)
 - By default Scratch will save files to ~/Documents/Scratch with the extension .py
