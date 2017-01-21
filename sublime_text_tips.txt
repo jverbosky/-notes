@@ -50,10 +50,12 @@ If the directory sidebar (on the left) doesn't appear:
 4) Closed all instances of Sublime Text and open a file via subl again
 	- Sidebar should appear
 _______________________________________________________________________
+_______________________________________________________________________
 
 Linux
 - tested on Ubuntu 14.04 & 16.04
 - Windows keyboard
+_______________________________________________________________________
 _______________________________________________________________________
 
 Keyboard shortcuts:
@@ -88,10 +90,12 @@ If the directory sidebar (on the left) doesn't appear:
 4) Closed all instances of Sublime Text and open a file via subl again
 	- Sidebar should appear
 _______________________________________________________________________
+_______________________________________________________________________
 
 Mac
 - tested on 10.10.5 (Yosemite) and 10.12.2 (Sierra)
 - Windows keyboard
+_______________________________________________________________________
 _______________________________________________________________________
 
 Keyboard shortcuts:
