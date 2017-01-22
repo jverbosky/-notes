@@ -3,6 +3,7 @@
 To start, open the Sublime Text console so you can view status and installation messages:
 >View > Show Console  
 <hr>
+  
 [Package Control](https://packagecontrol.io/packages/Package%20Control)  
 - install this before any others  
 - Package Control is driven by the Command Palette  
@@ -45,6 +46,7 @@ Win7 x64: "save_path":
 Ubuntu & Mac:  
 &nbsp;&nbsp;&nbsp;&nbsp;"save_path": "~/Dropbox/MinedMinds/scratch"  
 <hr>
+  
 **Package Settings**
 
 Configure settings for each package via the Sublime Text file menu
