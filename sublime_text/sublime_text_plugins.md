@@ -7,7 +7,7 @@ To start, open the Sublime Text console so you can view status and installation 
 [Package Control](https://packagecontrol.io/packages/Package%20Control)  
 - install this before any others  
 - Package Control is driven by the Command Palette  
->To open the palette, press CTRL+Shift+p (Win, Linux) or CMD+Shift+p (OS X)  
+> To open the palette, press CTRL+Shift+p (Win, Linux) or CMD+Shift+p (OS X)  
 
 All Package Control commands begin with *Package Control:*, so start by typing "Package"  
 - The command palette will now show a number of commands.
