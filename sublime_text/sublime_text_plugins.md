@@ -1,8 +1,8 @@
 **Useful Now**
-----------------
+<hr>
 *To start, open the Sublime Text console so you can view status and installation messages:
 - View > Show Console
-----------------
+<hr>
 [Package Control](https://packagecontrol.io/packages/Package%20Control)
 - install this before any others
 - Package Control is driven by the Command Palette
@@ -12,18 +12,17 @@
 	- Package Control: Install Package
 		- Click on this to show a list of all available packages that are available for install
 	- Type a package name to search and click on the result to install the package
-----------------
-
+<hr>
 [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
 - Underlines selected and matching parenthesis, bracket & brace
 - Not a huge deal now, but will be very useful later
-----------------
+<hr>
 [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements)
 - Adds more file options when right-clicking on items in the Folders sidebar
-----------------
+<hr>
 [TrailingSpaces](https://github.com/SublimeText/TrailingSpaces)
 - Highlights trailing (unwanted) spaces at the end of lines
-----------------
+<hr>
 [Scratch](https://packagecontrol.io/packages/Scratch)
 - By default Scratch will save files to ~/Documents/Scratch with the extension .py
 - You can change these settings using the following flags in your package settings (see note below):
@@ -42,7 +41,7 @@ Win7 x64: "save_path":
 	"save_path": "C:/Users/something/Dropbox/MinedMinds/scratch"
 Ubuntu & Mac:
 	"save_path": "~/Dropbox/MinedMinds/scratch"
-----------------
+<hr>
 **Package Settings**
 
 Configure settings for each package via the Sublime Text file menu
@@ -58,16 +57,16 @@ Mac:
 - Adjust config as necessary
 - Windows key + S to save the changes
 - Close the tab and carry on
-----------------
+<hr>
 **Test Later**
-----------------
+<hr>
 [Sublime Linter](https://packagecontrol.io/packages/SublimeLinter)
 
 [SublimeLinter-ruby](https://packagecontrol.io/packages/SublimeLinter-ruby)
-----------------
+<hr>
 **Someday**
-----------------
+<hr>
 [CodeFormatter](https://packagecontrol.io/packages/CodeFormatter)
 - no support for Ruby yet
-----------------
+<hr>
 2017-01-21 - jv
