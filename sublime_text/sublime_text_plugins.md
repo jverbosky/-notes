@@ -1,7 +1,7 @@
 **Useful Now**
 <hr>
 To start, open the Sublime Text console so you can view status and installation messages:
->View > Show Console
+>View > Show Console  
 <hr>
 [Package Control](https://packagecontrol.io/packages/Package%20Control)  
 - install this before any others  
