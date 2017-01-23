@@ -160,6 +160,8 @@ select-string	search for strings inside files
 # This is a very basic example, run "get-help Select-String -examples" for more
 # Locate all files in the current directory that contain the string "test":
 # select-string -path *.* -pattern "test"
+# VERY USEFUL PATTERN: Recursively search all files in all subdirectories for the string "test":
+# get-childitem -include *.* -recurse | select-string -pattern "test"
 
 set				export/set a new environment variable
 # Used in command line to list/set environment variables, such as Path (used for executables)
