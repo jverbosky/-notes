@@ -1,0 +1,38 @@
+
+bash-3.2# gem install rdoc-data
+Fetching: rdoc-data-4.1.0.gem (100%)
+rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
+
+rdoc-data is required for JRuby.
+
+To install ri data for RDoc 4.0+ run:
+
+  rdoc-data --install
+
+Successfully installed rdoc-data-4.1.0
+Parsing documentation for rdoc-data-4.1.0
+Installing ri documentation for rdoc-data-4.1.0
+1 gem installed
+bash-3.2# rdoc-data --install
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1381:in `initialize': Operation not permitted - /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/share/ri/2.0.0/system/Abbrev/cdesc-Abbrev.ri (Errno::EPERM)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1381:in `open'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1381:in `block in copy_file'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1380:in `open'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1380:in `copy_file'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:477:in `copy_file'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:855:in `block in install'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1558:in `block in fu_each_src_dest'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1572:in `fu_each_src_dest0'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:1556:in `fu_each_src_dest'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:851:in `install'
+	from /Library/Ruby/Gems/2.0.0/gems/rdoc-data-4.1.0/lib/rdoc/data.rb:75:in `block (2 levels) in run'
+	from /Library/Ruby/Gems/2.0.0/gems/rdoc-data-4.1.0/lib/rdoc/data.rb:70:in `each'
+	from /Library/Ruby/Gems/2.0.0/gems/rdoc-data-4.1.0/lib/rdoc/data.rb:70:in `block in run'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:125:in `chdir'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/fileutils.rb:125:in `cd'
+	from /Library/Ruby/Gems/2.0.0/gems/rdoc-data-4.1.0/lib/rdoc/data.rb:67:in `run'
+	from /Library/Ruby/Gems/2.0.0/gems/rdoc-data-4.1.0/lib/rdoc/data.rb:44:in `run'
+	from /Library/Ruby/Gems/2.0.0/gems/rdoc-data-4.1.0/bin/rdoc-data:6:in `<top (required)>'
+	from /usr/local/bin/rdoc-data:23:in `load'
+	from /usr/local/bin/rdoc-data:23:in `<main>'
+bash-3.2# 

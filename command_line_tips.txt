@@ -99,6 +99,8 @@ ls				list directory
 # List contents of a directory:
 # ls <path>
 # Ex: ls c:/sandbox
+# List contents of a directory in wide format:
+# ls | Format-Wide
 
 mkdir			make a new directory
 # On Windows, can create an entire path in one shot
