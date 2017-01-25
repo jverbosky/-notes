@@ -50,6 +50,11 @@ echo			outputs the specified text
 # Use echo to populate and create a new file in the current directory:
 # echo "Hello World!" > hello.txt
 # Note: Use quotes around argument or will have a carriage return after each space in string
+# Example: create a new file in the current directory via PowerShell and launch via Sublime Text
+#  - see sublime_text_tips.txt for info on launching Sublime Text via terminal
+# echo "" > test.txt
+# subl test.txt
+# ^^^ DON'T USE NOW - NEED TO RESEARCH - GETTING INVALID ENCODING ERROR ^^^
 
 exit			exit the shell (terminal)
 # Closes the terminal program

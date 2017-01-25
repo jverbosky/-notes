@@ -4144,6 +4144,69 @@ true  # if array contains a string
 false # if array doesn't contain any strings
 ____________________________
 
+# Ruby object types
+
+ * Date  -- Anything accepted by Date.parse
+ * DateTime -- Anything accepted by DateTime.parse
+ * Time -- Anything accepted by Time.httpdate or Time.parse
+ * URI  -- Anything accepted by URI.parse
+ * Shellwords -- Anything accepted by Shellwords.shellwords
+ * String -- Any non-empty string
+ * Integer -- Any integer. Will convert octal. (e.g. 124, -3, 040)
+ * Float -- Any float. (e.g. 10, 3.14, -100E+13)
+ * Numeric -- Any integer, float, or rational (1, 3.4, 1/3)
+ * DecimalInteger -- Like Integer, but no octal format.
+ * OctalInteger -- Like Integer, but no decimal format.
+ * DecimalNumeric -- Decimal integer or float.
+ * TrueClass --  Accepts '+, yes, true, -, no, false' and defaults as
+   true
+ * FalseClass -- Same as TrueClass, but defaults to false
+ * Array -- Strings separated by ',' (e.g. 1,2,3)
+ * Regexp -- Regular expressions. Also includes options.
+____________________________
+
+# Determine if an object is numeric (integer, float, etc.)
+
+integer = 5
+float = 3.2
+string = "test"
+array = [1,2,3]
+
+# puts integer.is_a? Numeric
+# puts float.is_a? Numeric
+# puts string.is_a? Numeric
+# puts array.is_a? Numeric
+
+def object_type_test(object)
+  if object.is_a? Numeric
+    puts true
+  else
+    puts false
+  end
+end
+
+object_type_test(integer)
+object_type_test(float)
+object_type_test(string)
+object_type_test(array)
+____________________________
+
+
+
+
+____________________________
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
 
 
 

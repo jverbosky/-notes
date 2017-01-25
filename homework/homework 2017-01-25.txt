@@ -1,0 +1,69 @@
+1) Write functions & tests for multiplication & division
+	- test for error conditions (divide by zero)
+
+2) Make sure all the functions & tests will be able to take any number of arguments (parameters)
+* Only worry about numbers - no need to test for non-Numeric, but can for fun
+___________________________________________________
+
+3) Expand winning_numbers
+ - is the number within 1 number of any of the winning numbers?
+
+Any of the numbers can be 1 off, for example:
+
+1233
+- 1234
+1235
+
+1224
+- 1234
+1244
+
+0234
+- 1234
+2234
+
+Use .include? and write a version without .include?
+
+Also 2234 (any of the numbers are 1 off)
+- close_but_no_cigar
+
+Get back all of the numbers are 1 off (in an array)
+
+First, test with empty array
+Next, test with an array with 1 item
+Then, build up from there
+___________________________________________________
+
+Ideas:
+
+1) Put potentially winning number into an array
+2) Array comparison, set operators, array.intersection
+
+12 [12, 34, 56, 78]
+
+winner = [1, 2]
+pool = [[1, 2], [3, 4], [5, 6], [7, 8]]
+
+winner[0] > 1
+
+pool[0][0] > 1
+pool[1][0] > 3
+pool[2][0] > 5
+
+winner[1] > 2
+
+pool[0][1] > 2
+pool[1][1] > 4
+pool[2][1] > 6
+___________________________________________________
+
+#Per Vera###
+
+1) Let Rebecca know if I'm interested in a mentor
+   And let Rebecca know where I'm located & availability (schedule)
+
+2) Tablet for person showing the most progress during the week.
+
+3) Let Rebecca know if any concerns about press coming in
+
+
