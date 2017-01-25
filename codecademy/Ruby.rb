@@ -3872,12 +3872,12 @@ end
 def merge_pairs_odd(multi)
   last = multi.count - 1
   next_to_last = multi.count - 2
-  # Perform a union on the last two arrays
+  # Perform a union on the last two inner arrays
   # Google: set operators with Ruby arrays
   together = multi[next_to_last] | multi[last]
   # Assign the next-to-the-last inner array the union value (3 items)
   multi[next_to_last] = together
-  # Delete the last array
+  # Delete the last inner array
   multi.delete_at(last)
   #puts "Run list_pairs_odd(multi)..."  # inline test
   #return multi # for testing, comment out for production
@@ -4081,19 +4081,67 @@ names.delete_at(0)
 names[2] = "Amanda"
 ____________________________
 
+# Function that finds the first instance of an item class in array and stop iterating through the array
+# Variation 1 - no strings detected
 
+#test_array = [1, 2, "Mined", 4, "Minds", "Mined", 7, 8, "Mined", "Minds", 11, "Mined"]
+test_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+def find_first_string_in_array(list)
+  match = "No strings detected."
+  num = 0
+  while num < list.length
+    if list[num].class == String
+      match = "String detected at index [#{num}] with a value of '#{list[num]}'!"
+      break
+    end
+    num += 1
+  end
+  puts match
+end
 
+find_first_string_in_array(test_array)
+
+# Console output:
+No strings detected
 ____________________________
 
+# Function that finds the first instance of an item class in array and stop iterating through the array
+# Variation 2 - first string in array detected
 
+test_array = [1, 2, "Mined", 4, "Minds", "Mined", 7, 8, "Mined", "Minds", 11, "Mined"]
+#test_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+def find_first_string_in_array(list)
+  match = "No strings detected."
+  num = 0
+  while num < list.length
+    if list[num].class == String
+      match = "String detected at index [#{num}] with a value of '#{list[num]}'!"
+      break
+    end
+    num += 1
+  end
+  puts match
+end
 
+find_first_string_in_array(test_array)
+
+# Console output:
+String detected at index [2] with a value of 'Mined'!
 ____________________________
 
+# Another method for detecting a specific class of object in an array
 
+test_array = [1, 2, "Mined", 4, "Minds", "Mined", 7, 8, "Mined", "Minds", 11, "Mined"]
+#test_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+result = test_array.any? { |item| item.class == String }
+return result
 
+# Console output:
+true  # if array contains a string
+false # if array doesn't contain any strings
 ____________________________
 
 
