@@ -3947,6 +3947,165 @@ end
 test_array = ["Abe","Bob","Carl","Dave","Ed"]
 print random_pair(test_array)
 ____________________________
+
+# In class - using splat argument to add an indeterminate number of numbers
+
+def add(*number)
+  sum = 0
+  number.each do |n|
+      sum += n
+  end
+  return sum
+end
+
+# Example console output:
+
+print add(2, 3, 5)  # 10
+____________________________
+
+# Variation with splat argument and logic to filter out non-numeric items
+
+def add(*number)
+  test_array = []
+  sum = 0
+  number.each do |n|
+    if (n.class != Fixnum) && (n.class != Float)
+      test_array.push(false)
+    end
+  end
+  if test_array.length > 0
+    return false
+  else
+    number.each do |n|
+      sum += n
+    end
+  end
+  return sum
+end
+____________________________
+
+# Adding an indeterminate number of numbers using .inject method
+# # Note that .inject is called .reduce in most languages
+
+def add(*numbers)
+  numbers.inject { |sum, value| sum += value }
+end
+
+# Example console output:
+
+print add(2, 3, 5)  # 10
+____________________________
+
+# Variation of .inject method using do
+
+def add(*numbers)
+  sum = 0  # optional
+  numbers.inject do |sum, value|
+    sum += value
+  end
+end
+
+# Example console output:
+
+print add(2, 3, 5)  # 10
+____________________________
+
+# Function to subtract an indefinite amount of numbers
+
+def subtract(*number)
+  test_array = []
+  number.each do |n|
+    if (n.class != Fixnum) && (n.class != Float)
+      test_array.push(false)
+    end
+  end
+  if test_array.length > 0
+    return false
+  else
+    number.inject do |minuend, subtrahend|
+      (minuend - subtrahend).round(2)
+    end
+  end
+end
+____________________________
+
+# Function to multiply an indefinite amount of numbers
+
+def multiply(*number)
+  test_array = []
+  decimal_places = 0
+  product = 1
+  if number.length == 0
+    test_array.push(false)
+  end
+  number.each do |n|
+    if (n.class != Fixnum) && (n.class != Float)
+      test_array.push(false)
+    end
+  end
+  if test_array.length > 0
+    return false
+  else
+    number.each do |n|
+      if n.class == Float
+        # If a number is a float, accumulate the number of decimal places
+        decimal_places += n.to_s.split('.').last.size
+        product *= n
+      else
+        product *= n
+      end
+    end
+  end
+  return product.round(decimal_places)
+end
+____________________________
+
+# Function to divide an indefinite amount of numbers
+
+def divide(*number)
+  test_array = []
+  product = 1
+  if number.length == 0
+    test_array.push(false)
+  end
+  number.each do |n|
+    if (n.class != Fixnum) && (n.class != Float)
+      test_array.push(false)
+    end
+  end
+  if test_array.length > 0
+    return false
+  else
+    number.inject do |dividend, divisor|
+      if divisor != 0
+        (dividend.to_f / divisor.to_f).round(5)
+      else
+        return false
+      end
+    end
+  end
+end
+____________________________
+
+
+
+
+____________________________
+
+
+
+
+____________________________
+
+
+
+
+____________________________
+
+
+
+
+____________________________
 ____________________________
 ____________________________
 
