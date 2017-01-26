@@ -73,7 +73,7 @@ Complete the winning_numbers function if you haven't.
 This function takes a number and an array of numbers, and returns a boolean: true if the number is in the array, and false if not.
 You can use the include method, but if you do please also write it a different way where you are iterating over the array using the each method.
 
-* Think I'm done, need to review before calling it...
+***Done***
 ___________________________________________________
 
 Homework Part 3:

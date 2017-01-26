@@ -3948,6 +3948,77 @@ test_array = ["Abe","Bob","Carl","Dave","Ed"]
 print random_pair(test_array)
 ____________________________
 
+# Explanatory program to help clarify array contents and values
+# during <.each do> loop of Josh's Random Pairs program
+
+=begin
+#In-class example of random pairs (Josh)
+
+test_array = ["Abe","Bob","Carl","Dave","Ed"]
+
+def random_pair(names)
+  my_array = []
+
+  array_of_items_to_be_paired = names.shuffle.each_slice(2)
+
+  array_of_items_to_be_paired.each do |pairs|
+    if pairs.length == 2
+      my_array.push(pairs)
+    else
+      my_array.last.push(pairs[0])  # study this line
+    end
+  end
+  my_array
+end
+
+print random_pair(test_array)
+=end
+
+# Note that in Josh's program, the names would be scrambled at this point,
+# but leaving them ordered here for clarification's sake
+array_of_items_to_be_paired = [["Abe","Bob"],["Carl","Dave"],["Ed"]]
+my_array = []
+count = 1
+
+# Baseline value of my_array, which we'll use to create the desired program output
+print "Value of my_array before if statement iteration: "
+print my_array
+2.times { print "\n" }
+
+# Note that I used "inner_array" instead of "pairs" for the array item name just
+# to clarify exactly what we are targeting, since the final inner array will not
+# contain a pair of names if array_of_items_to_be_paired contains an odd number
+# of names
+array_of_items_to_be_paired.each do |inner_array|
+  if inner_array.length == 2
+    print "Value of inner_array from if statement interation #{count}: "
+    print inner_array
+    print "\n"
+    my_array.push(inner_array)
+    print "Value of my_array after if statement interation #{count}: "
+    print my_array
+    2.times { print "\n" }
+    count += 1
+  else
+    print "(1) Value of inner_array from else statement: "
+    print inner_array
+    print "\n"
+    print "(2) Value of inner_array contents via array index: "
+    print inner_array[0]
+    print "\n"
+    print "(3) Value of last inner_array in my_array before else statement: "
+    print my_array.last
+    2.times { print "\n" }
+    puts "Value of my_array after pushing inner_array contents (2) to last array in my_array (3):"
+    my_array.last.push(inner_array[0])
+    print my_array
+    print "\n"
+  end
+end
+
+
+____________________________
+
 # In class - using splat argument to add an indeterminate number of numbers
 
 def add(*number)
@@ -4087,6 +4158,441 @@ def divide(*number)
 end
 ____________________________
 
+# Winning numbers (basic)
+# Determine if the specified number is in the specified array
+
+# Sandbox testing variables
+number = 5
+#number = 4
+test_array = [1, 2, 3, 4, 5, 6, 7]
+
+# Method 1 - using .include?
+def winning_numbers(num, set)
+  return set.include?(num)
+end
+
+# Method 2 - using .empty? and clarification output
+# Jon advised that it's not good practice to set a boolean true to false (line 31),
+so tweaked in Method 3
+def winning_numbers(num, set)
+  yes = []
+  no = []
+  counter = 1
+  set.each do |n|
+    if n == num
+      puts "If iteration #{counter}: n - #{n}, num - #{num}"
+      yes.push(n)
+      puts "If iteration - yes array: #{yes}, no array: #{no}"
+    else
+      puts "Else iteration #{counter}: n - #{n}, num - #{num}"
+      no.push(n)
+      puts "Else iteration - yes array: #{yes}, no array: #{no}"
+    end
+    counter += 1
+  end
+  if yes.empty? == false
+    return true
+  else
+    return false
+  end
+end
+
+# Method 3 - dropped no array (not required) and compare .length of yes array for boolean
+def winning_numbers(num, set)
+  yes = []
+  set.each do |n|
+    if n == num
+      yes.push(n)
+    end
+  end
+  if yes.length > 0
+    return true
+  else
+    return false
+  end
+end
+
+# true if number is in the test_array, false if not
+print test_array.include?(number)
+
+# Sandbox test to run function
+print winning_numbers(number, test_array)
+____________________________
+
+# Function that takes two numbers as strings and returns true if they are off by one digit
+# Use case 1: If we pass '1234' and '1224' (1 digit off in tens place), the function should return true
+# Use case 2: If we pass '1234' and '1325' (more than 1 digit off), the function should return false
+
+def compare_numbers(num_1, num_2)
+  if num_1 == num_2
+    return false
+  else
+    set_1 = num_1.split("")
+    set_2 = num_2.split("")
+    off_by_one = 0
+    greater_than_one = 0
+    comparison_set = set_1.zip(set_2)
+    comparison_set.each do |inner|
+      if inner[0] != inner[1]
+        if (inner[0].to_i - inner[1].to_i).abs == 1
+          off_by_one += 1
+        elsif (inner[0].to_i - inner[1].to_i).abs > 1
+          greater_than_one += 1
+        end
+      end
+    end
+    if greater_than_one > 0
+      return false
+    elsif off_by_one > 1
+      return false
+    elsif off_by_one == 1
+      return true
+    end
+  end
+end
+
+# Sandbox testing
+# puts compare_numbers('1234', '1235')  # true
+# puts compare_numbers('1234', '1244')  # true
+# puts compare_numbers('1234', '1334')  # true
+# puts compare_numbers('1234', '2234')  # true
+# puts compare_numbers('1234', '1325')  # false
+# puts compare_numbers('1234', '3234')  # false
+# puts compare_numbers('1234', '1234')  # false
+____________________________
+
+# Sandbox test for results from: num_1.split("")
+
+number_1 = '1234'
+number_2 = '1224'  # return true when compared to number_1
+number_3 = '1325'  # return false when compared to number_1
+
+def compare_numbers(num_1, num_2)
+  print set_1 = num_1.split("")
+  print "\n"
+  print set_2 = num_2.split("")
+  print "\n"
+end
+
+compare_numbers(number_1, number_2)  # test 1
+print "\n"
+compare_numbers(number_1, number_3)  # test 2
+print "\n"
+
+# Console output:
+["1", "2", "3", "4"]
+["1", "2", "2", "4"]
+
+["1", "2", "3", "4"]
+["1", "3", "2", "5"]
+____________________________
+
+# Sandbox test for results from: comparison_set = set_1.zip(set_2)
+
+comparison_set = [["1", "1"], ["2", "2"], ["3", "2"], ["4", "5"]]
+#comparison_set = [["1", "1"], ["2", "2"], ["4", "2"], ["4", "5"]]
+comparison_count = 0
+greater_than_one = 0
+
+comparison_set.each do |inner|
+  if inner[0] != inner[1]
+    puts "not the same!"
+    if (inner[0].to_i - inner[1].to_i).abs == 1
+      comparison_count += 1
+    elsif (inner[0].to_i - inner[1].to_i).abs > 1
+      greater_than_one += 1
+    end
+  else
+    puts "the same"
+  end
+end
+
+puts "Comparison count: #{comparison_count}"
+puts "Greater than one: #{greater_than_one}"
+
+# Console output:
+the same
+the same
+not the same!
+not the same!
+Comparison count: 2
+Greater than one: 0
+____________________________
+
+# Function that takes a ticket number and an array of winning numbers
+# Returns an array of all of the winning numbers that are one digit off from the ticket number
+# If no winning numbers match this condition, returns false
+
+def compare_number_array(ticket, winning_numbers)
+  winning_numbers_off_by_one_digit = []
+  winning_numbers_no_match = []
+  same_number = 0
+  winning_numbers.each do |winner|
+    if winner == ticket
+      same_number += 1
+    else
+      set_1 = winner.split("")
+      set_2 = ticket.split("")
+      off_by_one = 0
+      greater_than_one = 0
+      comparison_set = set_1.zip(set_2)
+      comparison_set.each do |inner|
+        if inner[0] != inner[1]
+          if (inner[0].to_i - inner[1].to_i).abs == 1
+            off_by_one += 1
+          elsif (inner[0].to_i - inner[1].to_i).abs > 1
+            greater_than_one += 1
+          end
+        end
+      end
+      if greater_than_one > 0
+        winning_numbers_no_match.push(winner)
+      elsif off_by_one > 1
+        winning_numbers_no_match.push(winner)
+      elsif off_by_one == 1
+        winning_numbers_off_by_one_digit.push(winner)
+      end
+    end
+  end
+  if winning_numbers_off_by_one_digit.length > 0
+    return winning_numbers_off_by_one_digit
+  else
+    return false
+  end
+end
+
+# Sandbox testing
+# print compare_number_array('1234', ['9999', '5678', '1235', '1134', '1344'])  # ['1235', '1134']
+# print "\n"
+# print compare_number_array('1234', ['1234', '1235', '1236', '1244', '1334'])  # ['1235', '1244', '1334']
+# print "\n"
+# print compare_number_array('1234', ['2234', '3234', '1335', '1336'])  # ['2234']
+# print "\n"
+# print compare_number_array('1234', ['1111', '2222', '3333'])  # false
+____________________________
+
+# Sandbox test with explanatory output for off_by_one_-_array (outside function)
+
+winning_numbers = ['1234', '9999', '5678', '1235', '1134', '1344']
+ticket = '1234'
+
+winning_numbers_off_by_one_digit = []
+winning_numbers_no_match = []
+same_number = 0
+count = 1
+
+winning_numbers.each do |winner|
+  if winner == ticket
+    same_number += 1
+  else
+    set_1 = winner.split("")
+    set_2 = ticket.split("")
+    puts "Iteration count: #{count}"
+    print "Set 1: #{set_1}"
+    print "\n"
+    print "Set 2: #{set_2}"
+    print "\n"
+    count += 1
+
+    off_by_one = 0
+    greater_than_one = 0
+    comparison_set = set_1.zip(set_2)
+    puts "Comparison set:"
+    print comparison_set
+    print "\n"
+    comparison_set.each do |inner|
+      if inner[0] != inner[1]
+        if (inner[0].to_i - inner[1].to_i).abs == 1
+          off_by_one += 1
+        elsif (inner[0].to_i - inner[1].to_i).abs > 1
+          greater_than_one += 1
+        end
+      end
+    end
+    puts "Off by one count: #{off_by_one}"
+    puts "Greater than one count: #{greater_than_one}"
+    puts "Winning ticket: #{winner}"
+    print "\n"
+    if greater_than_one > 0
+      winning_numbers_no_match.push(winner)
+    elsif off_by_one > 1
+      winning_numbers_no_match.push(winner)
+    elsif off_by_one == 1
+      winning_numbers_off_by_one_digit.push(winner)
+    end
+  end
+end
+
+puts "Same number count: #{same_number}"
+print "Winning numbers no match: #{winning_numbers_no_match}"
+print "\n"
+print "Winning numbers off by one digit: #{winning_numbers_off_by_one_digit}"
+print "\n"
+
+# Console output:
+Iteration count: 1
+Set 1: ["9", "9", "9", "9"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["9", "1"], ["9", "2"], ["9", "3"], ["9", "4"]]
+Off by one count: 0
+Greater than one count: 4
+Winning ticket: 9999
+
+Iteration count: 2
+Set 1: ["5", "6", "7", "8"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["5", "1"], ["6", "2"], ["7", "3"], ["8", "4"]]
+Off by one count: 0
+Greater than one count: 4
+Winning ticket: 5678
+
+Iteration count: 3
+Set 1: ["1", "2", "3", "5"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["1", "1"], ["2", "2"], ["3", "3"], ["5", "4"]]
+Off by one count: 1
+Greater than one count: 0
+Winning ticket: 1235
+
+Iteration count: 4
+Set 1: ["1", "1", "3", "4"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["1", "1"], ["1", "2"], ["3", "3"], ["4", "4"]]
+Off by one count: 1
+Greater than one count: 0
+Winning ticket: 1134
+
+Iteration count: 5
+Set 1: ["1", "3", "4", "4"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["1", "1"], ["3", "2"], ["4", "3"], ["4", "4"]]
+Off by one count: 2
+Greater than one count: 0
+Winning ticket: 1344
+
+Same number count: 1
+Winning numbers no match: ["9999", "5678", "1344"]
+Winning numbers off by one digit: ["1235", "1134"]
+____________________________
+
+# Sandbox test with explanatory and summary output for off_by_one_-_array (inside function)
+
+def compare_number_array(ticket, winning_numbers)
+  winning_numbers_off_by_one_digit = []
+  winning_numbers_no_match = []
+  same_number = 0
+  count = 0
+  winning_numbers.each do |winner|
+    if winner == ticket
+      same_number += 1
+    else
+      set_1 = winner.split("")
+      set_2 = ticket.split("")
+      puts "Iteration count: #{count}"
+      print "Set 1: #{set_1}"
+      print "\n"
+      print "Set 2: #{set_2}"
+      print "\n"
+      count += 1
+
+      off_by_one = 0
+      greater_than_one = 0
+      comparison_set = set_1.zip(set_2)
+      puts "Comparison set:"
+      print comparison_set
+      print "\n"
+      comparison_set.each do |inner|
+        if inner[0] != inner[1]
+          if (inner[0].to_i - inner[1].to_i).abs == 1
+            off_by_one += 1
+          elsif (inner[0].to_i - inner[1].to_i).abs > 1
+            greater_than_one += 1
+          end
+        end
+      end
+      puts "Off by one count: #{off_by_one}"
+      puts "Greater than one count: #{greater_than_one}"
+      puts "Winning ticket: #{winner}"
+      print "\n"
+      if greater_than_one > 0
+        winning_numbers_no_match.push(winner)
+      elsif off_by_one > 1
+        winning_numbers_no_match.push(winner)
+      elsif off_by_one == 1
+        winning_numbers_off_by_one_digit.push(winner)
+      end
+    end
+  end
+  puts "Same number count: #{same_number}"
+  print "Winning numbers no match: #{winning_numbers_no_match}"
+  print "\n"
+  print "Winning numbers off by one digit: #{winning_numbers_off_by_one_digit}"
+  print "\n"
+end
+
+# Sandbox testing
+puts compare_number_array('1234', ['9999', '5678', '1235', '1134', '1344'])  # ['1235', '1134']
+# puts compare_number_array('1234', ['1234', '1235', '1236', '1244', '1334'])  # ['1235', '1244', '1334']
+# puts compare_number_array('1234', ['2234', '3234', '1335', '1336'])  # ['2234']
+# puts compare_number_array('1234', ['1111', '2222', '3333'])  # []
+
+# Console output:
+Iteration count: 0
+Set 1: ["9", "9", "9", "9"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["9", "1"], ["9", "2"], ["9", "3"], ["9", "4"]]
+Off by one count: 0
+Greater than one count: 4
+Winning ticket: 9999
+
+Iteration count: 1
+Set 1: ["5", "6", "7", "8"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["5", "1"], ["6", "2"], ["7", "3"], ["8", "4"]]
+Off by one count: 0
+Greater than one count: 4
+Winning ticket: 5678
+
+Iteration count: 2
+Set 1: ["1", "2", "3", "5"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["1", "1"], ["2", "2"], ["3", "3"], ["5", "4"]]
+Off by one count: 1
+Greater than one count: 0
+Winning ticket: 1235
+
+Iteration count: 3
+Set 1: ["1", "1", "3", "4"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["1", "1"], ["1", "2"], ["3", "3"], ["4", "4"]]
+Off by one count: 1
+Greater than one count: 0
+Winning ticket: 1134
+
+Iteration count: 4
+Set 1: ["1", "3", "4", "4"]
+Set 2: ["1", "2", "3", "4"]
+Comparison set:
+[["1", "1"], ["3", "2"], ["4", "3"], ["4", "4"]]
+Off by one count: 2
+Greater than one count: 0
+Winning ticket: 1344
+
+Same number count: 0
+Winning numbers no match: ["9999", "5678", "1344"]
+Winning numbers off by one digit: ["1235", "1134"]
+____________________________
+
+
 
 
 
@@ -4095,12 +4601,45 @@ ____________________________
 
 
 
+
+____________________________
+
+
+
+
+
 ____________________________
 
 
 
 
+
 ____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
 
 
 
@@ -4350,20 +4889,89 @@ object_type_test(string)
 object_type_test(array)
 ____________________________
 
+# Ruby array methods
 
+test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+# Accessing array items
 
+print test[5]  # return a single item
+# print test.at(5)  # another way to return a single item
+print "\n"
+print test[5, 4]  # return a range (first parameter is index, second is # of items)
+print "\n"
+print test[5...8]  # return a range non-inclusive (from index1..index2)
+print "\n"
+print test[5..8]  # return a range inclusive (from index1..index2)
+print "\n"
+print test[5..-3]  # return a range from index1 with index2 counting from end of array
+print "\n"
+print test.first
+print "\n"
+print test.last
+print "\n"
+print test.take(5)  # just returns, doesn't edit array contents
+print "\n"
+print test.drop(7)  # just returns, doesn't edit array contents
+print "\n"
+
+# Information about array
+
+puts test.empty?  # returns true/false
+puts test.length
+# puts test.count  # same as .length
+puts test.include?("something")  # returns true/false
+
+# Adding array items
+
+test.unshift("beginning")  # inserts element at the beginning of the array
+print test
+print "\n"
+
+test.insert(7, "middle")  # inserts element at the specified position in the array
+print test
+print "\n"
+
+#test.push("end")  # inserts element at the end of the array
+test << "end"  # can also use ">>" instead of .push
+print test
+print "\n"
+
+###################################
+# In Progress...                  #
+# - keep updating via rb-ri Array #
+###################################
 ____________________________
 
+# Using .is_a? Numeric to test if object is a number type
 
+def add(num_1, num_2)
+  if (num_1.is_a? Numeric) && (num_2.is_a? Numeric)
+    return (num_1 + num_2).round(2)
+  else
+    return false
+  end
+end
 
-
+puts add(2, 3)  # 5.0
+puts add(1.1, 2.2)  # 3.3
+puts add("a", 3)  # false
 ____________________________
 
+# Miscellaneous array tricks
 
+array1 = ["x", "y", "z"]
+array2 = ["w", "x", "y"]
 
+array1 | array2 # Combine Arrays & Remove Duplicates(Union)
+=> ["x", "y", "z", "w"]
 
+array1 & array2  # Get Common Elements between Two Arrays(Intersection)
+=> ["x", "y"]
 
+array1 - array2  # Remove Any Elements from Array 1 that are
+                 # contained in Array 2 (Difference)
+=> ["z"]
 ____________________________
 
 
