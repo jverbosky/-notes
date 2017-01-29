@@ -4592,16 +4592,283 @@ Winning numbers no match: ["9999", "5678", "1344"]
 Winning numbers off by one digit: ["1235", "1134"]
 ____________________________
 
+# random_pairs_weighted.rb
+# 2017/01/28 - jverbosky
+#
+# Function to create random pairs based on homework completion:
+# - Works with even and odd number of team members
+# - Function prioritizes pairing those who have completed homework with those who have not
+# - Team member that has completed homework will be listed first in each pair
+# - If half completed homework, every pair will have a team member that completed homework
+# - If only one person completed and team # is odd, that person will be placed in group of three
+#
+# Usage:
+# - Put "*" before a name to weight it (i.e. indicate homework completion)
+#
+#   For example:
+#     not weighted > "Edwin Wells"
+#     weighted     > "*Edwin Wells"
+#
+# For a complete list of use cases, please see Use Case Tests section at line 142
 
+names = [  # 21 names, comment out one to test even set of names
+  "Allen Weber",
+  "Andrew Morgan",
+  "Brian Lewis",
+  "Cummie Washington",
+  "*Dover Hellfeldt",
+  "Edwin Wells",
+  "Frank Mugo",
+  "Frank Coleman",
+  "George Bruner",
+  "Jayvon Harris",
+  "*John Verbosky",
+  "Khalifa Cochran",
+  "Lisa Petrovich",
+  "*Matt Teitz",
+  "*Max Pokropowicz",
+  "Mike Ciletti",
+  "Pat Wehman",
+  "Patrick Roberts",
+  "Sherri Dyson",
+  "Takhir Salimov",
+  "Teela Subba"
+]
 
+def random_pairs_weighted(names)
 
+  weighted = []  # array for weighted names
+  not_weighted = []  # array for non-weighted names
+  odd_man_out = []  # array to hold name if odd number of names
+  paired = []  # array for paired names
+  half = names.length / 2  # integer division, so remainder dropped (if 21, will return 10)
+  true_up = 0  # variable to help with balancing size of weighted and non-weighted arrays
+  counter = 1  # counter variable for string interpolation in final output
 
+  # Loop to populate weighted and non-weighted arrays with weighted and non-weighted names
+  names.each do |name|
+    if name.start_with?("*")
+      weighted.push(name)
+    else
+      not_weighted.push(name)
+    end
+  end
+
+  # Determine which array is larger and then balance them
+  if weighted.length < not_weighted.length
+    true_up = half - weighted.length
+    weighted += not_weighted.slice!(0, true_up)
+  else
+    true_up = half - not_weighted.length
+    not_weighted += weighted.slice!(0, true_up)
+  end
+
+  # # Randomize names in balanced arrays
+  weighted = weighted.shuffle
+  not_weighted = not_weighted.shuffle
+
+  # Since .zip will drop the last name if name count is odd, save it to odd_man_out
+  if names.length % 2 > 0  # Determine if name count is odd and if so...
+    # If not_weighted has more names, it has the odd name count, so pop a name from it
+    if not_weighted.length > weighted.length
+      odd_man_out = not_weighted.pop
+    # Otherwise weighted has more names, so pop a name from it
+    else
+      odd_man_out = weighted.pop
+    end
+  end
+
+  # Use .zip to pair up names from weighted and non-weighted arrays
+  paired_names = weighted.zip(not_weighted)
+
+  # Check if odd_man_out is empty, if not then push to pair based on weightedness
+  # Goal is to make sure odd_man_out is paired with a weighted name if it is not weighted
+  if odd_man_out.empty? == false
+    if odd_man_out.start_with?("*")  # If odd_man_out is weighted, push to last pair
+      paired_names.last.push(odd_man_out)
+    else  # If odd_man_out is not weighted...
+      paired_names.each do |pair|
+        # Push to the first pair with a weighted name
+        if pair[0].start_with?("*")
+          pair.push(odd_man_out)
+          odd_man_out = ""  # Clear odd_man_out so next if statement is false
+          break  # Break out of loop so odd_man_out not pushed to every weighted pair
+        end
+      end
+      # If there aren't any weighted names, push odd_man_out to the last pair
+      if odd_man_out != ""
+        paired_names.last.push(odd_man_out)
+      end
+    end
+  end
+
+  # If odd number of names, move the pair with three names to the end of the array
+  # to make the final output look nicer
+  if names.length % 2 > 0
+    paired_names.each do |pair|
+      if pair.length == 3
+        position = paired_names.index(pair)  # Position of the pair with three names
+        # Insert the pair with three names to the end and delete it from original position
+        paired_names.insert(-1, paired_names.delete_at(position))
+      end
+    end
+  end
+
+  # Output names in easy-to-read format
+  # Comment out to run test (test_random_pairs_weighted.rb)
+  paired_names.each do |pair|
+    if pair.length == 2
+      puts "Random Pair #{counter}: #{pair[0]}, #{pair[1]}"
+      counter += 1
+    else
+      puts "Random Pair #{counter}: #{pair[0]}, #{pair[1]}, #{pair[2]}"
+      counter += 1
+    end
+  end
+
+end
+
+random_pairs_weighted(names)
+
+# Use Case Tests
+# Uncomment all of the following lines to run function for different use cases:
+#
+# puts "\n"
+# puts "Use case 1: Array with no weighted names - even # of names"
+# case_1 = ["Allen Weber", "Andrew Morgan", "Brian Lewis", "Cummie Washington", "Dover Hellfeldt", "Edwin Wells"]
+# random_pairs_weighted(case_1)
+# puts "\n"
+
+# puts "Use case 2: Array with no weighted names - odd # of names"
+# case_2 = ["Allen Weber", "Andrew Morgan", "Brian Lewis", "Cummie Washington", "Dover Hellfeldt", "Edwin Wells", "Frank Mugo",]
+# random_pairs_weighted(case_2)
+# puts "\n"
+
+# puts "Use case 3: Array with one weighted names - odd # of names (weighted name in group of three)"
+# case_3 = ["Allen Weber", "*Andrew Morgan", "Brian Lewis", "Cummie Washington", "Dover Hellfeldt", "Edwin Wells", "Frank Mugo",]
+# random_pairs_weighted(case_3)
+# puts "\n"
+
+# puts "Use case 4: Array with < half weighted names - even # of names"
+# case_4 = ["Allen Weber", "*Andrew Morgan", "Brian Lewis", "Cummie Washington", "*Dover Hellfeldt", "Edwin Wells"]
+# random_pairs_weighted(case_4)
+# puts "\n"
+
+# puts "Use case 5: Array with < half weighted names - odd # of names"
+# case_5 = ["Allen Weber", "*Andrew Morgan", "Brian Lewis", "Cummie Washington", "*Dover Hellfeldt", "Edwin Wells", "Frank Mugo",]
+# random_pairs_weighted(case_5)
+# puts "\n"
+
+# puts "Use case 6: Array with half weighted names - even # of names (one weighted name in every pair)"
+# case_6 = ["Allen Weber", "*Andrew Morgan", "*Brian Lewis", "Cummie Washington", "*Dover Hellfeldt", "Edwin Wells"]
+# random_pairs_weighted(case_6)
+# puts "\n"
+
+# puts "Use case 7: Array with half weighted names - odd # of names (one weighted name in every pair)"
+# case_7 = ["Allen Weber", "*Andrew Morgan", "*Brian Lewis", "Cummie Washington", "*Dover Hellfeldt", "Edwin Wells", "Frank Mugo",]
+# random_pairs_weighted(case_7)
+# puts "\n"
+
+# puts "Use case 8: Array with > half weighted names - even # of names"
+# case_8 = ["Allen Weber", "*Andrew Morgan", "*Brian Lewis", "*Cummie Washington", "*Dover Hellfeldt", "Edwin Wells"]
+# random_pairs_weighted(case_8)
+# puts "\n"
+
+# puts "Use case 9: Array with > half weighted names - odd # of names"
+# case_9 = ["Allen Weber", "*Andrew Morgan", "*Brian Lewis", "*Cummie Washington", "*Dover Hellfeldt", "Edwin Wells", "Frank Mugo",]
+# random_pairs_weighted(case_9)
+# puts "\n"
 ____________________________
 
+# Test for random_pairs_weighted.rb
 
+require "minitest/autorun"
+require_relative "random_pairs_weighted.rb"
 
+class TestRandomPairsWeighted < Minitest::Test
 
+  def test_1_array_with_no_weighted_names_even_number_of_names
+    results = random_pairs_weighted(["Abby","Bobby","Cassy","Davey","Emmie","Franky"])
+    number_of_pairs = results.count
+    assert_equal(3, number_of_pairs)
+  end
 
+  def test_2_array_with_no_weighted_names_odd_number_of_names
+    results = random_pairs_weighted(["Abby","Bobby","Cassy","Davey","Emmie","Franky","Ginny"])
+    number_of_pairs = results.count
+    assert_equal(3, number_of_pairs)
+  end
+
+  def test_3_array_with_one_weighted_name_odd_number_of_names_confirm_weighted_in_last_pair
+    results = random_pairs_weighted(["Abby","Bobby","Cassy","Davey","*Emmie","Franky","Ginny"])
+    final_pair = results.last
+    weighted = final_pair[0].start_with?("*")
+    assert_equal(true, weighted)
+  end
+
+ def test_4_array_with_less_than_half_weighted_names_even_number_of_names_confirm_weighted_in_multiple_pairs
+    results = random_pairs_weighted(["Abby","Bobby","*Cassy","Davey","*Emmie","Franky"])
+    weighted_count = 0
+    results.each do |pair|
+      if pair[0].start_with?("*")
+        weighted_count += 1
+      end
+    end
+    assert_equal(2, weighted_count)
+  end
+
+  def test_5_array_with_less_than_half_weighted_names_odd_number_of_names_confirm_weighted_in_multiple_pairs
+    results = random_pairs_weighted(["Abby","Bobby","*Cassy","Davey","*Emmie","Franky","Ginny"])
+    weighted_count = 0
+    results.each do |pair|
+      if pair[0].start_with?("*")
+        weighted_count += 1
+      end
+    end
+    assert_equal(2, weighted_count)
+  end
+
+ def test_6_array_with_half_weighted_names_even_number_of_names_confirm_weighted_in_every_pair
+    results = random_pairs_weighted(["Abby","Bobby","*Cassy","Davey","*Emmie","*Franky"])
+    number_of_pairs = results.count
+    weighted_count = 0
+    results.each do |pair|
+      if pair[0].start_with?("*")
+        weighted_count += 1
+      end
+    end
+    assert_equal(number_of_pairs, weighted_count)
+  end
+
+  def test_7_array_with_half_weighted_names_odd_number_of_names_confirm_weighted_in_every_pair
+    results = random_pairs_weighted(["Abby","Bobby","*Cassy","Davey","*Emmie","*Franky","Ginny"])
+    number_of_pairs = results.count
+    weighted_count = 0
+    results.each do |pair|
+      if pair[0].start_with?("*")
+        weighted_count += 1
+      end
+    end
+    assert_equal(number_of_pairs, weighted_count)
+  end
+
+ def test_8_array_with_more_weighted_names_odd_number_of_names_confirm_last_pair_not_all_weighted
+    results = random_pairs_weighted(["Abby","*Bobby","*Cassy","Davey","*Emmie","*Franky","Ginny"])
+    number_of_pairs = results.count
+    all_weighted = true
+    results.each do |pairs|
+      if pairs.length == 3
+        pairs.each do |name|
+          if name.start_with?("*") == false
+            all_weighted = false
+          end
+        end
+      end
+    end
+    assert_equal(false, all_weighted)
+  end
+
+end
 ____________________________
 
 

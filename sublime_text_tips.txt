@@ -10,6 +10,7 @@ CTRL + / = comment/uncomment the currently selected line(s)
 CTRL + [ = unindent (tab) the currently selected line(s)
 CTRL + ] = indent (tab) the currently selected line(s)
 CTRL + m = go to matching parenthesis/bracket/brace
+CTRL + TAB = cycle through open tabs in Sublime Text
 _______________________________
 
 *Launch files from Powershell / Command Line*

@@ -42,4 +42,8 @@ git push origin master --force
 # hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 _____________________
 
-2017-01-11 - jv
+To retrieve files from a GitHub repository:
+
+# Use the "clone" command
+# Will pull down all of the files into the current working directory in PowerShell
+_____________________
