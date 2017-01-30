@@ -53,7 +53,7 @@ def function(number_argument, array_argument)
 
   # Loop through the array (.each/do, for, while, etc.)
   array_argument.each do |item|
-    if conditions match what you put here
+    if # conditions match what you put here
        if_placeholder += 1  # increment the placeholder for a later test
        if_placeholder_array.push("item")  # add something to the array to use later
     else # the conditions don't match what you put in the if statement
@@ -231,7 +231,7 @@ ___________________________________________________________
 def create_array()
   something = []
   100.times do
-    puts "words"
+    something.push("words")
   end
   return something # don't forget to return the result
 end
@@ -310,8 +310,22 @@ names.delete_at(0)
 names[2] = "Amanda"
 ___________________________________________________________
 
+# Remember some methods (*.shift* & *.first*, *pop* & *.last*) return the same result,
+# however one destroys the original array whereas the other does not.
 
+array_destroyed = [1, 2, 3, 4, 5, 6]
 
+# The .shift and .pop methods destroy the original array
+puts array_destroyed.shift  # 1
+puts array_destroyed.pop  # 6
+print array_destroyed  # [2, 3, 4, 5]
+
+array_preserved = ["a", "b", "c", "d", "e", "f"]
+
+# The .first and .last methods do not destroy the original array
+puts array_preserved.first  # a
+puts array_preserved.last  # f
+print array_preserved  # ["a", "b", "c", "d", "e", "f"]
 ___________________________________________________________
 
 
