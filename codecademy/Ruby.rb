@@ -3141,6 +3141,8 @@ Added!
 ____________________________
 
 # Step three - adding a movie title and rating to the array
+# Note: use a single-word title or end up with quotes in symbol
+# Ex:   title = :"The Movie"
 
 movies = {
     Transcendence: 4
@@ -3171,12 +3173,12 @@ print movies
 
 # Example console output:
 Please make your choice:
- add
+add
 Please specify the movie title:
- The Movie
+Interstellar
 Please specify the rating:
- 2
-{:Transcendence=>4, "The Movie"=>"2"} # Note that movie and rating were added as strings
+4
+{:Transcendence=>4, "Interstellar"=>"4"} # Note that movie and rating were added as strings
 ____________________________
 
 # Step five - change the type for title to symbol and the type for rating to integer
@@ -3210,14 +3212,14 @@ print movies
 
 # Example console output:
 Please make your choice:
- add
+add
 Please specify the movie title:
- The Movie
+Interstellar
 Please specify the rating:
- 2
-{:Transcendence=>4, :"The Movie"=>2}  # Note that title and rating are now the correct types
-                                      # Could also correct types here before adding to hash:
-                                      # movies[title.to_sym] = rating.to_i
+4
+{:Transcendence=>4, :Interstellar=>4}  # Note that title and rating are now the correct types
+                                       # Could also correct types here before adding to hash:
+                                       # movies[title.to_sym] = rating.to_i
 ____________________________
 
 
@@ -6209,10 +6211,18 @@ Do you want red, blue or green candy? red
 Red candy tases like cherries!
 ____________________________
 
+# When using .to_sym or .intern with a string, make sure there aren't any spaces
+# or the resulting symbol will have quotes to account for the spaces
 
+name_1 = "big red dog"
+name_2 = "little_white_dog"
 
+p name_1.to_sym
+p name_2.to_sym
 
-
+# Console output:
+:"big red dog"
+:little_white_dog
 ____________________________
 
 
