@@ -5478,10 +5478,30 @@ array1 - array2  # Remove Any Elements from Array 1 that are
 => ["z"]
 ____________________________
 
+# Understanding the .sort function
+# Console output lists comparison for each set while sort compares two items at a time
 
+letters = %w(d e a w f k)  # shortcut way of writing ["d", "e", "a", "w", "f", "k"]
+print "Before sort: #{letters}"
+puts "\nRunning sort:"
+letters.sort! { |e1, e2| p [e2, e1]; e2 <=> e1 }  # p better for printing arrays than print/puts
+print "After sort: #{letters}"
 
-
-
+# Console output:
+Before sort: ["d", "e", "a", "w", "f", "k"]
+Running sort:  # Array State
+["w", "d"]     # ["w", "e", "a", "d", "f", "k"]
+["k", "w"]     # ["w", "e", "a", "d", "f", "k"]
+["k", "d"]     # ["w", "e", "a", "k", "f", "d"]
+["k", "e"]     # ["w", "k", "a", "e", "f", "d"]
+["k", "f"]     # ["w", "k", "a", "e", "f", "d"]
+["k", "a"]     # ["w", "k", "a", "e", "f", "d"]
+["f", "a"]     # ["w", "k", "f", "e", "a", "d"]
+["d", "f"]     # ["w", "k", "f", "e", "a", "d"]
+["d", "a"]     # ["w", "k", "f", "e", "d", "a"]
+["d", "e"]     # ["w", "k", "f", "e", "d", "a"]
+["e", "f"]     # ["w", "k", "f", "e", "d", "a"]
+After sort: ["w", "k", "f", "e", "d", "a"]
 ____________________________
 
 
