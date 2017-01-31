@@ -2641,6 +2641,467 @@ A-Z: ["Absalom, Absalom!", "Code Complete", "Heart of Darkness", "The Lorax", "T
 Z-A: ["The Prophet", "The Lorax", "Heart of Darkness", "Code Complete", "Absalom, Absalom!"]
 ____________________________
 
+# Passing a default value using a parameter
+# If a second parameter isn't specified, "rev" will default to "false"
+
+def alphabetize(arr, rev=false)
+
+end
+
+# Example function calls:
+alphabetize(some_array)  # rev isn't specified, so defaults to false
+alphabetize(some_array, true)  # true is passed in, so rev is true
+____________________________
+
+# Adding logic to the method
+
+def alphabetize(arr, rev=false)
+    arr.sort!
+end
+
+numbers = [7, 1, 4, 9, 8, 2]
+
+print alphabetize(numbers)
+
+# Console output:
+[1, 2, 4, 7, 8, 9]
+____________________________
+
+# Adding conditions to the method
+
+def alphabetize(arr, rev=false)
+    if rev == true
+        arr.sort!.reverse!
+    else
+        arr.sort!
+    end
+end
+
+numbers = [7, 1, 4, 9, 8, 2]
+
+p alphabetize(numbers)
+p alphabetize(numbers, true)
+
+# Console output:
+[1, 2, 4, 7, 8, 9]
+[9, 8, 7, 4, 2, 1]
+____________________________
+____________________________
+____________________________
+
+Hashes and Symbols
+____________________________
+____________________________
+____________________________
+
+# Hashes are a collection of keys and values
+
+breakfast = {
+  "bacon" => "tasty",
+  "eggs" => "tasty",
+  "oatmeal" => "healthy",
+  "OJ" => "juicy"
+}
+
+# Keys must be unique, but values (ex: tasty) can repeat
+____________________________
+
+# Can create hashes several different ways, but two most common are:
+#
+# hash literal notation:
+
+new_hash = { "one" => 1 }
+
+# hash constructor notation:
+
+new_hash = Hash.new
+
+____________________________
+
+# Iterating over a hash using .each to return keys and values
+# Access keys in a hash by using "hash_name[key_variable]"
+
+my_hash.each do |key, value|
+  puts key, my_hash[key]
+end
+____________________________
+
+# Example of iterating over a hash to return all values
+# Note that the "value" variable must be specified in |x, y| or else nothing is returned
+
+matz = { "First name" => "Yukihiro",
+  "Last name" => "Matsumoto",
+  "Age" => 47,
+  "Nationality" => "Japanese",
+  "Nickname" => "Matz"
+}
+
+matz.each do |key, value|
+    puts matz[key]
+end
+
+# Console output:
+Yukihiro
+Matsumoto
+47
+Japanese
+Matz
+____________________________
+
+# Non-true values in Ruby
+# false == not true
+# nil == nothing at all (no value)
+
+# Example of accessing a non-existant key
+
+creatures = { "weasels" => 0,
+  "puppies" => 6,
+  "platypuses" => 3,
+  "canaries" => 1,
+  "Heffalumps" => 7,
+  "Tiggers" => 1
+}
+
+puts creatures["puppies"]
+puts creatures["puffs"]
+
+# Console output
+6
+   # nil
+____________________________
+
+# Specifying a default value for a hash to avoid returning nil
+# when accessing a non-existant key
+
+no_nil_hash = Hash.new("non-nil default")
+
+puts no_nil_hash["puffs"]
+
+# Console output:
+non-nil default
+____________________________
+
+# Using symbols in a hash instead of strings
+
+menagerie = {
+  :foxes => 2,
+  :giraffe => 1,
+  :weezards => 17,
+  :elves => 1,
+  :canaries => 4,
+  :ham => 1
+}
+
+puts menagerie[:foxes]
+
+# Console output:
+2
+____________________________
+
+# Symbols in Ruby are sort of like names
+# However, they are not the same as strings
+
+"string" == :string  #false
+____________________________
+
+# Aside from the syntax, the main difference between symbols and strings is:
+# - multiple different strings can have the same value
+# - there is only one copy of any particular symbol at any given time
+#
+# Can use the .object_id method to get the ID of an object
+
+puts "string".object_id
+puts "string".object_id  # string with same name, but different object
+
+puts :symbol.object_id
+puts :symbol.object_id  # symbol withsame name, same object
+
+# Console output:
+14749020  # string 1
+14748820  # string 2 - different ID
+319528
+319528  # same ID for symbol
+____________________________
+
+# Symbol syntax
+# - always start with a colon (:)
+# - name must be a valid Ruby variable name
+#   == name must start with a letter or underscore (_)
+# - after initial character, any combination of letters, numbers and unscores is allowed
+#
+# Creating a symbol
+
+my_first_symbol = :puff
+____________________________
+
+# Symbols are primarily used as:
+# - hash keys
+# - referencing method names (discussed later)
+#
+# Symbols are good hash keys for several reasons:
+# - They are immutable (can't be changed once created)
+# - Only one copy of any symbol exists at any time (saves memory)
+# - As a result, symbol-keys are faster than string-keys
+
+symbol_hash = {
+  :one => 1,
+  :two => 2,
+  :three => 3
+}
+____________________________
+
+# Converting between strings and symbols using .to_s and .to_sym
+
+:sasquatch.to_s  # ==> "sasquatch"
+
+"sasquatch".to_sym  # ==> :sasquatch
+____________________________
+
+# Example of converting an array of strings to an array of symbols using .to_sym
+
+strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
+
+symbols = []
+
+strings.each do |s|
+    symbols.push(s.to_sym)
+end
+
+print symbols
+
+# Console output:
+[:HTML, :CSS, :JavaScript, :Python, :Ruby]
+____________________________
+
+# Can also use the .intern method (instead of .to_sym) to convert a string into a symbol
+
+"hello".intern  # ==> :hello
+____________________________
+
+# Reworked example of converting an array of strings into symbols using .intern
+
+strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
+
+# Add your code below!
+symbols = []
+
+strings.each do |s|
+    symbols.push(s.intern)
+end
+
+print symbols
+
+# Console output:
+[:HTML, :CSS, :JavaScript, :Python, :Ruby]
+____________________________
+
+# The hash syntax of "key => value" is called the "hash rocket" style
+
+numbers = {
+  :one => 1,
+  :two => "two",
+  :three => 3,
+}
+____________________________
+
+# Example hash of movies using symbols for keys (old syntax)
+
+movies = {
+    :Transcendence => "Interesting take on A.I.",
+    :Interstellar => "Interesting take on black holes"
+}
+____________________________
+
+# Example hash of movies using symbols for keys (new syntax - post-1.9)
+# - Put the colon at the end of the symbol name, instead of in front of it
+# - No longer need the "hash rocket" arrow between each key and value
+
+movies = {
+    Transcendence: "Interesting take on A.I.",
+    Interstellar: "Interesting take on black holes"
+}
+____________________________
+
+# Comparing (benchmarking) the speed of strings in a hash against symbols in a hash
+
+require 'benchmark'
+
+string_AZ = Hash[("a".."z").to_a.zip((1..26).to_a)]
+symbol_AZ = Hash[(:a..:z).to_a.zip((1..26).to_a)]
+
+string_time = Benchmark.realtime do
+  100_000.times { string_AZ["r"] }
+end
+
+symbol_time = Benchmark.realtime do
+  100_000.times { symbol_AZ[:r] }
+end
+
+puts "String time: #{string_time} seconds."
+puts "Symbol time: #{symbol_time} seconds."
+
+# Console output:
+String time: 0.053098199 seconds.  # strings
+Symbol time: 0.00968606 seconds.  # symbols
+____________________________
+
+# Using .select to filter has values that meet specific criteria
+
+grades = {
+  alice: 100,
+  bob: 92,
+  chris: 95,
+  dave: 97
+}
+
+p grades.select {|name, grade| grade < 97}
+p grades.select { |k, v| k == :alice }
+
+# Console output
+{:bob=>92, :chris=>95}
+{:alice=>100}
+____________________________
+
+# Example using .select to return all movies with a rating above 3
+
+movie_ratings = {
+  memento: 3,
+  primer: 3.5,
+  the_matrix: 5,
+  truman_show: 4,
+  red_dawn: 1.5,
+  skyfall: 4,
+  alex_cross: 2,
+  uhf: 1,
+  lion_king: 3.5
+}
+
+p good_movies = movie_ratings.select { |k, v| v > 3 }
+
+# Console output:
+{:primer=>3.5, :the_matrix=>5, :truman_show=>4, :skyfall=>4, :lion_king=>3.5}
+____________________________
+
+# Using the .each_key and .each_value methods to iterate over just the keys or values in a hash
+
+my_hash = { one: 1, two: 2, three: 3 }
+
+my_hash.each_key { |k| print k, " " }
+print "\n"
+my_hash.each_value { |v| print v, " " }
+
+# Console output
+one two three   # note the extra space after "three"
+1 2 3
+____________________________
+
+# Example using the .each_key method
+
+movie_ratings = {
+  memento: 3,
+  primer: 3.5,
+  the_matrix: 3,
+  truman_show: 4,
+  red_dawn: 1.5,
+  skyfall: 4,
+  alex_cross: 2,
+  uhf: 1,
+  lion_king: 3.5
+}
+
+movie_ratings.each_key { |title| puts title }
+
+# Console output
+memento
+primer
+the_matrix
+truman_show
+red_dawn
+skyfall
+alex_cross
+uhf
+lion_king
+____________________________
+____________________________
+____________________________
+
+A Night at the Movies
+____________________________
+____________________________
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
 
 
 
@@ -5480,6 +5941,7 @@ ____________________________
 
 # Understanding the .sort function
 # Console output lists comparison for each set while sort compares two items at a time
+# Note that .sort returns a sorted array, while !sort modifies the original array
 
 letters = %w(d e a w f k)  # shortcut way of writing ["d", "e", "a", "w", "f", "k"]
 print "Before sort: #{letters}"
@@ -5504,22 +5966,40 @@ Running sort:  # Array State
 After sort: ["w", "k", "f", "e", "d", "a"]
 ____________________________
 
+# The .reverse (and .reverse!) methods do not sort, they simply reverse the current order
 
+numbers = [7, 1, 4, 9, 8, 2]
 
+p numbers.reverse!
 
-
+# Console output:
+[2, 8, 9, 4, 1, 7]
 ____________________________
 
+# Creating a hash using two arrays and the .zip method
 
+names = ["Abby", "Bobby", "Cassy"]
+numbers = [23, 38, 46]
 
+test_hash = Hash[names.zip(numbers)]
 
+print test_hash
 
+# Console output:
+{"Abby"=>23, "Bobby"=>38, "Cassy"=>46}
 ____________________________
 
+# Creating a hash using list comprehension and the .to_a and .zip methods
 
+string_AZ = Hash[("a".."j").to_a.zip((1..10).to_a)]
+symbol_AZ = Hash[(:a..:j).to_a.zip((1..10).to_a)]
 
+p ("a".."j").to_a  # ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+p (:a..:j).to_a  # [:a, :b, :c, :d, :e, :f, :g, :h, :i, :j]
+p (1..10).to_a  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-
+p string_AZ  # {"a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5, "f"=>6, "g"=>7, "h"=>8, "i"=>9, "j"=>10}
+p symbol_AZ  # {:a=>1, :b=>2, :c=>3, :d=>4, :e=>5, :f=>6, :g=>7, :h=>8, :i=>9, :j=>10}
 ____________________________
 
 

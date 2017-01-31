@@ -2072,12 +2072,12 @@ ____________________________
 choice = raw_input('Enjoying the course? (y/n)')
 
 while not(choice == 'y' or choice == 'n'):  # Fill in the condition (before the colon)
-    choice = raw_input("Sorry, I didn't catch that. Enter again: ")
+    choice = raw_input("Sorry, I did not catch that. Enter again: ")
 
 Console output:
 Enjoying the course? (y/n) m
-Sorry, I didn't catch that. Enter again:  q
-Sorry, I didn't catch that. Enter again:  y
+Sorry, I did not catch that. Enter again:  q
+Sorry, I did not catch that. Enter again:  y
 ____________________________
 
 #Loop to print numbers 0 - 9
@@ -2089,7 +2089,7 @@ while count < 10: # Add a colon
     print count
     # Increment count
     count += 1
-	
+
 #Console output:
 0
 1
