@@ -50,11 +50,12 @@ echo			outputs the specified text
 # Use echo to populate and create a new file in the current directory:
 # echo "Hello World!" > hello.txt
 # Note: Use quotes around argument or will have a carriage return after each space in string
-# Example: create a new file in the current directory via PowerShell and launch via Sublime Text
-#  - see sublime_text_tips.txt for info on launching Sublime Text via terminal
-# echo "" > test.txt
-# subl test.txt
-# ^^^ DON'T USE NOW - NEED TO RESEARCH - GETTING INVALID ENCODING ERROR ^^^
+# Ex: create a new file in the current directory via PowerShell and launch via Sublime Text
+# echo "print 'Hello World!'" | Out-File hello_world.rb -Encoding ascii
+# subl hello_world.rb
+# Note 1 - don't use: echo "text" > file.rb
+#   This will result in an "invalid multibyte char (UTF-8)" error when Ruby runs the file
+# Note 2 - see sublime_text_tips.txt for info on launching Sublime Text via terminal
 
 exit			exit the shell (terminal)
 # Closes the terminal program

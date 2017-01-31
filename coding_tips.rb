@@ -1,3 +1,9 @@
+# MVP == Minimum Viable Product
+#
+# Always focus on the absolute bare-bones for a method first
+# Save additional functionality for later
+___________________________________________________________
+
 # A reminder to Keep It Simple Stupid
 #
 # We were instructed to write an addition program that would accept any number of arguments.
