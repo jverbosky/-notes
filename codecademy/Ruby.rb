@@ -1539,7 +1539,7 @@ secret_identities = {
   "Wonder Woman" => "Diana Prince",
   "Freakazoid" => "Dexter Douglas"
 }
-  
+
 secret_identities.each do |hero, identity|
     puts  "#{hero}: #{identity}"
 end
@@ -2320,7 +2320,7 @@ ____________________________
 def what_up(greeting, *bros)
   bros.each { |bro| puts "#{greeting}, #{bro}!" }
 end
- 
+
 what_up("What up")
 
 # Console output:
@@ -2407,7 +2407,7 @@ As am I!
 ____________________________
 
 # method that capitalizes a word
-def capitalize(string) 
+def capitalize(string)
   puts "#{string[0].upcase}#{string[1..-1]}"
 end
 
@@ -2432,8 +2432,8 @@ puts string[1..-1] # ustin
 puts "\n"
 
 # Visual example:
-#     |'A' 'u' 's' 't' 'i' 'n'|'A' 'u' 's' 't' 'i' 'n'|          
-#  -7  -6  -5  -4  -3  -2  -1   0   1   2   3   4   5   6 
+#     |'A' 'u' 's' 't' 'i' 'n'|'A' 'u' 's' 't' 'i' 'n'|
+#  -7  -6  -5  -4  -3  -2  -1   0   1   2   3   4   5   6
 # nil |                you can use this               | all
 
 puts "Output within the range, starting from first character:"
@@ -2461,7 +2461,7 @@ ____________________________
 
 # The block, {|i| puts i}, is passed the current
 # array item each time it is evaluated. This block
-# prints the item. 
+# prints the item.
 [1, 2, 3, 4, 5].each { |i| puts i }
 
 # This block prints the number 5 for each item.
@@ -2715,7 +2715,6 @@ new_hash = { "one" => 1 }
 # hash constructor notation:
 
 new_hash = Hash.new
-
 ____________________________
 
 # Iterating over a hash using .each to return keys and values
@@ -3030,34 +3029,195 @@ ____________________________
 ____________________________
 ____________________________
 
+# Example program that does the following:
+# - add a new movie to a hash
+# - update the rating for an existing movie
+# - display the movies and ratings already in the hash
+# - delete a movie from the hash
 
+movies = {
+  Memento: 3,
+  Primer: 4,
+  Ishtar: 1
+}
 
+puts "What would you like to do?"
+puts "-- Type 'add' to add a movie."
+puts "-- Type 'update' to update a movie."
+puts "-- Type 'display' to display all movies."
+puts "-- Type 'delete' to delete a movie."
 
+choice = gets.chomp.downcase
+case choice
+when 'add'
+  puts "What movie do you want to add?"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+    puts "What's the rating? (Type a number 0 to 4.)"
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+    puts "#{title} has been added with a rating of #{rating}."
+  else
+    puts "That movie already exists! Its rating is #{movies[title.to_sym]}."
+  end
+when 'update'
+  puts "What movie do you want to update?"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+    puts "Movie not found!"
+  else
+    puts "What's the new rating? (Type a number 0 to 4.)"
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+    puts "#{title} has been updated with new rating of #{rating}."
+  end
+when 'display'
+  movies.each do |movie, rating|
+    puts "#{movie}: #{rating}"
+  end
+when 'delete'
+  puts "What movie do you want to delete?"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+    puts "Movie not found!"
+  else
+    movies.delete(title.to_sym)
+    puts "#{title} has been removed."
+  end
+else
+  puts "Sorry, I didn't understand you."
+end
 
+# Example console output:
+What would you like to do?
+-- Type 'add' to add a movie.
+-- Type 'update' to update a movie.
+-- Type 'display' to display all movies.
+-- Type 'delete' to delete a movie.
+ display
+Memento: 3
+Primer: 4
+Ishtar: 1
 ____________________________
 
+# Step one - create a hash, prompt user for input and store input in a variable
 
+movies = {
+    Transcendence: 4
+}
 
+puts "Please make your choice:"
 
-
+choice = gets.chomp.downcase
 ____________________________
 
+# Step two - adding a case statement for the user input (choice)
 
+movies = {
+    Transcendence: 4
+}
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Added!"
+when "update"
+    puts "Updated!"
+when "display"
+    puts "Movies!"
+when "delete"
+    puts "Deleted!"
+else
+    puts "Error!"
+end
+
+# Example console output:
+Please make your choice:
+ add
+Added!
 ____________________________
 
+# Step three - adding a movie title and rating to the array
 
+movies = {
+    Transcendence: 4
+}
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Please specify the movie title:"
+    title = gets.chomp
+    puts "Please specify the rating:"
+    rating = gets.chomp
+    movies[title] = rating
+when "update"
+    puts "Updated!"
+when "display"
+    puts "Movies!"
+when "delete"
+    puts "Deleted!"
+else
+    puts "Error!"
+end
+
+print movies
+
+# Example console output:
+Please make your choice:
+ add
+Please specify the movie title:
+ The Movie
+Please specify the rating:
+ 2
+{:Transcendence=>4, "The Movie"=>"2"} # Note that movie and rating were added as strings
 ____________________________
 
+# Step five - change the type for title to symbol and the type for rating to integer
 
+movies = {
+    Transcendence: 4
+}
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    puts "Please specify the rating:"
+    rating = gets.chomp.to_i
+    movies[title] = rating
+when "update"
+    puts "Updated!"
+when "display"
+    puts "Movies!"
+when "delete"
+    puts "Deleted!"
+else
+    puts "Error!"
+end
+
+print movies
+
+# Example console output:
+Please make your choice:
+ add
+Please specify the movie title:
+ The Movie
+Please specify the rating:
+ 2
+{:Transcendence=>4, :"The Movie"=>2}  # Note that title and rating are now the correct types
+                                      # Could also correct types here before adding to hash:
+                                      # movies[title.to_sym] = rating.to_i
 ____________________________
 
 
@@ -6000,6 +6160,101 @@ p (1..10).to_a  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 p string_AZ  # {"a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5, "f"=>6, "g"=>7, "h"=>8, "i"=>9, "j"=>10}
 p symbol_AZ  # {:a=>1, :b=>2, :c=>3, :d=>4, :e=>5, :f=>6, :g=>7, :h=>8, :i=>9, :j=>10}
+____________________________
+
+# Interesting hash methods
+
+# Interesting methods
+
+hash[key].nil?  # indicates if the specified key exists or not
+hash.delete(key)  # deletes the specified key/value pair from the hash
+
+movies = {
+  Memento: 3,
+  Primer: 4,
+  Ishtar: 1
+}
+
+puts movies[:Primer].nil?
+puts movies[:Transcendence].nil?
+
+movies.delete(:Ishtar)  # deletes the specified key/value pair from the hash
+p movies
+
+# Console output
+false  # the key :Primer exists in the array
+true  # the key :Transcendence does not exist in the array
+{:Memento=>3, :Primer=>4}
+____________________________
+
+# Example user input and case statement
+
+print "Do you want red, blue or green candy? "
+
+candy = gets.chomp.downcase
+
+case candy
+when 'red'
+  puts "Red candy tases like cherries!"
+when 'blue'
+  puts "Blue candy tastes like blueberries!"
+when 'green'
+  puts "Green candy tastes like apples!"
+else
+  puts "Sorry, I don't have that kind - please choose red, blue or green."
+end
+
+# Example console output:
+Do you want red, blue or green candy? red
+Red candy tases like cherries!
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
 ____________________________
 
 
