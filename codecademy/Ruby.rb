@@ -3112,6 +3112,7 @@ choice = gets.chomp.downcase
 ____________________________
 
 # Step two - adding a case statement for the user input (choice)
+# CRUD - Create, Read, Update, Delete
 
 movies = {
     Transcendence: 4
@@ -3222,34 +3223,213 @@ Please specify the rating:
                                        # movies[title.to_sym] = rating.to_i
 ____________________________
 
+# Step 6 - add condition for when specified movie is already in list
 
+movies = {
+    Transcendence: 4
+}
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    # p title.class  # Symbol
+    if movies[title].nil?
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating
+    else
+        puts "#{title} is already in the list!"
+    end
+when "update"
+    puts "Updated!"
+when "display"
+    puts "Movies!"
+when "delete"
+    puts "Deleted!"
+else
+    puts "Error!"
+end
+
+print movies
+
+# Example console output:
+Please make your choice:
+add
+Please specify the movie title:
+Transcendence
+Transcendence is already in the list!
+{:Transcendence=>4}
 ____________________________
 
+# Step seven - build out update case to change the rating of a movie already in the hash
+
+movies = {
+    Transcendence: 3,
+    Interstellar: 4
+}
 
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating  # Can use to add key/value pair to existing hash
+    else
+        puts "#{title} is already in the list!"
+    end
+when "update"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "That title is not in the list!"
+    else
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating  # Can also use to update the value for existing key
+    end
+when "display"
+    puts "Movies!"
+when "delete"
+    puts "Deleted!"
+else
+    puts "Error!"
+end
+
+print movies
+
+# Example console output:
+Please make your choice:
+ update
+Please specify the movie title:
+ Transcendence
+Please specify the rating:
+ 4
+{:Transcendence=>4, :Interstellar=>4}
 ____________________________
 
+# Step eight - build out the display case to list all of the movies in the hash
 
+movies = {
+    Transcendence: 3,
+    Interstellar: 4
+}
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating  # Can use to add key/value pair to existing hash
+    else
+        puts "#{title} is already in the list!"
+    end
+when "update"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "That title is not in the list!"
+    else
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating  # Can also use to update the value for existing key
+    end
+when "display"
+    movies.each { |title, rating| puts "#{title}: #{rating}" }
+when "delete"
+    puts "Deleted!"
+else
+    puts "Error!"
+end
+
+print movies
+
+# Example console output:
+Please make your choice:
+ display
+Transcendence: 3
+Interstellar: 4
+{:Transcendence=>3, :Interstellar=>4}
 ____________________________
 
+# Step nine - update the delete case statement to remove a specified movie and rating from the hash
 
+movies = {
+    Transcendence: 3,
+    Interstellar: 4
+}
 
+puts "Please make your choice:"
 
+choice = gets.chomp.downcase
 
+case choice
+when "add"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating  # Can use to add key/value pair to existing hash
+    else
+        puts "#{title} is already in the list!"
+    end
+when "update"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "That title is not in the list!"
+    else
+        puts "Please specify the rating:"
+        rating = gets.chomp.to_i
+        movies[title] = rating  # Can also use to update the value for existing key
+    end
+when "display"
+    movies.each { |title, rating| puts "#{title}: #{rating}" }
+when "delete"
+    puts "Please specify the movie title:"
+    title = gets.chomp.to_sym
+    if movies[title].nil?
+        puts "That title is not in the list!"
+    else
+        movies.delete(title)  # Delete hash key/value pair via: hash.delete(key)
+    end
+else
+    puts "Error!"
+end
+
+print movies
+
+# Example console output:
+Please make your choice:
+ delete
+Please specify the movie title:
+Transcendence
+{:Interstellar=>4}
+____________________________
+____________________________
 ____________________________
 
-
-
-
-
+The Zen of Ruby
+____________________________
+____________________________
 ____________________________
 
 
