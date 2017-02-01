@@ -334,9 +334,27 @@ puts array_preserved.last  # f
 print array_preserved  # ["a", "b", "c", "d", "e", "f"]
 ___________________________________________________________
 
+# The variable used to collect counts/values = accumulator
 
+def method()
+  bucket = 0  # accumulator
+  bucket_array = []  # accumulator
+  array = [1, 2, 3, 4]
+  array.each do |number|
+    bucket += number
+  end
+  array.each do |number|
+    bucket_array.push(number)
+  end
+  puts "Bucket value: #{bucket}"
+  print "Bucket array value: #{bucket_array}"
+end
 
+method()
 
+# Console output:
+Bucket value: 10
+Bucket array value: [1, 2, 3, 4]
 ___________________________________________________________
 
 

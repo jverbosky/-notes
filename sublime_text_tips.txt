@@ -6,6 +6,7 @@ Keyboard shortcuts:
 CTRL + b = run the current file's code (build) and show output in Sublime Text console
 - automatically saves file before running (by default - Tools > Save All on Build)
 - hit Esc key to close console window
+- don't use with gets.chomp or ARGV - use terminal
 CTRL + / = comment/uncomment the currently selected line(s)
 CTRL + [ = unindent (tab) the currently selected line(s)
 CTRL + ] = indent (tab) the currently selected line(s)
@@ -25,7 +26,7 @@ Initial Setup (Add Sublime Text 3 program directory to user's PATH):
 		C:\Program Files\Sublime Text 3
 	- 32-bit version on Win x64
 		C:\Program Files (x86)\Sublime Text 3
-	*******************************************************************	
+	*******************************************************************
 	Note: If there's a preceding entry, add a semi-colon before pasting
 	Ex: C:\Ruby23\bin;C:\Program Files\Sublime Text 3
 	*******************************************************************
@@ -63,6 +64,7 @@ Keyboard shortcuts:
 CTRL + b = run the current file's code (build) and show output in Sublime Text console
 - automatically saves file before running (by default - Tools > Save All on Build)
 - hit Esc key to close console window
+- don't use with gets.chomp or ARGV - use terminal
 CTRL + / = comment/uncomment the currently selected line(s)
 CTRL + [ = unindent (tab) the currently selected line(s)
 CTRL + ] = indent (tab) the currently selected line(s)
@@ -103,6 +105,7 @@ Keyboard shortcuts:
 Windows key + b = run the current file's code (build) and show output in Sublime Text console
 - automatically saves file before running
 - hit Esc key to close console window
+- don't use with gets.chomp or ARGV - use terminal
 Windows key + / = comment/uncomment the currently selected line(s)
 Windows key + [ = unindent (tab) the currently selected line(s)
 Windows key + ] = indent (tab) the currently selected line(s)
@@ -145,4 +148,4 @@ As a shortcut to have the sidebar appear:
 	- File > Open > Recent > select a recently opened directory
 _______________________________________________________________________
 
-2017-01-21 - jv
+updated 2017-02-01 - jv

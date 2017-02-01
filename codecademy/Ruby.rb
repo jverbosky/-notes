@@ -6414,10 +6414,31 @@ p name_2.to_sym
 :little_white_dog
 ____________________________
 
+# Using .each_char to iterate through each character in a string
 
+example = 'something'
+placeholder = []
 
+# example.each_char { |char| placeholder.push(char) }
 
+example.each_char do |char|
+  puts "Current character: #{char}"
+  placeholder.push(char)
+end
 
+p placeholder
+
+# Console output:
+Current character: s
+Current character: o
+Current character: m
+Current character: e
+Current character: t
+Current character: h
+Current character: i
+Current character: n
+Current character: g
+["s", "o", "m", "e", "t", "h", "i", "n", "g"]
 ____________________________
 
 
