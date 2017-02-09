@@ -1630,7 +1630,7 @@ frequencies.reverse!
 frequencies.each { |word, frequency| puts word + " " + frequency.to_s }
 
 # Console output:
-Text please: 
+Text please:
  This is a test to see how a histogram will work when using lots of words that occassionally repeat so that they can be counted.
 
 a 2
@@ -1853,7 +1853,7 @@ seed = ["this", "is", "a", "test"]
 target = {}
 
 # Statement parses seed, sets each item (word) as a key in target and assigns a value of 0
-seed.each do |word| 
+seed.each do |word|
   puts word
   puts target[word] = 0
   puts target
@@ -2305,7 +2305,7 @@ ____________________________
 def what_up(greeting, *bros)
   bros.each { |bro| puts "#{greeting}, #{bro}!" }
 end
- 
+
 what_up("What up", "Justin", "Ben", "Kevin Sorbo")
 
 # Console output:
@@ -3524,6 +3524,1122 @@ ____________________________
 
 
 ____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+____________________________
+____________________________
+
+Learn Ruby the Hard Way
+
+Per:
+https://learnrubythehardway.org/book/
+____________________________
+____________________________
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 1: A Good First Program
+
+puts "Hello World!"
+puts "Hello Again"
+puts "I like typing this."
+puts "This is fun."
+puts "Yay! Printing."
+puts "I'd much rather you 'not'."
+puts 'I "said" do not touch this.'
+
+# Console output:
+Hello World!
+Hello Again
+I like typing this.
+This is fun.
+Yay! Printing.
+I'd much rather you 'not'.
+I "said" do not touch this.
+
+' # fix formatting in editor
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 2: Comments and Pound Characters
+# ~Also known as the octothorpe character~
+
+# A comment, this is so you can read your program later.
+# Anything after the # is ignored by ruby.
+
+puts "I could have code like this." # and the comment after is ignored
+
+# You can also use a comment to "disable" or comment out a piece of code:
+# puts "This won't run."
+
+puts "This will run."
+
+# Console output:
+I could have code like this.
+This will run.
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 3: Numbers and Math
+# Yes... I'm typing this all out by hand
+# I love to type...  ^_^;
+
+# This line just outputs the string
+puts "I will now count my chickens:"
+
+# This line outputs: Hens 30
+puts "Hens #{25 + 30 / 6}"
+# This line outputs: Rosters 97
+puts "Roosters #{100 - 225 * 3 % 4}"
+
+# This line just outputs the string again
+puts "Now I will count the eggs:"
+
+# This line outputs: 7 (originally)
+# Added .to_f method so float returned instead of integer
+puts 3 + 2 + 1 - 5 + 4 % 2 - 1.to_f / 4 + 6
+
+# This line yet again outputs the string verbatim
+puts "Is it true that 3 + 2 < 5 - 7?"
+
+# This line outputs (evaluates to): false
+puts 3 + 2 < 5 - 7
+
+# This line prints the string and evaluates to 5
+puts "What is 3 + 2? #{3 + 2}"
+# This line prints the string and evaluates to -2
+puts "What is 5 - 7? #{5 - 7}"
+
+# This line prints the string verbatim again
+puts "Oh, that's why it's false."
+
+# This line prints the string verbatim as well
+puts "How about some more."
+
+# This line prints the string and evaluates to: true
+puts "Is it greater? #{5 > -2}"
+# This line prints the string and also evaluates to: true
+puts "is it greater or equal? #{5 >= -2}"
+# This line prints the string and evaluates to: false
+puts "Is it less or equal? #{5 <= -2}"
+
+# Console output:
+I will now count my chickens:
+Hens 30
+Roosters 97
+Now I will count the eggs:
+6.75
+Is it true that 3 + 2 < 5 - 7?
+false
+What is 3 + 2? 5
+What is 5 - 7? -2
+Oh, that's why it's false.
+How about some more.
+Is it greater? true
+is it greater or equal? true
+Is it less or equal? false
+____________________________
+
+# Something I need to calculate per Exercise 3 - Study Drill #3
+# Using rand and modulus to put some random even integers on the screen
+
+n = 0
+
+while n < 10
+  n = rand(11)
+  if n % 2 == 0
+    puts n
+  end
+end
+
+# Console output:
+8
+0
+0
+4
+4
+2
+4
+0
+6
+2
+2
+4
+8
+0
+10
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 4: Variables and Names
+
+# Defines a constant for the number of cars
+cars = 100
+
+# Defines a constant for the number of passengers each car can carry
+space_in_a_car = 4.0
+
+# Defines a constant for the number of drivers
+drivers = 30
+
+# Defines a constant for the number of passengers
+passengers = 90
+
+# Calculates the number of cars not driven, by subtracting the # of drivers from the # of cars
+cars_not_driven = cars - drivers
+
+# Sets the number of cars driven equal to the number of drivers
+cars_driven = drivers
+
+# Calculates the total carpool capacity by multiplying the # of cars driven by the # of passengers each car can carry
+carpool_capacity = cars_driven * space_in_a_car
+
+# Calculates the average # of passengers fo each car by dividing the # of passengers by the number of cars driven (drivers)
+average_passengers_per_car = passengers / cars_driven
+
+# Use string interpolation to include variables in strings
+puts "There are #{cars} cars available."
+puts "There are only #{drivers} drivers available."
+puts "There will be #{cars_not_driven} empty cars today."
+puts "We can transport #{carpool_capacity} people today."
+puts "We have #{passengers} to carpool today."
+puts "We need to put about #{average_passengers_per_car} in each car."
+
+# Zed's undefined local variable error (carpool_capacity) was most likely due to a typo in the variable name.
+# As a result, when he called it in the puts statement, it wasn't recognized as a known variable.
+#
+# 1) It's not necessary, since the number isn't being used in division (where the remainder would be dropped if it's not float).
+# 2) True dat.
+# 3) Done.
+# 4) Yes, but I prefer calling it the "assignment operator" so I don't misuse it when evaluating...
+# 5) No problem there.
+# 6) Done.  irb; i = 2.3; j = 3.7; i * j; (8.51)
+
+# Console output:
+There are 100 cars available.
+There are only 30 drivers available.
+There will be 70 empty cars today.
+We can transport 120.0 people today.
+We have 90 to carpool today.
+We need to put about 3 in each car.
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 5: More Variables and Printing
+
+name = 'Zed A. Shaw'
+age = 35 # not a lie in 2009
+height = 74 # inches
+weight = 180 # lbs
+eyes = 'Blue'
+teeth = 'White'
+hair = 'Brown'
+
+puts "Let's talk about #{name}."
+puts "He's #{height} inches tall."
+puts "He's #{weight} pounds heavy."
+puts "Actually that's not too heavy."
+puts "He's got #{eyes} eyes and #{hair} hair."
+puts "His teeth are usually #{teeth} depending on the coffee."
+
+# this line is tricky, try to get it exactly right
+puts "If I add #{age}, #{height}, and #{weight} I get #{age + height + weight}."
+
+# 1) Glad I'm using Sublime Text... that took 2 seconds.  ^_^
+# 2) Done:
+
+def in_to_cm(inches)
+  inches_to_centimeters = inches * 2.54
+  puts "Your measurement in centimeters is #{inches_to_centimeters} centimeters."
+end
+
+def lb_to_kg(pounds)
+  pounds_to_kilograms = pounds * 0.453592
+  puts "Your measurement in pounds is #{pounds_to_kilograms} kilograms."
+end
+
+in_to_cm(height)
+lb_to_kg(weight)
+
+# Console output:
+Let's talk about Zed A. Shaw.
+He's 74 inches tall.
+He's 180 pounds heavy.
+Actually that's not too heavy.
+He's got Blue eyes and Brown hair.
+His teeth are usually White depending on the coffee.
+If I add 35, 74, and 180 I get 289.
+Your measurement in centimeters is 187.96 centimeters.
+Your measurement in pounds is 81.64656 kilograms.
+
+' # fix formatting in editor
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 6: Strings and Text
+
+# Assigns 10 (ten in base 10, 3 in binary, 1 & 0 for the joke...) to the variable "types of people"
+types_of_people = 10
+
+# Assigns a string that uses string interpolation to the variable "x"
+x = "There are #{types_of_people} types of people."
+
+# Assigns the string "binary" to the variable "binary"
+binary = "binary"
+
+# Assigns the string "don't" to the variable "do not"
+do_not = "don't"
+
+# Assigns a string that uses string interpolation (two times) to the variable "y"
+y = "Those who know #{binary} and those who #{do_not}."
+
+# Prints the string assigned to the variable x and converts the interpolated variable to its assigned value
+puts x
+
+# Prints the string assigned to the variable y and converts the interpolated variables to their assigned values
+puts y
+
+# Prints the specified string and converts the interpolated variable to its assigned value
+puts "I said: #{x}."
+
+# Prints the specified string and converts the interpolated variable to its assigned value
+# Have to use single quotes within double quotes (and vice versa) or won't output as intended
+puts "I also said: '#{y}'."
+
+# Assigns the boolean value "false" to the variable "hilarious"
+hilarious = false
+
+# Assigns the specified string and interpolated variable to the "joke_evaluations" variable
+joke_evaluations = "Isn't that joke so funny?! #{hilarious}"
+
+# Prints the assigned string and converts the interpolated variable to its assigned value
+puts joke_evaluations
+
+# Assigns a string to the variable "w"
+w = "This is the left side of..."
+
+# Assigns a string to the variable "e"
+e = "a string with a right side."
+
+# Prints the concatenation of the strings assigned to the variables "w" and "e"
+puts w + e
+
+# 1) Done
+# 2) Lines 8, 17, 26, 30 and 36.
+# 3) Nope, there are five place.
+# 4) The plus operator performs a concatenation when used with strings.
+# 5) It would work for everything except the lines that use string interpolation and line 30, 
+#    which has single quotes around the interpolated variable.
+#    For this to continue working with outer single quotes, you would need to replace the inner single quotes
+#    with double quotes.  Otherwise, Ruby will interpret the first inner single quote as pairing with the 
+#    first outer single quote and the output would not be as intended.
+#
+#    Note - I missed the "single quotes + string interpolation being ignored" part the first time around.
+#    Lesson learned...
+
+# Console output:
+There are 10 types of people.
+Those who know binary and those who don't.
+I said: There are 10 types of people..
+I also said: 'Those who know binary and those who don't.'.
+Isn't that joke so funny?! false
+This is the left side of...a string with a right side.
+
+' # fix formatting in editor
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 7: More Printing
+
+# Prints the specified string
+puts "Mary had a little lamb."
+
+# Prints the specified string and interpolated string
+puts "Its fleece was white as #{'snow'}."
+
+# Prints the specified string
+puts "And everywhere that Mary went."
+
+# Prints a period ten times
+puts "." * 10 # what'd that do?
+
+# Assigns a string to the variable end1
+end1 = "C"
+
+# Assigns a string to the variable end2
+end2 = "h"
+
+# Assigns a string to the variable end3
+end3 = "e"
+
+# Assigns a string to the variable end4
+end4 = "e"
+
+# Assigns a string to the variable end5
+end5 = "s"
+
+# Assigns a string to the variable end6
+end6 = "e"
+
+# Assigns a string to the variable end7
+end7 = "B"
+
+# Assigns a string to the variable end8
+end8 = "u"
+
+# Assigns a string to the variable end9
+end9 = "r"
+
+# Assigns a string to the variable end10
+end10 = "g"
+
+# Assigns a string to the variable end11
+end11 = "e"
+
+# Assigns a string to the variable end12
+end12 = "r"
+
+# watch that print vs. puts on this line what's it do?
+
+# The print statement concatenates the strings assigned to each specified variable,
+# without putting a line return at the end
+print end1 + end2 + end3 + end4 + end5 + end6
+
+# The puts statement concatenates the strings assigned to each specified variable,
+# while putting a line return at the end
+puts end7 + end8 + end9 + end10 + end11 + end12
+
+# 1) Comments done.
+# 2) No errors this time around.
+# 3) Will do.
+# 4) Good plan.
+# 5) Oh yeah - hundreds, if not thousands, every day.  ^_^;
+
+# Console output:
+Mary had a little lamb.
+Its fleece was white as snow.
+And everywhere that Mary went.
+..........
+CheeseBurger
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 8: Printing, Printing
+
+# Assigns a string format to the variable "formatter"
+formatter = "%{first} %{second} %{third} %{fourth}"
+
+# Prints the integer values assigned to first, second, third and fourth, using the format defined on line 4
+puts formatter % {first: 1, second: 2, third: 3, fourth: 4}
+
+# Prints the string values assigned to first, second, third and fourth, using the format defined on line 4
+puts formatter % {first: "one", second: "two", third: "three", fourth: "four"}
+
+# Prints the boolean values assigned to first, second, third and fourth, using the format defined on line 4
+puts formatter % {first: true, second: false, third: true, fourth: false}
+
+# Prints the string assigned to the formatter variable for each item, using the format defined on line 4
+puts formatter % {first: formatter, second: formatter, third: formatter, fourth: formatter}
+
+# Prints the strings values assigned to first, second, third and fourth, using the format defined on line 4
+# Same idea as line 8, just with longer strings
+puts formatter % {
+  first: "I had this thing.",
+  second: "That you could type up right.",
+  third: "But it didn't sing.",
+  fourth: "So I said goodnight."
+}
+
+# 1) Comments done - basically lots of variations upon a theme.
+
+# Console output:
+1 2 3 4
+one two three four
+true false true false
+%{first} %{second} %{third} %{fourth} %{first} %{second} %{third} %{fourth} %{first} %{second} %{third} %{fourth} %{first} %{second} %{third} %{fourth}
+I had this thing. That you could type up right. But it didn't sing. So I said goodnight.
+
+' # fix formatting in editor
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 9: Printing, Printing, Printing
+
+# Here's some new strange stuff, remember to type it exactly.
+
+# Assigns a string with a space in between each abbreviated day name to the variable ""ays
+days = "Mon Tue Wed Thu Fri Sat Sun"
+
+# Assigns a string with the new line character in between each abbreviated month name to the variable "months"
+months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
+
+# Prints out the specified string and interpolated variable value
+puts "Here are the days: #{days}"
+
+# Prints out the specified string and interpolated variable value (including line breaks)
+puts "Here are the months: #{months}"
+
+# Prints out the specified multi-line string verbatim due to the %q{} modifier (which acts like single quotes)
+puts %q{
+There's something going on here.
+With the three double-quotes.
+We'll be able to type as much as we like.
+Even 4 lines if we want, or 5, or 6.
+}
+
+# 1) Comments done and no mistakes (typos).  Honest.  ^_^ /
+
+# Console output:
+Here are the days: Mon Tue Wed Thu Fri Sat Sun
+Here are the months: Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+
+There's something going on here.
+With the three double-quotes.
+We'll be able to type as much as we like.
+Even 4 lines if we want, or 5, or 6.
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 10: What Was That?
+
+# "I am 6'2\" tall."  # escape double-quote inside string
+# 'I am 6\'2" tall.'  # escape single-quote inside string
+
+# Assigns a string (that includes \t to insert tab before string) to the "tabby_cat" variable
+tabby_cat = "\tI'm tabbed in."
+
+# Assigns a string (that include the new line character: \n) to the "persian_cat" variable
+persian_cat = "I'm split\non a line."
+
+# Assigns a string (that includes two escaped backslashes, so 1 will appear on each side of "cat") to the "backslash_cat" variable
+backslash_cat = "I'm \\ a \\ cat."
+
+# Assigns a multi-line, tabbed string (via triple quotes and \t) with a new-line character in the last line to the "fat_cat" variable
+fat_cat = """
+I'll do a list:
+\t* Cat food
+\t* Fishies
+\t* Catnip\n\t* Grass
+"""
+
+# Prints the assigned string and renders the preceding tab
+puts tabby_cat
+
+# Prints the assigned string and starts a new line after the word "split"
+puts persian_cat
+
+# Prints the assigned string and puts a backslash on both sides of the word "cat"
+puts backslash_cat
+
+# Prints the multi-line string, with tabs for each bullet point (4 total)
+puts fat_cat
+
+# 0) Comments done.
+# 1) I use \n and the regular escape.  I've made a screenshot and will refer to as needed.
+# 2) Yes - if the string has lots of double-quotes that I don't want to escape.  But I'd probably use %q{} first.
+# 3) OK.
+
+# Console output:
+        I'm tabbed in.
+I'm split
+on a line.
+I'm \ a \ cat.
+
+I'll do a list:
+        * Cat food
+        * Fishies
+        * Catnip
+        * Grass
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 11: Asking Questions
+
+# Note - I use print instead of puts to print the string without a \n printed
+# and the prompt stops right where the user should enter the answer.
+
+# Prints the string to prompt the user to input his/her age
+print "How old are you? "
+
+# Assigns the user's input (minus the line break via .chomp) to the variable "age"
+age = gets.chomp
+
+# Prints the string to prompt the user to input his/her height
+print "How tall are you? "
+
+# Assigns the user's input (minus the line break via .chomp) to the variable "height"
+height = gets.chomp
+
+# Prints the string to prompt the user to input his/her weight
+print "How much do you weigh? "
+
+# Assigns the user's input (minus the line break via .chomp) to the variable "weight"
+weight = gets.chomp
+
+# Prints specified string along with the user-specified values for the age, height and weight variables
+puts "So, you're #{age} old, #{height} tall and #{weight} heavy."
+
+# 0) Comments done.
+# 1) Already researched while working on codecademy's Ruby course.  ^_^
+# 2) Yes, have played with it quite a bit.
+# 3) OK
+
+puts "\n"
+
+user_input = ''
+translation = ''
+
+while user_input == ''
+  print "Enter string to translate:"
+  user_input = gets.chomp
+end
+
+if user_input.include?("S") || user_input.include?("s")
+  translation = user_input.gsub(/S/, "Th")
+  translation = translation.gsub(/s/, "th")
+  puts "Daffy Duck says: #{translation}!"
+else
+  puts %Q(No "s" so nothing to translate!)
+end
+
+# Example console output:
+How old are you? 41
+How tall are you? 75"
+How much do you weigh? 185lbs
+So, you're 41 old, 75" tall and 185lbs heavy.
+
+Enter string to translate:something
+Daffy Duck says: thomething!
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 12: Prompting People
+
+# Prints the string to prompt the user for a number
+print "Give me a number: "
+
+# Assigns the user's input (minus the line break via .chomp),
+# converts the string object to an integer using the .to_i method,
+# and assigns it to the variable "number"
+number = gets.chomp.to_i
+
+# Assigns the user-specified number multiplied by 100 to the "bigger" variable
+bigger = number * 100
+
+# Prints the specified string along with the interpolated value for the "bigger" variable
+puts "A bigger number is #{bigger}."
+
+# Prints the string to prompt the user for another number
+print "Give me another number: "
+
+# Assigns the user's input (minus the line break via .chomp) to the variable "another"
+another = gets.chomp
+
+# Converts the user-provided string to an integer by using the .to_i method on the "another" variable,
+# and reassigns it to the variable "number"
+number = another.to_i
+
+# Assigns the user-specified number divided by 100 to the "smaller" variable
+smaller = number / 100
+
+# Prints the specified string along with the interpolated value for the "smaller" variable
+puts "A smaller number is #{smaller}."
+
+# 0) Comments added
+# 1) Changes the object to a floating-point number
+# 2) Done.
+
+print "Hey man, got any change? "
+change = gets.chomp.to_f
+returned = change / 10
+puts "Here's 10\% back: #{returned}"
+
+# Example console output:
+Hey man, got any change? 103.4
+Here's 10% back: 10.34
+
+' # fix formatting in editor
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 13: Parameters, Unpacking, Variables
+
+# Note - have to provide arguments when executing .rb script when using ARGV
+# Ex: ruby lrthw_ex13.rb What is it?
+
+# Specify the variables to be assigned to user-specified values when the .rb script runs
+first, second, third = ARGV
+
+# Prints the specified string along with the interpolated value for the "first" variable
+puts "Your first variable is: #{first}"
+
+# Prints the specified string along with the interpolated value for the "first" variable
+puts "Your second variable is: #{second}"
+
+# Prints the specified string along with the interpolated value for the "first" variable
+puts "Your third variable is: #{third}"
+
+# 0) Comments added
+# 1) When an argument isn't specified, the variable isn't assigned a value
+# 2) Any additional arguments are dropped/ignored
+# 3) Done in lrthw_ex13_script.rb
+# 4) See 3).
+
+# Console output for: ruby .\lrthw_ex13.rb what is it
+Your first variable is: what
+Your second variable is: is
+Your third variable is: it
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 13: Parameters, Unpacking, Variables
+# Example script per Study Drills steps three and four
+
+print "There are two doors in front of you.\nWhich will you open - the door on the left or the right? "
+door = $stdin.gets.chomp
+#door = ARGV.first
+print ".....\n"
+print "Now you are standing in a room with stairs going up and down.\nWhich way, pal? "
+stairs = $stdin.gets.chomp
+print ".....\n"
+print "You slip on the stairs, have a terrible spill and end up breaking your leg.\nWhat now? "
+action = $stdin.gets.chomp
+print ".....\n"
+print "As you #{action}, an earthquake starts shaking the walls apart. This just isn't your day!\nAny final words? "
+final_words = $stdin.gets.chomp
+print ".....\n"
+puts """
+In your last moments of conciousness, your life flashes before your eyes.
+You see yourself opening the door on the #{door} and going #{stairs} the stairs.
+You decide to #{action} after falling down the stairs and breaking your leg.
+Sadly, your final cry of \"#{final_words}\"  is silenced prematurely as the walls come down upon you.
+.....\n
+"""
+
+# Example console output:
+There are two doors in front of you.
+Which will you open - the door on the left or the right? left
+.....
+Now you are standing in a room with stairs going up and down.
+Which way, pal? up
+.....
+You slip on the stairs, have a terrible spill and end up breaking your leg.
+What now? cry
+.....
+As you cry, an earthquake starts shaking the walls apart. This just isn't your day!
+Any final words? goodbye cruel world...
+.....
+
+In your last moments of conciousness, your life flashes before your eyes.
+You see yourself opening the door on the left and going up the stairs.
+You decide to cry after falling down the stairs and breaking your leg.
+Sadly, your final cry of "goodbye cruel world..."  is silenced prematurely as the walls come down upon you.
+.....
+
+' # fix formatting in editor
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 14: Prompting and Passing
+
+# Reminder - provide the user_name value when running the script:
+# Ex: ruby lrthw_ex14.rb John
+
+# Need to specify .ordinal when assigning to a single variable - tweaked 13 script accordingly after bailing on it
+#user_name = ARGV.first # gets the first argument
+
+# first argument > name
+# second argument > description (i.e. nice, terrible, etc.)
+first, second = ARGV
+
+prompt = '*\(*O-O*)/*'
+
+puts "Hi #{first}."
+puts "I'd like to ask you a few questions."
+puts "Do you like me #{first}? "
+puts prompt
+likes = $stdin.gets.chomp
+
+puts "Where do you live #{first}? "
+puts prompt
+lives = $stdin.gets.chomp
+
+# a comma for puts is like using it twice
+puts "What kind of computer do you have? ", prompt
+computer = $stdin.gets.chomp
+
+puts """
+Alright, so you said #{likes} about liking me.
+You live in #{lives}. That's a #{second} place to live.
+And you have a #{computer} computer. Nice.
+"""
+
+# 0) Comments added for stuff that's new to me (line 7), otherwise nothing new to see here.
+# 1) Heh... see my ex13_script if you haven't already.
+# 2) There you go.
+# 3) Done.
+# 4) Yep - went back and tweaked my ex13_script to use it just for practice.
+
+# Example console output for: ruby .\lrthw_ex14.rb John
+Hi John.
+I'd like to ask you a few questions.
+Do you like me John?
+*\(*O-O*)/*
+Sure!
+Where do you live John?
+*\(*O-O*)/*
+In a house.
+What kind of computer do you have?
+*\(*O-O*)/*
+An old one.
+
+Alright, so you said Sure! about liking me.
+You live in In a house.. That's a  place to live.
+And you have a An old one. computer. Nice.
+____________________________
+
+# Learn Ruby the Hard Way
+# Exercise 15: Reading Files
+
+# Reminder - provide the user_name value when running the script:
+# Ex: ruby lrthw_ex15.rb lrthw_ex15_sample.txt
+
+# Need to specify .ordinal when assigning to a single variable
+# filename = ARGV.first # gets the first argument
+
+# first argument > name of file to specify (lrthw_ex_15_sample.txt)
+filename = ARGV.first
+
+# Use the open() function to access the file assigned to the filename variable
+# http://ruby-doc.org/core-2.0.0/IO.html#method-c-open
+txt = open(filename)
+
+# Clarification with string interpolation to list the specified file
+puts "Here's your file #{filename}:"
+
+# Uses the .read method on the I/O stream [the results of open(filename)]
+# http://ruby-doc.org/core-2.0.0/IO.html#method-i-read
+# Changed to a puts statement for cleaner output when program runs
+puts txt.read
+
+# User prompt to enter the name of the file specified earlier via ARGV.first
+print "Type the filename again: "
+
+# Use $stdin.gets.chomp to collect the user-specified file name and assign it to the file_again variable
+file_again = $stdin.gets.chomp
+
+# Same as line 15 [txt = open(filename)] but using a different set of variables
+txt_again = open(file_again)
+
+# Same as line 23, but using the txt_again variable to demonstrate that the filename
+# can be collected when initially running the program (ARGV) or during the program ($stdin.gets.chomp)
+# Changed to a puts statement for cleaner output when program runs
+puts txt_again.read
+
+=begin
+# Use the .close method on txt and txt_again to close the file (opened twice)
+# http://ruby-doc.org/core-2.0.0/IO.html#method-i-close
+txt.close
+txt_again.close
+
+# Verify that files are closed
+puts txt.read
+puts txt_again.read
+# Should get:
+#    lrthw_ex15.rb:45:in `read': closed stream (IOError)
+#        from lrthw_ex15.rb:45:in `<main>'
+=end
+
+# Study Drills
+# 1) Added comments before getting into the Study Drills section
+# 2) Already done while adding comments
+# 3) Understood
+# 4) Done
+# 5) Using $stdin.gets.chomp allows you to process multiple files during the program with
+#    (potentially, using a loop) one prompt.  With ARGV, you are limited to the file specified
+#    when the program is initially run.
+# 6) Yes, but via irb, had to specify the file name in quotes (String) for it to work:
+#      filename = "lrthw_ex15_sample.txt"
+#      txt = open(filename)
+#      puts txt.read
+# 7) Done
+
+# Console output for: ruby .\lrthw_ex15.rb lrthw_ex15_sample.txt
+Here's your file lrthw_ex15_sample.txt:
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+Type the filename again: lrthw_ex15_sample.txt
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+
+' # fix formatting in editor
+____________________________
+
+# lrthw_ex15_sample.txt
+
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
 ____________________________
 ____________________________
 
@@ -4222,11 +5338,101 @@ ____________________________
 
 
 
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
 ____________________________
 ____________________________
 ____________________________
 
-Mined Minds classwork & homework
+Mined Minds Classwork & Homework
 ____________________________
 ____________________________
 ____________________________
@@ -4386,7 +5592,7 @@ end
 
 # Method to confirm user input and advise on method being run
 def user_selection(method)
-  methods_text = { 
+  methods_text = {
     "1" => "1 - If/Else...",
     "2" => "2 - Single Line If/Else...",
     "3" => "3 - Chained Logical Operators...",
@@ -4409,7 +5615,7 @@ def run_method(item)
     when "4" then lambda_case()
     when "5" then custom_modulo()
     when "6" then list_comprehension()
-    when "7" then base_conversion()    
+    when "7" then base_conversion()
   end
 end
 
@@ -4429,7 +5635,7 @@ ____________________________
 # http://rubylearning.com/blog/2013/06/19/how-do-i-benchmark-ruby-code/
 ########################
 # require 'benchmark'
-# 
+#
 # Benchmark.bmbm do |bm|
 # bm.report { first_approach }
 # bm.report { alternative_approach }
@@ -4562,7 +5768,7 @@ lambda case          0.343000   0.000000   0.343000 (  0.352529)
 custom modulo        1.202000   0.000000   1.202000 (  1.203156)
 list comprehension   0.733000   0.015000   0.748000 (  0.744508)
 base conversion      1.654000   0.016000   1.670000 (  1.691233)
-  
+
 =end
 ____________________________
 
@@ -4617,7 +5823,7 @@ def minedminds()
       range.push("Minds")
     else
       range.push(num)
-    end 
+    end
         num += 1
   end
   return range
@@ -4640,7 +5846,7 @@ def mined_minds_array()
       my_array.push("Mined")
     elsif num % 5 == 0
       my_array.push("Minds")
-    else    
+    else
       my_array.push(num)
     end
   end
@@ -4755,7 +5961,7 @@ end
 # Only use in production
 def list_pairs_even(pairs)
   counter = 1
-  pairs.each do |name1, name2| 
+  pairs.each do |name1, name2|
     puts "Random Pair #{counter}: #{name1}, #{name2}"
     counter += 1
   end
@@ -4785,7 +5991,7 @@ def list_pairs_odd(merged)
   pairs = merged[0..-2]
   final = merged.count - 1
   counter = 1
-  pairs.each do |name1, name2| 
+  pairs.each do |name1, name2|
     puts "Random Pair #{counter}: #{name1}, #{name2}"
     counter += 1
   end
@@ -4910,8 +6116,6 @@ array_of_items_to_be_paired.each do |inner_array|
     print "\n"
   end
 end
-
-
 ____________________________
 
 # In class - using splat argument to add an indeterminate number of numbers
@@ -5902,6 +7106,1510 @@ class TestOffByOneTwoArrays < Minitest::Test
 end
 ____________________________
 
+# Program to determine if ISBN number is valid or not (true/false)
+# Initial version with separate methods for ISBN-10 and ISBN-13 numbers
+
+# Method to convert hyphenated or space-delimited ISBN number to raw number
+def output_raw_number(isbn)
+  raw_number = []  # initialize an empty array to hold each numerical character
+  isbn_array = isbn.split("")  # create an array from characters in isbn number
+  isbn_array.each do |character|  # iterate through array to check each character in isbn number
+    if character != "-"  # if the character is not a hyphen
+      if character != " "  # and if the character is not a space
+        raw_number.push(character)  # then push the character (number) to the raw_number array
+      end
+    end
+  end
+  return raw_number.join("")  # use the .join method to convert the array into a numerical string and return it
+end
+
+def all_but_last(isbn)
+  raw_number = output_raw_number(isbn)  # run the output_raw_number method on the isbn number
+  trimmed = raw_number[0..-2]  # use reverse indexing to return all but the last number
+end
+
+def create_checksum_isbn10(isbn)
+  trimmed = all_but_last(isbn)  # run the all_but_last method to get all but the last digit from raw isbn number
+  isbn_array = trimmed.split("")  # split trimmed to create an array of numerical strings
+  multipliers = (1..9).to_a  # create an array of integers (1 - 9) to multiply each isbn digit
+  zipped = multipliers.zip(isbn_array)  # pair up each item from the isbn_array and multipliers arrays in a multi-d array
+  results = []  # initialize an empty array to hold the results from multiplying each pair of items in the zipped array
+  sum = 0  # initialize a placeholder for adding up the resulting numbers from multiplying each pair in results array
+  zipped.each do |x, y|  # iterate through each inner array (item from isbn_array & item from multipliers array)
+    result = x * y.to_i  # multiply each pair of items in the inner array (convert the isbn_array digit to an integer)
+    results.push(result)  # push the resulting product to the results (placeholder) array
+  end
+  results.each do |number|  # next iterate through all of the products in the results array
+    sum += number  # add each product to the accumulating sum (i.e. 0+2=2, 2+1=3, 3+4=7, 7+2=9, 9+ etc...)
+  end
+  isbn10_checksum = sum % 11  # create the checksum by determining the remainder of the sum divided by 11 and return it
+end
+
+def create_checksum_isbn13(isbn)
+  trimmed = all_but_last(isbn)  # run the all_but_last method to get all but the last digit from raw isbn number
+  isbn_array = trimmed.split("")  # split trimmed to create an array of numerical strings
+  multipliers = []  # initialize an empty array to hold multipliers
+  6.times { multipliers.push(1); multipliers.push(3) }  # create a 12-element array of alternating 1s and 3s
+  zipped = multipliers.zip(isbn_array)  # pair up each item from the isbn_array and multipliers arrays in a multi-d array
+  results = []  # initialize an empty array to hold the results from multiplying each pair of items in the zipped array
+  sum = 0  # initialize a placeholder for adding up the resulting numbers from multiplying each pair in results array
+  zipped.each do |x, y|  # iterate through each inner array (item from isbn_array & item from multipliers array)
+    result = x * y.to_i  # multiply each pair of items in the inner array (convert the isbn_array digit to an integer)
+    results.push(result)  # push the resulting product to the results (placeholder) array
+  end
+  results.each do |number|  # next iterate through all of the products in the results array
+    sum += number  # add each product to the accumulating sum (i.e. 0+2=2, 2+1=3, 3+4=7, 7+2=9, 9+ etc...)
+  end
+  remainder = sum % 10  # determine the remainder of the sum divided by 10
+  difference = 10 - remainder  # subtract the modulus from 10 to determine the difference
+  isbn13_checksum = difference % 10  # create the checksum by determining the remainder of the difference divided by 10 and return it
+end
+
+def compare_checksum(isbn)
+  final = isbn[-1]  # use reverse indexing to get the last character from the isbn number
+  raw_number = output_raw_number(isbn)  # get the raw isbn number
+  if raw_number.length == 10  # if the number is isbn10
+    checksum = create_checksum_isbn10(isbn)  # run the isbn10 create_checksum method to get the checksum
+  else
+    checksum = create_checksum_isbn13(isbn)  # otherwise run the isbn13 create_checksum method to get the checksum
+  end
+  if final == "x"  # if the last character in the isbn number is an "x"
+    return true if checksum.to_s == "10"  # then return true if the checksum is "10" (x == 10)
+  elsif checksum.to_s == final  # if not, see if the checksum (converted to a string) equals the last character
+    return true  # and if so, then return true
+  else
+    return false  # otherwise, return false
+  end
+end
+
+# Sandbox testing:
+# puts output_raw_number("0-321-14653-0")  # ISBN-10
+# puts output_raw_number("877 1 95 869x")  # ISBN-10
+# puts output_raw_number("0471958697")  # ISBN-10
+# puts output_raw_number("7421394761")  # ISBN-10
+# puts output_raw_number("978-0-13-149505-0")  # ISBN-13
+# puts output_raw_number("978 0 471 48648 0")  # ISBN-13
+# puts output_raw_number("9780470059029")  # ISBN-13
+
+# puts all_but_last("0-321-14653-0")  # ISBN-10
+# puts all_but_last("877 1 95 869x")  # ISBN-10
+# puts all_but_last("0471958697")  # ISBN-10
+# puts all_but_last("7421394761")  # ISBN-10
+# puts all_but_last("978-0-13-149505-0")  # ISBN-13
+# puts all_but_last("978 0 471 48648 0")  # ISBN-13
+# puts all_but_last("9780470059029")  # ISBN-13
+
+# puts create_checksum_isbn10("0-321-14653-0")  # ISBN-10
+# puts create_checksum_isbn10("877 1 95 869x")  # ISBN-10
+# puts create_checksum_isbn10("0471958697")  # ISBN-10
+# puts create_checksum_isbn10("7421394761")  # ISBN-10
+# puts create_checksum_isbn13("978-0-13-149505-0")  # ISBN-13
+# puts create_checksum_isbn13("978 0 471 48648 0")  # ISBN-13
+# puts create_checksum_isbn13("9780470059029")  # ISBN-13
+
+# puts compare_checksum("0-321-14653-0")  # ISBN-10
+# puts compare_checksum("877 1 95 869x")  # ISBN-10
+# puts compare_checksum("0471958697")  # ISBN-10
+# puts compare_checksum("7421394761")  # ISBN-10
+# puts compare_checksum("978-0-13-149505-0")  # ISBN-13
+# puts compare_checksum("978 0 471 48648 0")  # ISBN-13
+# puts compare_checksum("9780470059029")  # ISBN-13
+____________________________
+
+# Program to determine if a specified ISBN number is valid or not (returns true/false)
+# Start with is_to_small?() method
+# Final refactored version
+
+# Method to convert hyphenated or space-delimited ISBN number to raw number
+def output_raw_number(isbn)
+    isbn.delete " -"  # the intersection (difference) of the number and delimiting characters
+end
+
+# Method to create an array of multipliers for calculating the checksum value (based on ISBN type)
+def create_multipliers(isbn)
+  multipliers = []  # initialize an empty array to hold multipliers
+  # if the number is isbn10 create an array of integers (1 - 9) to multiply each isbn digit
+  # otherwise it's isbn13 so create a 12-element array of alternating 1s and 3s
+  output_raw_number(isbn).length == 10 ? (multipliers = (1..9).to_a) : 6.times { multipliers.push(1, 3) }
+  return multipliers
+end
+
+# Method to create the intermediate sum value during checksum calculation
+# This method consolidates the common statements for both ISBN types
+def create_sum(isbn)
+  all_but_last = output_raw_number(isbn).chop  # assign all but the last character in the isbn number to a variable
+  multipliers = create_multipliers(isbn)  # collect the array of multipliers from the create_multipliers method
+  sum = 0  # initialize a placeholder for adding up the resulting numbers from multiplying each pair in results array
+  count = 0  # initialize a counter for iterating through the all_but_last string and multipliers array
+  # iterate through every letter in the string, multiply it by every item in the array and then sum the products
+  all_but_last.length.times { sum = sum + all_but_last[count].to_i * multipliers[count]; count += 1 }
+  return sum  # return the sum
+end
+
+# Method to create the checksum value for a specified ISBN-10 or ISBN-13 number
+def create_checksum(isbn)
+  sum = create_sum(isbn)  # run the create_sum method to calculate the intermediate sum value
+  # if the number is isbn10 create the ISBN-10 checksum, 0therwise the number is isbn13 so create the ISBN-13 checksum
+  output_raw_number(isbn).length == 10 ? (checksum = sum % 11) : (checksum = (10 - (sum % 10)) % 10)
+  return checksum  # return the checksum
+end
+
+# Method to validate the calculated checksum value (via create_checksum) against the final digit of the ISBN number
+def valid_checksum?(isbn)
+  if isbn.index("x") == (isbn.length - 1) then true  # if the number contains "x" and it is the last character, return true
+    elsif isbn[-1] == create_checksum(isbn).to_s then true  # if the last character and the checksum are equal, return true
+    else false  # otherwise, return false
+  end
+end
+
+# Method to filter raw number if x is anywhere but the last character
+def is_x_bad?(isbn)
+  first_nine = isbn.chop  # assign the first nine characters to a variable
+  # if x is in the first nine characters return false, otherwise run valid_checksum?()
+  (first_nine.include? "x") ? false : valid_checksum?(isbn)
+end
+
+# Method to filter number if it contains invalid characters
+def are_characters_valid?(isbn)
+  invalid = isbn.delete "xX0123456789 -"  # the intersection (difference) of the number and valid characters
+  # if the number has invalid characters return false, otherwise run is_x_bad?()
+  invalid.length > 0 ? false : is_x_bad?(isbn)
+end
+
+# !!!First method to run!!!
+# Method to filter number if it is too short to be ISBN-10
+def is_too_small?(isbn)
+  # if the number is less than 10 characters long, it's not a valid isbn number
+  isbn.length < 10 ? (return false) : are_characters_valid?(isbn)
+end
+
+# Sandbox testing:
+# puts output_raw_number("0-321-14653-0")  # ISBN-10
+# puts output_raw_number("877 1 95 869x")  # ISBN-10
+# puts output_raw_number("0471958697")  # ISBN-10
+# puts output_raw_number("7421394761")  # ISBN-10
+# puts output_raw_number("978-0-13-149505-0")  # ISBN-13
+# puts output_raw_number("978 0 471 48648 0")  # ISBN-13
+# puts output_raw_number("9780470059029")  # ISBN-13
+
+# p create_multipliers("0-321-14653-0")  # ISBN-10
+# p create_multipliers("877 1 95 869x")  # ISBN-10
+# p create_multipliers("0471958697")  # ISBN-10
+# p create_multipliers("7421394761")  # ISBN-10
+# p create_multipliers("978-0-13-149505-0")  # ISBN-13
+# p create_multipliers("978 0 471 48648 0")  # ISBN-13
+# p create_multipliers("9780470059029")  # ISBN-13
+
+# puts create_sum("0-321-14653-0")  # ISBN-10
+# puts create_sum("877 1 95 869x")  # ISBN-10
+# puts create_sum("0471958697")  # ISBN-10
+# puts create_sum("7421394761")  # ISBN-10
+# puts create_sum("978-0-13-149505-0")  # ISBN-13
+# puts create_sum("978 0 471 48648 0")  # ISBN-13
+# puts create_sum("9780470059029")  # ISBN-13
+
+# puts create_checksum("0-321-14653-0")  # ISBN-10
+# puts create_checksum("877 1 95 869x")  # ISBN-10
+# puts create_checksum("0471958697")  # ISBN-10
+# puts create_checksum("7421394761")  # ISBN-10
+# puts create_checksum("978-0-13-149505-0")  # ISBN-13
+# puts create_checksum("978 0 471 48648 0")  # ISBN-13
+# puts create_checksum("9780470059029")  # ISBN-13
+
+# puts valid_checksum?("0-321-14653-0")  # ISBN-10
+# puts valid_checksum?("877 1 95 869x")  # ISBN-10
+# puts valid_checksum?("0471958697")  # ISBN-10
+# puts valid_checksum?("7421394761")  # ISBN-10
+# puts valid_checksum?("978-0-13-149505-0")  # ISBN-13
+# puts valid_checksum?("978 0 471 48648 0")  # ISBN-13
+# puts valid_checksum?("9780470059029")  # ISBN-13
+
+# puts is_x_bad?("877 1 95 86x9")  # bad ISBN number
+# puts is_x_bad?("877 1 95 869x")  # ISBN-10
+
+# puts are_characters_valid?("0-321@14653-0")  # bad ISBN number
+# puts are_characters_valid?("0-321-14653-0")  # ISBN-10
+# puts are_characters_valid?("978 0 471 48648 0")  # ISBN-13
+
+#####################################################################
+# Run is_to_small?() to completely test ISBN-10 and ISBN-13 numbers #
+#####################################################################
+
+# puts is_too_small?("0-321-14653-0")  # ISBN-10
+# puts is_too_small?("877 1 95 869x")  # ISBN-10
+# puts is_too_small?("0471958697")  # ISBN-10
+# puts is_too_small?("7421394761")  # ISBN-10
+# puts is_too_small?("978-0-13-149505-0")  # ISBN-13
+# puts is_too_small?("978 0 471 48648 0")  # ISBN-13
+# puts is_too_small?("9780470059029")  # ISBN-13
+
+# puts is_too_small?("4780470059029")  # bad ISBN number
+# puts is_too_small?("0-321@14653-0")  # bad ISBN number
+# puts is_too_small?("877195x869")  # bad ISBN number
+# puts is_too_small?("")  # bad ISBN number
+# puts is_too_small?(" ")  # bad ISBN number
+# puts is_too_small?("-")  # bad ISBN number
+____________________________
+
+# Tests for isbn_check.rb
+
+require "minitest/autorun"
+require_relative "isbn_check.rb"
+# require_relative "isbn_check_minimal_comments.rb"
+# require_relative "isbn_check_no_comments.rb"
+
+class TestIsbnCheck < Minitest::Test
+
+  def test_1_output_raw_number_source_with_hyphens_isbn10
+    isbn = "0-321-14653-0"
+    results = output_raw_number(isbn)
+    assert_equal("0321146530", results)
+  end
+
+  def test_2_output_raw_number_source_with_spaces_isbn10
+    isbn = "877 1 95 869x"
+    results = output_raw_number(isbn)
+    assert_equal("877195869x", results)
+  end
+
+  def test_3_no_change_in_ouput_if_raw_isbn_number_isbn10
+    isbn = "0471958697"
+    results = output_raw_number(isbn)
+    assert_equal("0471958697", results)
+  end
+
+  def test_4_output_raw_number_source_with_hyphens_isbn13
+    isbn = "978-0-13-149505-0"
+    results = output_raw_number(isbn)
+    assert_equal("9780131495050", results)
+  end
+
+  def test_5_output_raw_number_source_with_spaces_isbn13
+    isbn = "978 0 471 48648 0"
+    results = output_raw_number(isbn)
+    assert_equal("9780471486480", results)
+  end
+
+  def test_6_no_change_in_ouput_if_raw_isbn_number_isbn13
+    isbn = "9780470059029"
+    results = output_raw_number(isbn)
+    assert_equal("9780470059029", results)
+  end
+
+  def test_7_create_multipliers_array_isbn_10
+    isbn = "7421394761"
+    multipliers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    results = create_multipliers(isbn)
+    assert_equal(multipliers, results)
+  end
+
+  def test_8_create_multipliers_array_isbn_13
+    multipliers = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
+    isbn = "9780470059029"
+    results = create_multipliers(isbn)
+    assert_equal(multipliers, results)
+  end
+
+  def test_9_create_sum_isbn10_hyphen
+    isbn = "0-321-14653-0"
+    results = create_sum(isbn)
+    assert_equal(154, results)
+  end
+
+  def test_10_create_sum_isbn10_spaces
+    isbn = "877 1 95 869x"
+    results = create_sum(isbn)
+    assert_equal(307, results)
+  end
+
+  def test_11_create_sum_isbn10_raw
+    isbn = "0471958697"
+    results = create_sum(isbn)
+    assert_equal(293, results)
+  end
+
+  def test_12_create_sum_isbn13_hyphen
+    isbn = "978-0-13-149505-0"
+    results = create_sum(isbn)
+    assert_equal(100, results)
+  end
+
+  def test_13_create_sum_isbn13_spaces
+    isbn = "978 0 471 48648 0"
+    results = create_sum(isbn)
+    assert_equal(130, results)
+  end
+
+  def test_14_create_sum_isbn13_raw
+    isbn = "9780470059029"
+    results = create_sum(isbn)
+    assert_equal(101, results)
+  end
+
+  def test_15_create_checksum_isbn10_hyphen
+    isbn = "0-321-14653-0"
+    results = create_checksum(isbn)
+    assert_equal(0, results)
+  end
+
+  def test_16_create_checksum_isbn10_spaces
+    isbn = "877 1 95 869x"
+    results = create_checksum(isbn)
+    assert_equal(10, results)
+  end
+
+  def test_17_create_checksum_isbn10_raw
+    isbn = "0471958697"
+    results = create_checksum(isbn)
+    assert_equal(7, results)
+  end
+
+  def test_18_create_checksum_isbn13_hyphen
+    isbn = "978-0-13-149505-0"
+    results = create_checksum(isbn)
+    assert_equal(0, results)
+  end
+
+  def test_19_create_checksum_isbn13_spaces
+    isbn = "978 0 471 48648 0"
+    results = create_checksum(isbn)
+    assert_equal(0, results)
+  end
+
+  def test_20_create_checksum_isbn13_raw
+    isbn = "9780470059029"
+    results = create_checksum(isbn)
+    assert_equal(9, results)
+  end
+
+  def test_21_validate_checksum_isbn10_with_hyphens
+    isbn = "0-321-14653-0"
+    results = valid_checksum?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_22_validate_checksum_isbn10_with_spaces
+    isbn = "877 1 95 869x"
+    results = valid_checksum?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_23_validate_checksum_isbn10_raw
+    isbn = "7421394761"
+    results = valid_checksum?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_24_validate_checksum_isbn13_with_hyphens
+    isbn = "978-0-13-149505-0"
+    results = valid_checksum?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_25_validate_checksum_isbn13_with_spaces
+    isbn = "978 0 471 48648 0"
+    results = valid_checksum?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_26_validate_checksum_isbn13_raw
+    isbn = "9780470059029"
+    results = valid_checksum?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_27_return_true_if_no_misplaced_x
+    isbn = "877 1 95 869x"
+    results = is_x_bad?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_28_return_false_if_x_not_last
+    isbn = "877 1 95 86x9"
+    results = is_x_bad?(isbn)
+    assert_equal(false, results)
+  end
+
+  def test_29_return_true_if_all_characters_valid
+    isbn = "978-0-13-149505-0"
+    results = are_characters_valid?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_30_return_false_if_any_characters_invalid
+    isbn = "0-321@14653-0"
+    results = are_characters_valid?(isbn)
+    assert_equal(false, results)
+  end
+
+  def test_31_return_true_if_number_10_or_greater
+    isbn = "978-0-13-149505-0"
+    results = is_too_small?(isbn)
+    assert_equal(true, results)
+  end
+
+  def test_32_return_false_if_number_less_than_10
+    isbn = "-"
+    results = is_too_small?(isbn)
+    assert_equal(false, results)
+  end
+
+end
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+____________________________
+____________________________
+____________________________
+
+My Programs
+____________________________
+____________________________
+____________________________
+
+###############################################################################
+### Very basic hangman game inspired by TechHire interview with Mined Minds ###
+###############################################################################
+######################## Rewritten in Ruby (2017-02-07) #######################
+#############################  by John C. Verbosky ############################
+###############################################################################
+# Features:                                                                   #
+# - animations for winning and losing                                         #
+# - ability to start a new game or exit after win/loss                        #
+# - cumulative score                                                          #
+###############################################################################
+# 1-to-1 conversion - will refactor using TDD next, particularly method calls #
+###############################################################################
+
+# Load Win32API class if running on Windows - use with getkey()
+$use_stty = begin  # check the current terminal session
+  require 'Win32API'  # load the Win32API class for Windows systems
+  false  # if this succeeds, the system is Windows so return false
+rescue LoadError  # if this fails, the system is Unix
+  true  # so return true and use Unix commands
+end
+
+# array of mystery words
+$words = ["research", "persistence", "dedication", "curiosity", "troubleshoot", "energetic", "organization",
+          "communication", "development", "loyalty", "adaptable", "creativity", "improvement", "dependable",
+          "teamwork", "collaboration", "optimistic", "focused", "meticulous", "effective", "inspired"]
+
+$word = $words.sample  # select a random word from the words array
+$bucket = []  # array to hold all letters that have been entered to guess
+$build_word = []  # array to hold guessed letters that are found in mystery word
+$wrong_count = []  # array to hold guessed letters that are not found in mystery word
+$games_won = 0  # counter for games won
+$games_lost = 0  # counter for games lost
+
+# Method to clear the screen regardless of OS
+def clear_screen()
+  if $use_stty  # if system is Unix
+    system("clear")  # use the "clear" command to clear the screen
+  else  # otherwise system is Windows
+    system("cls")  # so use the "cls" command to clear the screen
+  end
+end
+
+# Method to make tweaking margins easier
+def margin(number)
+  number.times { puts "\n" }  # output a blank line "number" of times
+end
+
+# Method to display the cumulative score of games won and lost
+def score()
+  margin(1)
+  puts "  Score"
+  puts "  -----"
+  puts "  Won: #{$games_won}    Lost: #{$games_lost}"
+end
+
+# Method to display guessed letters
+def letters()
+  puts "  Word:     " + $build_word.join(" ")  # display the correctly guessed letters and placeholders
+  margin(1)
+  puts "  Letters:  " + $bucket.join(" ")  # display all of the guessed letters
+  margin(2)
+end
+
+# Method to start the game
+def start_game(word)
+  clear_screen()  # Clear the screen
+  $word.length.times { $build_word.push("_") }  # Populate the build_word list with an underscore for each letter in the mystery word
+  user_input()  #Run user_input() to display the main "UI"
+end
+
+# Method that acts as primary starting/return point for other methods
+def user_input()
+  score()  # display the cumulative score
+  hangman($wrong_count.length)  # display the current progressive hangman "image" based on wrong guesses
+  letters()  # display the correctly guessed letters and placeholders
+  print "  Please enter a letter: "  # prompt the user for a letter
+  letter = gets.chomp  # assign the letter to a variable
+  good_letter(letter)  # pass the user-specified letter to good_letter()
+end
+
+# Method that checks the user-specified letter for a few things
+def good_letter(letter)
+  clear_screen()  # Clear the screen
+  if $bucket.include? letter  # check to see if letter has already been guessed and reprompt if so
+    puts "  You already guessed that one - TRY AGAIN!"
+    user_input()
+  elsif letter[/[a-zA-Z]+/] and letter.length == 1  # check is a single -letter- has been entered
+    $bucket.push(letter)  # if so, add it to the bucket list
+    letter_test(letter)  # then pass it to letter_test()
+  else  # if multiple letters, non-alpha characters or nothing has been entered
+    puts "  Enter a single letter - TRY AGAIN!"  # reprompt user to try again
+    user_input()
+  end
+end
+
+# Method that checks to see if letter is in the mystery word
+def letter_test(letter)
+  if $word.include? letter  # If it is in the word, pass it to find_locations()
+    find_locations(letter)
+  else  # If it is not in the word, pass it to wrong_letter()
+    wrong_letter(letter)
+  end
+end
+
+# Method that finds all locations of a letter in the word
+def find_locations(letter)
+  locations = []  # array for the index (position) of all instances of the letter in the word
+  last_index = 0  # dual-purpose variable that holds the index (position) of the letter and the .index offset
+  occurrences = $word.count letter  # variable used to control do loop iteration count
+  occurrences.times do  # for every occurrence of the letter in the word
+    last_index = $word.index(letter, last_index)  # determine the position of the letter in the word
+    locations.push(last_index)  # push the position of the letter to the location array
+    last_index += 1  # increment last_index by 1 to target the next occurrence of the letter (via .index offset)
+  end
+  add_letter(letter, locations)  # pass the user-specified letter and array of locations to add_letter()
+end
+
+# Method to populate $build_word with every occurrence of a letter
+def add_letter(letter, locations)
+  locations.each do |location|  # for each occurrence of a letter
+    $build_word[location] = letter  # add the letter to the correct location in $build-word
+  end
+  word_test()  # then run word_test()
+end
+
+# Method to compare the current build_word array against the mystery word
+def word_test()
+  if $build_word.join == $word  # if $build_word equals $word, the user won
+    $games_won += 1  # so increase the games_won score by 1
+    winner(1)  # and start winner() on frame 1 (animation count 1)
+  else  # if they don't match, run user_input() for another letter
+    user_input()
+  end
+end
+
+# Method that receives non-mystery word letter and adds it to the wrong_count array
+def wrong_letter(letter)
+  if $wrong_count.length < 9  # if the wrong_count list has less than 9 letters
+    $wrong_count.push(letter)  # then add the letter to the list
+    user_input()  # run user_input() again
+  else  # if this is the tenth wrong letter, it's game over
+    $games_lost += 1  # so increase the games_lost score by 1
+    loser(5)  # and start loser() on frame 1 (animation count 5)
+  end
+end
+
+# Method to progressively draw the hangman stages as incorrect letters are guessed
+def hangman(count)
+  if count == 0
+    margin(12)
+  elsif count == 1
+    margin(8)
+    puts "   _________"
+    margin(3)
+  elsif count == 2
+    margin(2)
+    6.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 3
+    margin(1)
+    puts "        ______"
+    6.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 4
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    4.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 5
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    3.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 6
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |      |"
+    2.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 7
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|"
+    2.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 8
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|\\"
+    2.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  else
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|\\"
+    puts "       |     /"
+    puts "       |"
+    puts "   ____|____"
+    margin(3)
+  end
+end
+
+# Method to return the ASCII code last key pressed, or nil if none
+def getkey()
+  if $use_stty  # if system is Unix
+    system('stty raw -echo') # use raw mode, no echo
+    character = (STDIN.read_nonblock(1).ord rescue nil)
+    system('stty -raw echo') # reset terminal mode
+    return character
+  else  # otherwise use Win32API class methods for Windows system
+    return Win32API.new('crtdll', '_kbhit', [ ], 'I').Call.zero? ? nil : Win32API.new('crtdll', '_getch', [ ], 'L').Call
+  end
+end
+
+# Method to handle endgame items (animations, start a new game, exit game) - runs after each animation frame
+def game_over(ani_count)
+  key = getkey()  # variable for last key pressed
+  clear_screen()  # Clear the screen
+  if key != nil  # check to see if a key was pressed during winner/loser animation
+    if key != 27  # if the user presses any key except Esc (27)
+      $word = $words.sample  # select a new random word
+      $bucket = []  # clear all global arrays
+      $build_word = []
+      $wrong_count = []
+      start_game($word)  #  and start a new game
+    elsif key == 27  # if the user presses the Esc key (27)
+      puts "Exiting game..."  # and exit the game
+      margin(1)
+    end
+  elsif ani_count < 5  # if no keypress and animation count < 5
+    winner(ani_count)  # run winner() with the current animation count
+  else  # if no keypress and animation count >= 5
+    loser(ani_count)  # run loser() with the current animation count
+  end
+end
+
+# Method to print repetitive congratulations text in winner() animation
+def congratulations()
+  margin(2)
+  puts "       ---CONGRATULATIONS---"
+  margin(1)
+  puts "        YOU WON THE GAME!!!"
+  margin(2)
+end
+
+# Method to display winner() animation
+def winner(ani_count)
+  if ani_count == 1  # winner animation frame 1
+    score()
+    congratulations()
+    puts "   \\O/    \\O_  \\O/  _O/    \\O/ "
+    puts "    |    _/     |     \\_    |  "
+    puts "   / \\    |    / \\    |    / \\ "
+    margin(2)
+    letters()
+    puts " - Press any key to play again or Esc to quit -"
+    sleep(0.5)  # wait 1/2 second for smooth animation
+    game_over(2)  # run the game_over function to see if user has pressed a key
+  elsif ani_count == 2  # winner animation frame 2
+    score()
+    congratulations()
+    puts "    \\O_  \\O/  _O/    \\O/    \\O_ "
+    puts "   _/     |     \\_    |    _/   "
+    puts "    |    / \\    |    / \\    |   "
+    margin(2)
+    letters()
+    puts " \\ Press any key to play again or Esc to quit \\"
+    sleep(0.5)
+    game_over(3)
+  elsif ani_count == 3  # winner animation frame 3
+    score()
+    congratulations()
+    puts "   \\O/  _O/    \\O/    \\O_  \\O/ "
+    puts "    |     \\_    |    _/     |  "
+    puts "   / \\    |    / \\    |    / \\ "
+    margin(2)
+    letters()
+    puts " | Press any key to play again or Esc to quit |"
+    sleep(0.5)
+    game_over(4)
+  else  # winner animation frame 4
+    score()
+    congratulations()
+    puts "  _O/    \\O/    \\O_  \\O/  _O/  "
+    puts "    \\_    |    _/     |     \\_ "
+    puts "    |    / \\    |    / \\    |  "
+    margin(2)
+    letters()
+    puts " / Press any key to play again or Esc to quit /"
+    sleep(0.5)
+    game_over(1)
+  end
+end
+
+# Method to print repetitive game over text in loser() animation
+def sorry()
+  margin(1)
+  puts "  SORRY - GAME OVER!"
+  margin(1)
+end
+
+# Method to display loser() animation
+def loser(ani_count)
+  if ani_count == 5  #loser animation frame 1
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|\\"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " - Press any key to play again or Esc to quit -"
+    sleep(0.5)
+    game_over(6)  # run the game_over function to see if user has pressed a key
+  elsif ani_count == 6  #loser animation frame 2
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |     _O_"
+    puts "       |      |"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " \\ Press any key to play again or Esc to quit \\"
+    sleep(0.5)
+    game_over(7)
+  elsif ani_count == 7  #loser animation frame 3
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |     \\O/"
+    puts "       |      |"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " | Press any key to play again or Esc to quit |"
+    sleep(0.5)
+    game_over(8)
+  else  # loser animation frame 4
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |     _O_"
+    puts "       |      |"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " / Press any key to play again or Esc to quit /"
+    sleep(0.5)
+    game_over(5)
+  end
+end
+
+start_game($word)
+____________________________
+
+###############################################################################
+### Very basic hangman game inspired by TechHire interview with Mined Minds ###
+###############################################################################
+######################## Rewritten in Ruby (2017-02-07) #######################
+#############################  by John C. Verbosky ############################
+###############################################################################
+# Features:                                                                   #
+# - animations for winning and losing                                         #
+# - ability to start a new game or exit after win/loss                        #
+# - cumulative score                                                          #
+# - Windows x64-compatible version                                            #
+###############################################################################
+# 1-to-1 conversion - will refactor using TDD next, particularly method calls #
+###############################################################################
+
+# Required for get_key()
+require "io/wait"
+
+# array of mystery words
+$words = ["research", "persistence", "dedication", "curiosity", "troubleshoot", "energetic", "organization",
+          "communication", "development", "loyalty", "adaptable", "creativity", "improvement", "dependable",
+          "teamwork", "collaboration", "optimistic", "focused", "meticulous", "effective", "inspired"]
+
+$word = $words.sample  # select a random word from the words array
+$bucket = []  # array to hold all letters that have been entered to guess
+$build_word = []  # array to hold guessed letters that are found in mystery word
+$wrong_count = []  # array to hold guessed letters that are not found in mystery word
+$games_won = 0  # counter for games won
+$games_lost = 0  # counter for games lost
+
+# Method to clear the screen regardless of OS
+def clear_screen()
+  if RUBY_PLATFORM =~ /cygwin|mswin|mingw|bccwin|wince|emx/  # see if system is Win
+    system("cls")  # so use the "cls" command to clear the screen
+  else  # otherwise system is Mac/Linux
+    system("clear")  # use the "clear" command to clear the screen
+  end
+end
+
+# Method to make tweaking margins easier
+def margin(number)
+  number.times { puts "\n" }  # output a blank line "number" of times
+end
+
+# Method to display the cumulative score of games won and lost
+def score()
+  margin(1)
+  puts "  Score"
+  puts "  -----"
+  puts "  Won: #{$games_won}    Lost: #{$games_lost}"
+end
+
+# Method to display guessed letters
+def letters()
+  puts "  Word:     " + $build_word.join(" ")  # display the correctly guessed letters and placeholders
+  margin(1)
+  puts "  Letters:  " + $bucket.join(" ")  # display all of the guessed letters
+  margin(2)
+end
+
+# Method to start the game
+def start_game(word)
+  clear_screen()  # Clear the screen
+  $word.length.times { $build_word.push("_") }  # Populate the build_word list with an underscore for each letter in the mystery word
+  user_input()  #Run user_input() to display the main "UI"
+end
+
+# Method that acts as primary starting/return point for other methods
+def user_input()
+  score()  # display the cumulative score
+  hangman($wrong_count.length)  # display the current progressive hangman "image" based on wrong guesses
+  letters()  # display the correctly guessed letters and placeholders
+  print "  Please enter a letter: "  # prompt the user for a letter
+  letter = gets.chomp  # assign the letter to a variable
+  good_letter(letter)  # pass the user-specified letter to good_letter()
+end
+
+# Method that checks the user-specified letter for a few things
+def good_letter(letter)
+  clear_screen()  # Clear the screen
+  if $bucket.include? letter  # check to see if letter has already been guessed and reprompt if so
+    puts "  You already guessed that one - TRY AGAIN!"
+    user_input()
+  elsif letter[/[a-zA-Z]+/] and letter.length == 1  # check is a single -letter- has been entered
+    $bucket.push(letter)  # if so, add it to the bucket list
+    letter_test(letter)  # then pass it to letter_test()
+  else  # if multiple letters, non-alpha characters or nothing has been entered
+    puts "  Enter a single letter - TRY AGAIN!"  # reprompt user to try again
+    user_input()
+  end
+end
+
+# Method that checks to see if letter is in the mystery word
+def letter_test(letter)
+  if $word.include? letter  # If it is in the word, pass it to find_locations()
+    find_locations(letter)
+  else  # If it is not in the word, pass it to wrong_letter()
+    wrong_letter(letter)
+  end
+end
+
+# Method that finds all locations of a letter in the word
+def find_locations(letter)
+  locations = []  # array for the index (position) of all instances of the letter in the word
+  last_index = 0  # dual-purpose variable that holds the index (position) of the letter and the .index offset
+  occurrences = $word.count letter  # variable used to control do loop iteration count
+  occurrences.times do  # for every occurrence of the letter in the word
+    last_index = $word.index(letter, last_index)  # determine the position of the letter in the word
+    locations.push(last_index)  # push the position of the letter to the location array
+    last_index += 1  # increment last_index by 1 to target the next occurrence of the letter (via .index offset)
+  end
+  add_letter(letter, locations)  # pass the user-specified letter and array of locations to add_letter()
+end
+
+# Method to populate $build_word with every occurrence of a letter
+def add_letter(letter, locations)
+  locations.each do |location|  # for each occurrence of a letter
+    $build_word[location] = letter  # add the letter to the correct location in $build-word
+  end
+  word_test()  # then run word_test()
+end
+
+# Method to compare the current build_word array against the mystery word
+def word_test()
+  if $build_word.join == $word  # if $build_word equals $word, the user won
+    $games_won += 1  # so increase the games_won score by 1
+    winner(1)  # and start winner() on frame 1 (animation count 1)
+  else  # if they don't match, run user_input() for another letter
+    user_input()
+  end
+end
+
+# Method that receives non-mystery word letter and adds it to the wrong_count array
+def wrong_letter(letter)
+  if $wrong_count.length < 9  # if the wrong_count list has less than 9 letters
+    $wrong_count.push(letter)  # then add the letter to the list
+    user_input()  # run user_input() again
+  else  # if this is the tenth wrong letter, it's game over
+    $games_lost += 1  # so increase the games_lost score by 1
+    loser(5)  # and start loser() on frame 1 (animation count 5)
+  end
+end
+
+# Method to progressively draw the hangman stages as incorrect letters are guessed
+def hangman(count)
+  if count == 0
+    margin(12)
+  elsif count == 1
+    margin(8)
+    puts "   _________"
+    margin(3)
+  elsif count == 2
+    margin(2)
+    6.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 3
+    margin(1)
+    puts "        ______"
+    6.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 4
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    4.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 5
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    3.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 6
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |      |"
+    2.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 7
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|"
+    2.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  elsif count == 8
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|\\"
+    2.times { puts "       |" }
+    puts "   ____|____"
+    margin(3)
+  else
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|\\"
+    puts "       |     /"
+    puts "       |"
+    puts "   ____|____"
+    margin(3)
+  end
+end
+
+# Method to get the current keypress
+def get_key()
+  begin
+    system("stty raw -echo") # turn raw input on
+    c = nil
+    if $stdin.ready?
+      c = $stdin.getc
+    end
+    c.chr if c
+  ensure
+    system "stty -raw echo" # turn raw input off
+  end
+end
+
+# Method to handle endgame items (animations, start a new game, exit game) - runs after each animation frame
+def game_over(ani_count)
+  key = get_key()  # variable for last key pressed
+  clear_screen()  # Clear the screen
+  if key != nil  # check to see if a key was pressed during winner/loser animation
+    if key == "\n"  # if the user presses the Enter key
+      $word = $words.sample  # select a new random word
+      $bucket = []  # clear all global arrays
+      $build_word = []
+      $wrong_count = []
+      start_game($word)  #  and start a new game
+    elsif key != "\n"  # if the user presses any key other than Enter
+      puts "Exiting game..."  # and exit the game
+      margin(1)
+    end
+  elsif ani_count < 5  # if no keypress and animation count < 5
+    winner(ani_count)  # run winner() with the current animation count
+  else  # if no keypress and animation count >= 5
+    loser(ani_count)  # run loser() with the current animation count
+  end
+end
+
+# Method to print repetitive congratulations text in winner() animation
+def congratulations()
+  margin(2)
+  puts "       ---CONGRATULATIONS---"
+  margin(1)
+  puts "        YOU WON THE GAME!!!"
+  margin(2)
+end
+
+# Method to display winner() animation
+def winner(ani_count)
+  if ani_count == 1  # winner animation frame 1
+    score()
+    congratulations()
+    puts "   \\O/    \\O_  \\O/  _O/    \\O/ "
+    puts "    |    _/     |     \\_    |  "
+    puts "   / \\    |    / \\    |    / \\ "
+    margin(2)
+    letters()
+    puts " - Press Enter to play again or a letter + Enter to quit -"
+    sleep(0.5)  # wait 1/2 second for smooth animation
+    game_over(2)  # run the game_over function to see if user has pressed a key
+  elsif ani_count == 2  # winner animation frame 2
+    score()
+    congratulations()
+    puts "    \\O_  \\O/  _O/    \\O/    \\O_ "
+    puts "   _/     |     \\_    |    _/   "
+    puts "    |    / \\    |    / \\    |   "
+    margin(2)
+    letters()
+    puts " \\ Press Enter to play again or a letter + Enter to quit \\"
+    sleep(0.5)
+    game_over(3)
+  elsif ani_count == 3  # winner animation frame 3
+    score()
+    congratulations()
+    puts "   \\O/  _O/    \\O/    \\O_  \\O/ "
+    puts "    |     \\_    |    _/     |  "
+    puts "   / \\    |    / \\    |    / \\ "
+    margin(2)
+    letters()
+    puts " | Press Enter to play again or a letter + Enter to quit |"
+    sleep(0.5)
+    game_over(4)
+  else  # winner animation frame 4
+    score()
+    congratulations()
+    puts "  _O/    \\O/    \\O_  \\O/  _O/  "
+    puts "    \\_    |    _/     |     \\_ "
+    puts "    |    / \\    |    / \\    |  "
+    margin(2)
+    letters()
+    puts " / Press Enter to play again or a letter + Enter to quit /"
+    sleep(0.5)
+    game_over(1)
+  end
+end
+
+# Method to print repetitive game over text in loser() animation
+def sorry()
+  margin(1)
+  puts "  SORRY - GAME OVER!"
+  margin(1)
+end
+
+# Method to display loser() animation
+def loser(ani_count)
+  if ani_count == 5  #loser animation frame 1
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |      O"
+    puts "       |     /|\\"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " - Press Enter to play again or a letter + Enter to quit -"
+    sleep(0.5)
+    game_over(6)  # run the game_over function to see if user has pressed a key
+  elsif ani_count == 6  #loser animation frame 2
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |     _O_"
+    puts "       |      |"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " \\ Press Enter to play again or a letter + Enter to quit \\"
+    sleep(0.5)
+    game_over(7)
+  elsif ani_count == 7  #loser animation frame 3
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |     \\O/"
+    puts "       |      |"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " | Press Enter to play again or a letter + Enter to quit |"
+    sleep(0.5)
+    game_over(8)
+  else  # loser animation frame 4
+    score()
+    margin(1)
+    puts "        ______"
+    2.times { puts "       |      |" }
+    puts "       |     _O_"
+    puts "       |      |"
+    puts "       |     / \\"
+    puts "       |"
+    puts "   ____|____"
+    sorry()
+    letters()
+    puts " / Press Enter to play again or a letter + Enter to quit /"
+    sleep(0.5)
+    game_over(5)
+  end
+end
+
+start_game($word)
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
 
 
 
@@ -6439,6 +9147,145 @@ Current character: i
 Current character: n
 Current character: g
 ["s", "o", "m", "e", "t", "h", "i", "n", "g"]
+____________________________
+
+string = "7421394761"
+
+split_string = string.split("")
+
+# & in .map allows specified action to run on each item in array
+map_shorthand_1 = split_string.map(&:to_i)
+map_shorthand_2 = split_string.map(&:size)
+
+# .inject allows operations to be taken on every array member
+injection_1 = map_shorthand_1.inject(:+)
+
+# the first argument (if specified) is the beginning value
+injection_2 = map_shorthand_1.inject(0,:+)
+injection_3 = map_shorthand_1.inject(11,:+)
+
+p split_string  # ["7", "4", "2", "1", "3", "9", "4", "7", "6", "1"]
+
+p map_shorthand_1  # [7, 4, 2, 1, 3, 9, 4, 7, 6, 1]
+p map_shorthand_2  # [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+p injection_1  # 44
+p injection_2  # 44
+p injection_3  # 55
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
 ____________________________
 
 

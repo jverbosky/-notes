@@ -145,6 +145,40 @@ ticket: 52
 loser: 4
 ___________________________________________________________
 
+# Commands for installing gems
+# - minitest for testing
+# - sinatra for using the Sinatra framework
+# - must have Ruby installed, then run from Powershell/terminal
+
+gem install minitest  # minitest-5.10.1.gem
+gem install sinatra  # rack-1.6.5.gem, tilt-2.0.6.gem, rack-protection-1.5.3.gem & sinatra-1.4.8.gem
+
+# Other useful gem commands
+
+gem list --local  # should list minitest (5.10.1), may also list 4.3.2
+gem cleanup  # should remove minitest 4.3.2
+             # doesn't do anything on Mac, but minitest still works
+gem list --local  # should now only list minitest (5.10.1), unless Mac
+___________________________________________________________
+
+# Setting up ri for accessing Ruby documentation from terminal
+
+gem install rdoc-data
+rdoc-data --install
+
+# For Windows, two items need configured:
+# 1) Make sure that the Ruby binary directory (C:\Ruby23\bin) is in the PATH environment variable
+# 2) Since PowerShell has a built-in "ri" command, need to rename ri.cmd (ex: rb-ri.cmd)
+#
+# From there, can lookup Ruby commands like this:
+# - Windows:  rb-ri Array.map
+# - Mac/Linux:   ri Array.map
+#
+# For long output (such as "ri String"):
+# - Windows: use the scrollbar to move through documentation
+# - Mac/Linux: use the Page Up/Down and arrow keys to move through documentation, "q" to exit ri
+___________________________________________________________
+
 # Basic template for code tests
 #
 # Write code to test and make sure your code does what you say it does
