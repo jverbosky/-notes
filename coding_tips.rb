@@ -161,6 +161,17 @@ gem cleanup  # should remove minitest 4.3.2
 gem list --local  # should now only list minitest (5.10.1), unless Mac
 ___________________________________________________________
 
+# Sinatra::Reloader
+# Use to avoid restarting the sinatra server after every app.rb change
+
+gem install sinatra-contrib  # backports-3.6.8.gem, rack-test-0.6.3.gem, multi_json-1.12.1.gem, sinatra-contrib-1.4.7.gem
+
+# Then in app.rb
+
+require 'sinatra'
+require 'sinatra/reloader' if development?
+___________________________________________________________
+
 # Setting up ri for accessing Ruby documentation from terminal
 
 gem install rdoc-data
@@ -391,9 +402,115 @@ Bucket value: 10
 Bucket array value: [1, 2, 3, 4]
 ___________________________________________________________
 
+Heroku
 
+1) Sign up for Heroku
+https://www.heroku.com/
 
+2) Install Heroku Toolbelt
+https://devcenter.heroku.com/articles/heroku-cli
+- Note: default install includes Git, which can probably be de-selected at this point
 
+3) Verify Heroku Toolbelt is installed via:
+      heroku --version
+
+4) From terminal, navigate to the root directory of the app and type:
+      heroku create name-of-app
+
+5) From terminal, run this command to install bundler:
+      gem install bundler  # bundler-1.14.3.gem
+
+6) Create a file named "Gemfile" in the root directory of the app and put this in it:
+      source :rubygems
+      gem "sinatra"
+      ruby '2.3.3'
+
+7) From terminal, run this command to create the .bundle and Gemfile.lock files:
+      bundle install --without production
+
+8) Create a file named ".gitignore" in the root directory of the app and put this in it:
+      .bundle/
+
+   Note:  For Windows you may need to create the file as gitignore.txt first.
+   Then from PowerShell, navigate to the directory and run this command to rename the file:
+      mv gitignore.txt .gitignore
+
+9) Create a file named "config.ru" in the root directory of the app and put this in it:
+      require './main'
+      run Sinatra::Application
+
+10) Push to your Git repository (git add . / git status / git commit -m "..." / git push origin master)
+
+11) From terminal, run this command to push to Heroku:
+      git push heroku master
+
+    Note:  For Windows you may see warnings about Gemfile.lock being removed and no Profile detected.
+    This should be fine and should not prevent your app from running via Heroku.
+
+12) At the end of the messages, you should see the address for your app that you can use to run it.
+
+For reference, here is xxample output from a successful push to Heroku:
+
+PS F:\Documents\Dropbox\MinedMinds\isbn> git push heroku master
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 2.91 KiB | 0 bytes/s, done.
+Total 8 (delta 3), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Ruby app detected
+remote: -----> Compiling Ruby/Rack
+remote: -----> Using Ruby version: ruby-2.3.3
+remote: ###### WARNING:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: -----> Installing dependencies using bundler 1.13.7
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4
+remote:        Fetching gem metadata from http://rubygems.org/..........
+remote:        Fetching version metadata from http://rubygems.org/.
+remote:        Resolving dependencies...
+remote:        Using rack 1.6.5
+remote:        Using tilt 2.0.6
+remote:        Using bundler 1.13.7
+remote:        Using rack-protection 1.5.3
+remote:        Using sinatra 1.4.8
+remote:        Bundle complete! 1 Gemfile dependency, 5 gems now installed.
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into ./vendor/bundle.
+remote:        Bundle completed (1.87s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Detecting rake tasks
+remote:
+remote: ###### WARNING:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: ###### WARNING:
+remote:        No Procfile detected, using the default web server.
+remote:        We recommend explicitly declaring how to boot your server process via a Procfile.
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server
+remote:
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> console, rake, web
+remote:
+remote: -----> Compressing...
+remote:        Done: 18.5M
+remote: -----> Launching...
+remote:        Released v6
+remote:        https://isbn-validator-jverbosky.herokuapp.com/ deployed to Heroku
+remote:
+
+Note:  I had to hit CTRL+C at the end to get back to a command prompt.
 ___________________________________________________________
 
 
