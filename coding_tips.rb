@@ -436,7 +436,7 @@ https://devcenter.heroku.com/articles/heroku-cli
       mv gitignore.txt .gitignore
 
 9) Create a file named "config.ru" in the root directory of the app and put this in it:
-      require './main'
+      require './app'
       run Sinatra::Application
 
 10) Push to your Git repository (git add . / git status / git commit -m "..." / git push origin master)
@@ -448,15 +448,175 @@ https://devcenter.heroku.com/articles/heroku-cli
     This should be fine and should not prevent your app from running via Heroku.
 
 12) At the end of the messages, you should see the address for your app that you can use to run it.
+___________________________________________________________
 
-For reference, here is xxample output from a successful push to Heroku:
+Heroku error - no default language
 
-PS F:\Documents\Dropbox\MinedMinds\isbn> git push heroku master
-Counting objects: 8, done.
+Note - on pushing my hangman game, I ran into a "no default language could be detected for this app" error.
+
+I did the following, but am not 100% sure about what got it working:
+
+1) Ran "git init" to re-initialize the .git subdirectory.
+
+2) Re-associated my remote with these commands:
+      heroku git:remote -a herokuAppName
+      git push heroku master
+
+3) Ran the following command to specify a buildpack:
+      heroku buildpacks:set heroku/ruby
+
+When I continued getting the error when running "git push heroku master",
+I logged into the Heroku site and reviewed the listing for my hangman app.
+It already had ruby specified as the buildpack, so I did the following:
+
+1) Logged into heroku from terminal:
+      heroku login
+
+2) Re-pushed to GitHub:
+      git add .
+      git status
+      git commit -m "pushing heroku files"
+      git push origin master
+
+3)  Re-pushed to Heroku:
+      git push heroku master
+
+And it worked after doing that.  The issue may have been due to not having the heroku-specific
+files pushed to GitHub or possibly not being logged into Heroku in terminal, but just guessing.
+___________________________________________________________
+
+For reference, here is example output from a successful initial push to GitHub followed by a push to Heroku:
+
+PS F:\Documents\Dropbox\MinedMinds\hangman> heroku login
+Enter your Heroku credentials.
+Email: jverbosk@gmail.com
+Password (typing will be hidden):
+Logged in as jverbosk@gmail.com
+PS F:\Documents\Dropbox\MinedMinds\hangman> git add .
+warning: LF will be replaced by CRLF in Gemfile.lock.
+The file will have its original line endings in your working directory.
+PS F:\Documents\Dropbox\MinedMinds\hangman> git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   .gitignore
+        new file:   Gemfile
+        new file:   Gemfile.lock
+        new file:   config.ru
+
+PS F:\Documents\Dropbox\MinedMinds\hangman> git commit -m "added files necessary for Heroku"
+[master 45fa016] added files necessary for Heroku
+ 4 files changed, 29 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Gemfile
+ create mode 100644 Gemfile.lock
+ create mode 100644 config.ru
+PS F:\Documents\Dropbox\MinedMinds\hangman> git push origin master
+Counting objects: 6, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (8/8), 2.91 KiB | 0 bytes/s, done.
-Total 8 (delta 3), reused 0 (delta 0)
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 906 bytes | 0 bytes/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/jverbosky/hangman.git
+   3ab9e93..45fa016  master -> master
+PS F:\Documents\Dropbox\MinedMinds\hangman> git push heroku master
+Counting objects: 288, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (278/278), done.
+Writing objects: 100% (288/288), 982.23 KiB | 626.00 KiB/s, done.
+Total 288 (delta 97), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Ruby app detected
+remote: -----> Compiling Ruby/Rack
+remote: -----> Using Ruby version: ruby-2.3.3
+remote: ###### WARNING:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: -----> Installing dependencies using bundler 1.13.7
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4
+remote:        Fetching gem metadata from http://rubygems.org/..........
+remote:        Fetching version metadata from http://rubygems.org/.
+remote:        Resolving dependencies...
+remote:        Using bundler 1.13.7
+remote:        Installing tilt 2.0.6
+remote:        Installing rack 1.6.5
+remote:        Installing rack-protection 1.5.3
+remote:        Installing sinatra 1.4.8
+remote:        Bundle complete! 1 Gemfile dependency, 5 gems now installed.
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into ./vendor/bundle.
+remote:        Bundle completed (2.02s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Detecting rake tasks
+remote:
+remote: ###### WARNING:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: ###### WARNING:
+remote:        No Procfile detected, using the default web server.
+remote:        We recommend explicitly declaring how to boot your server process via a Procfile.
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server
+remote:
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> console, rake, web
+remote:
+remote: -----> Compressing...
+remote:        Done: 18.9M
+remote: -----> Launching...
+remote:        Released v4
+remote:        https://hangman-jverbosky.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/hangman-jverbosky.git
+ * [new branch]      master -> master
+PS F:\Documents\Dropbox\MinedMinds\hangman>
+___________________________________________________________
+
+For reference, here is example output from a successful update push to GitHub followed by a push to Heroku:
+
+PS F:\Documents\Dropbox\MinedMinds\isbn> git add .
+warning: LF will be replaced by CRLF in app.rb.
+The file will have its original line endings in your working directory.
+PS F:\Documents\Dropbox\MinedMinds\isbn> git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   app.rb
+        modified:   views/layout.erb
+
+PS F:\Documents\Dropbox\MinedMinds\isbn> git commit -m "tweaked comments and page text"
+[master 6047d60] tweaked comments and page text
+ 2 files changed, 8 insertions(+), 7 deletions(-)
+PS F:\Documents\Dropbox\MinedMinds\isbn> git push origin master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 615 bytes | 0 bytes/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/jverbosky/isbn.git
+   8b3bb82..6047d60  master -> master
+PS F:\Documents\Dropbox\MinedMinds\isbn> git push heroku master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 615 bytes | 0 bytes/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
 remote: Compressing source files... done.
 remote: Building source:
 remote:
@@ -483,7 +643,7 @@ remote:        Using sinatra 1.4.8
 remote:        Bundle complete! 1 Gemfile dependency, 5 gems now installed.
 remote:        Gems in the groups development and test were not installed.
 remote:        Bundled gems are installed into ./vendor/bundle.
-remote:        Bundle completed (1.87s)
+remote:        Bundle completed (1.61s)
 remote:        Cleaning up the bundler cache.
 remote: -----> Detecting rake tasks
 remote:
@@ -506,11 +666,13 @@ remote:
 remote: -----> Compressing...
 remote:        Done: 18.5M
 remote: -----> Launching...
-remote:        Released v6
+remote:        Released v8
 remote:        https://isbn-validator-jverbosky.herokuapp.com/ deployed to Heroku
 remote:
-
-Note:  I had to hit CTRL+C at the end to get back to a command prompt.
+remote: Verifying deploy... done.
+To https://git.heroku.com/isbn-validator-jverbosky.git
+   8b3bb82..6047d60  master -> master
+PS F:\Documents\Dropbox\MinedMinds\isbn>
 ___________________________________________________________
 
 
