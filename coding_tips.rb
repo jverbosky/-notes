@@ -402,7 +402,7 @@ Bucket value: 10
 Bucket array value: [1, 2, 3, 4]
 ___________________________________________________________
 
-Heroku
+# Heroku
 
 1) Sign up for Heroku
 https://www.heroku.com/
@@ -450,7 +450,7 @@ https://devcenter.heroku.com/articles/heroku-cli
 12) At the end of the messages, you should see the address for your app that you can use to run it.
 ___________________________________________________________
 
-Heroku error - no default language
+# Heroku error - no default language
 
 Note - on pushing my hangman game, I ran into a "no default language could be detected for this app" error.
 
@@ -485,7 +485,7 @@ And it worked after doing that.  The issue may have been due to not having the h
 files pushed to GitHub or possibly not being logged into Heroku in terminal, but just guessing.
 ___________________________________________________________
 
-For reference, here is example output from a successful initial push to GitHub followed by a push to Heroku:
+# For reference, here is example output from a successful initial push to GitHub followed by a push to Heroku:
 
 PS F:\Documents\Dropbox\MinedMinds\hangman> heroku login
 Enter your Heroku credentials.
@@ -585,7 +585,7 @@ To https://git.heroku.com/hangman-jverbosky.git
 PS F:\Documents\Dropbox\MinedMinds\hangman>
 ___________________________________________________________
 
-For reference, here is example output from a successful update push to GitHub followed by a push to Heroku:
+# For reference, here is example output from a successful update push to GitHub followed by a push to Heroku:
 
 PS F:\Documents\Dropbox\MinedMinds\isbn> git add .
 warning: LF will be replaced by CRLF in app.rb.
@@ -676,10 +676,79 @@ PS F:\Documents\Dropbox\MinedMinds\isbn>
 ___________________________________________________________
 
 # To access Sinatra app from other computers on the network, run the app with "-o 0.0.0.0"
-# In testing, didn't need to create exceptions in computer's firewall
-# - need to reboot computer and retest to verify
+# In testing, didn't need to create exceptions in computer's firewall for access to work
 
 ruby app.rb -o 0.0.0.0
+___________________________________________________________
+
+# Example <head> section for scaling view on mobile, loading Bootstrap and a custom style sheet, and loading a favicon
+
+  <head>
+    <title>Hangman</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">  <!-- added to get scaled view on mobile -->
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/images/favicon.ico?" type="image/x-icon">  <!-- added to get favicon to load -->
+  </head>
+
+' tweak for text editor formatting
+___________________________________________________________
+
+# Use $nbsp; to force spaces to appear in HTML
+
+Won: <%= @won %>&nbsp;&nbsp;&nbsp;&nbsp;Lost: <%= @lost %><br>
+___________________________________________________________
+
+# Use target="_blank" to open a new tab/page when clicking on a link
+
+<p><a href="https://www.target_page.com" target="_blank">Your Text Here</a></p>
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
+
+
+___________________________________________________________
+
+
+
 
 
 ___________________________________________________________
