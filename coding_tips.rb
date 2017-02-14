@@ -675,7 +675,11 @@ To https://git.heroku.com/isbn-validator-jverbosky.git
 PS F:\Documents\Dropbox\MinedMinds\isbn>
 ___________________________________________________________
 
+# To access Sinatra app from other computers on the network, run the app with "-o 0.0.0.0"
+# In testing, didn't need to create exceptions in computer's firewall
+# - need to reboot computer and retest to verify
 
+ruby app.rb -o 0.0.0.0
 
 
 ___________________________________________________________
