@@ -1,0 +1,38 @@
+# Coin changer kata
+
+# Write a function that takes a number of cents, and that returns a hash
+# containing the least number of coins needed to generate the value of cents.
+
+# eg. If you have 11 cents you should return
+#   {:dime => 1, :penny => 1};
+# eg. If you have 31 cents you should return
+#  {:quarter => 1, :nickel => 1, :penny => 1};
+# eg. If you have 93 cents {:quarter => 3, :dime => 1, nickel => 1, :penny => 3}
+
+# Start a new repo
+# Build up your coin_changer using tests
+
+# Just use Sinatra to input a number
+# Then return the hash with how many coins you need
+
+
+# 1) Write test first - commit to git after every test
+# 2) Write function, verify test(s) passing - commit to git
+# 3) Once function done, setup in Sinatra
+
+#---------------------------------------------------
+
+#use sinatra to allow user to input a number
+#use hash to handle conversion:
+
+money = {
+	quarters: 25,
+	dimes: 10,
+	nickels: 5,
+	pennies: 1
+}
+
+# input a number (more than a dollar is fine)
+# - ex: 38.67
+# return a hash of how many bills/coins for each:
+# - one $20, one $10, one $5, three $1, two quarters, one dime, one nick, two pennies
