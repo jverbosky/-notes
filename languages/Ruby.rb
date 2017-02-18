@@ -5424,6 +5424,225 @@ ____________________________
 
 
 ____________________________
+____________________________
+____________________________
+
+codewars
+____________________________
+____________________________
+____________________________
+
+# Reverse an integer
+
+number = 12345
+reversed = 0
+
+while number > 0
+  reversed *= 10  # This increments the position (0 > 50 > 540 > 5430 > 54320)
+  # puts "Reversed multiplied by 10: #{reversed}"
+  reversed += (number%10)  # number%10 gives the last digit (5 > 4 > 3 > 2 > 1)
+  # puts "Now reversed is #{reversed}"
+  number /= 10  # Due to integer division, this drops the last digit (1234 > 123 > 12 > 1 > 0)
+  # puts "Now number is #{number}"
+end
+
+print reversed
+
+# Console output:
+# Reversed multiplied by 10: 0
+# Now reversed is 5
+# Now number is 1234
+# Reversed multiplied by 10: 50
+# Now reversed is 54
+# Now number is 123
+# Reversed multiplied by 10: 540
+# Now reversed is 543
+# Now number is 12
+# Reversed multiplied by 10: 5430
+# Now reversed is 5432
+# Now number is 1
+# Reversed multiplied by 10: 54320
+# Now reversed is 54321
+# Now number is 0
+# 54321
+____________________________
+
+# Create a function that will return all digits in a non-negative integer in descending order
+
+def descending_order(n)
+  num_array = n.to_s.split("")
+  num_array.sort! { |x, y| y <=> x }
+  n = num_array.join("").to_i
+end
+
+# Best practice solution:
+
+def descending_order(n)
+  n.to_s.chars.sort.reverse.join.to_i
+end
+
+# .chars converts a string to an array
+____________________________
+
+# Create a function to return the middle character (or two if the letter count is even)
+
+def middle(word)
+  half = word.length/2
+  if word.length % 2 == 1
+    middle = word[half]
+  else
+    middle = word[half - 1] + word[half]
+  end
+end
+
+# Refactored
+def middle(word)
+  half = word.length/2
+  word.length % 2 == 1 ? middle = word[half] : middle = word[half - 1] + word[half]
+end
+
+p middle("dragon")
+p middle("dragons")
+
+# Best practice solution
+
+def get_middle(s)
+  s[(s.size-1)/2..s.size/2]  # uses indexing to return middle index number(s)
+end
+____________________________
+
+# Function to return the sum of all numbers between two number
+
+def get_sum(a,b)
+  x = 0
+  y = 0
+  a < b ? range = (a..b).to_a : range = (b..a).to_a
+  range.each { |x| y += x }
+  return y
+end
+
+puts get_sum(1, 2)  # 3
+puts get_sum(3, -5)  # -9
+puts get_sum(-3, 5)  # 9
+
+# Best practice solution
+
+def get_sum(a,b)
+  return a < b ? (a..b).reduce(:+) : (b..a).reduce(:+)
+end
+
+# .reduce(:+) adds all of the elements in an array, can use other operators as well
+# https://ruby-doc.org/core-2.1.0/Enumerable.html#method-i-reduce
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
+
+
+
+
+____________________________
+
 
 
 
