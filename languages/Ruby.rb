@@ -5467,6 +5467,7 @@ print reversed
 # 54321
 ____________________________
 
+# Descending Order
 # Create a function that will return all digits in a non-negative integer in descending order
 
 def descending_order(n)
@@ -5484,6 +5485,7 @@ end
 # .chars converts a string to an array
 ____________________________
 
+# Get the Middle Character
 # Create a function to return the middle character (or two if the letter count is even)
 
 def middle(word)
@@ -5511,6 +5513,7 @@ def get_middle(s)
 end
 ____________________________
 
+# Beginner Series #3 Sum of Numbers
 # Function to return the sum of all numbers between two number
 
 def get_sum(a,b)
@@ -7776,16 +7779,71 @@ class TestIsbnCheck < Minitest::Test
 end
 ____________________________
 
+# Coin Changer
 
+# Original make_change method
+def make_change(amount)
+  coins = { quarter: 25, dime: 10, nickel: 5, penny: 1 }  # using alternate hash syntax for brevity/clarity
+  coin_count = {}  # initialize the coin_count hash
+  coins.each do |type, value|  # loop through the coins hash (quarter > penny)
+    if amount >= value  # if the amount of change is greater than the value of the current coin
+      coin_count[type] = 0  # then add that type of coin to the coin_count hash (need this for while loop)
+    end
+    while amount >= value  # next, if the amount of change is greater than the value of the current coin
+      amount = amount - value  # subtract the current coin's value from the amount of change (i.e. 31 - 25)
+      coin_count[type] += 1  # then increment that coin's count in the coin_count hash
+    end  # repeat this loop until the amout of change is less than the value of the current coin
+  end  # then evaluate the next coin, continuing until all coins have been evaluated (and amount has been reduced to 0)
+  return coin_count  # return the coin_count hash, which will be a { coin_type: count } key-value pair
+end
 
+# Refactored make_change method
+def make_change(amount)
+  coins = { quarter: 25, dime: 10, nickel: 5, penny: 1 }
+  coin_count = {}
+  coins.each do |type, value|
+    coin_count[type] = 0 if amount >= value
+    (amount -= value; coin_count[type] += 1) while amount >= value
+  end
+  return coin_count
+end
 
-
+# Sandbox testing
+# p make_change(8)  # {:nickel=>1, :penny=>3}
+# p make_change(11)  # {:dime=>1, :penny=>1}
+# p make_change(19)  # {:dime=>1, :nickel=>1, :penny=>4}
+# p make_change(27)  # {:quarter=>1, :penny=>2}
+# p make_change(31)  # {:quarter=>1, :nickel=>1, :penny=>1}
+# p make_change(48)  # {:quarter=>1, :dime=>2, :penny=>3}
+# p make_change(93)  # {:quarter=>3, :dime=>1, :nickel=>1, :penny=>3}
 ____________________________
 
+# Coin Changer Tests
 
+require "minitest/autorun"
+require_relative "coin_changer.rb"
 
+class TestCoinChanger < Minitest::Test
 
+  def test_1_output_for_11_cents
+    amount = 11
+    results = make_change(amount)
+    assert_equal({:dime => 1, :penny => 1}, results)
+  end
 
+  def test_2_output_for_31_cents
+    amount = 31
+    results = make_change(amount)
+    assert_equal({:quarter => 1, :nickel => 1, :penny => 1}, results)
+  end
+
+  def test_3_output_for_11_cents
+    amount = 93
+    results = make_change(amount)
+    assert_equal({:quarter => 3, :dime => 1, :nickel => 1, :penny => 3}, results)
+  end
+
+end
 ____________________________
 
 

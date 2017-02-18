@@ -1,0 +1,3 @@
+Hey everyone remember finish the app for your favorite numbers using the hidden with an input and pass the data as needed afterwards rewrite the code then using sessions and working with them and if you get both of those you can then try to rewrite it using redirects. All 3 ways of passing data around is important to know and understand.
+
+- For examples, refer to /minedminds_kata/in_class/name_and_location
