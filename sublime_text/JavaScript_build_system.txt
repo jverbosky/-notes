@@ -16,7 +16,7 @@ __________________________________
 2) In Sublime Text 3, select Tools > Build System > New Build System... and replace the placeholder text.
    Tip:  Make sure the path to Node.js is correct!
 
-Mac (untested):
+Mac:
 
 {
   "cmd": ["/usr/local/bin/node", "$file"],
@@ -42,8 +42,8 @@ __________________________________
    Tip:  This should be the directory that Sublime Text defaults to when saving the file.
 
 Windows:  C:\Users\%username%\AppData\Roaming\Sublime Text 3\Packages\User
-Linux: /home/something/.config/sublime-text-3/Packages/User
-Mac:  TBD
+Linux: /home/%username%/.config/sublime-text-3/Packages/User
+Mac: /Users/%username%/Library/Application Support/Sublime Text 3/Packages/User
 __________________________________
 
 4) Create and save a new JavaScript file in Sublime Text with the following code and press CTRL+B to run:
