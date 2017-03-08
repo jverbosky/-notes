@@ -86,7 +86,7 @@ helpctr			find what man page is appropriate
 # Doesn't appear to work in PowerShell 2.0 (Windows 7 native version)
 
 hostname		list my computer's network name
-# Outputs the computer name 
+# Outputs the computer name
 
 icacls			display/modify file permissions (discretionary access control lists - DACLs)
 # List permissions for a file

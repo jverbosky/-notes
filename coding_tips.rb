@@ -172,6 +172,12 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 ___________________________________________________________
 
+# Working with JSON files
+
+gem install json  # allows JSON files to be read/parsed, typically already installed with Ruby (check gem list --local)
+gem install jsonlint  # checks JSON files for correct syntax and no silly mistakes
+___________________________________________________________
+
 # Setting up ri for accessing Ruby documentation from terminal
 
 gem install rdoc-data
@@ -700,13 +706,39 @@ ___________________________________________________________
 Won: <%= @won %>&nbsp;&nbsp;&nbsp;&nbsp;Lost: <%= @lost %><br>
 ___________________________________________________________
 
+# 1)
+# When commenting out HTML w/embedded Ruby, don't comment out Ruby variable with #
+# will result in: syntax error, unexpected keyword_ensure, expecting ')'
+
+# 2)
+# When using hidden form fields to pass data, set input type to "hidden" or else submitting
+# an empty field will result in visible field on page with "hidden" in it
+
+# For example, don't do this (copy to ERB/HTML to see the value):
+<!-- <input type = "hidden" name = "user_name" value = <%= #name %>> -->
+___________________________________________________________
+
 # Use target="_blank" to open a new tab/page when clicking on a link
 
 <p><a href="https://www.target_page.com" target="_blank">Your Text Here</a></p>
 ___________________________________________________________
 
+# JSON (per Amanda)
 
+JSON is just a file format, like CSV. Instead of a comma, you have braces and brackets between items and
+they can be a tree structure instead of flat. All you need to do is parse out the data like you would in
+CSV (just remembering you haven''t used CSV yet in class). Just google parsing JSON files with ruby and
+choose a gem to do the tough work.
 
+JSON lint is my best friend. I use it every time i am writing json to ensure it is well formed and not
+missing a bracket somewhere.
+
+# JSON != hash
+
+It''s the difference between building a hash inline of separately as a variable. JSON is a bit different
+than a hash even though it looks similar. JSON ID typically persisted to a file. It''s the typical way of
+passing data between systems. So api calls are typically json because all systems understand it (most all).
+So if you have a ruby program, it can send date to a lisp program or C#.
 
 
 ___________________________________________________________

@@ -16,7 +16,7 @@ GitHub Pages for Pittsburgh Techire Team Members (01/2017)
 
 [George Bruner](https://github.com/gbruner)
 
-Jayvon Harris (?)
+[Jayvon Harris](https://github.com/JayvonH)
 
 [John Verbosky](https://github.com/jverbosky)
 
