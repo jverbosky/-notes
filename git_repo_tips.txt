@@ -46,4 +46,12 @@ To retrieve files from a GitHub repository:
 
 # Use the "clone" command
 # Will pull down all of the files into the current working directory in PowerShell
+
+# 1) Go to repository on GitHub
+# 2) Click "Clone or Download" button
+# 3) Click on clipboard button to copy link
+# 4) Create a new directory and navigate to it in terminal
+# 5) In terminal type:
+        git clone <pase the link copied from GitHub>
 _____________________
+
