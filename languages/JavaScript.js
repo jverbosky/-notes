@@ -1844,12 +1844,10 @@ console.log(nFibonacci(8));  // 21
 ////////Fibonacci Explained//////////////////
 // basically, via recursion, a number breaks down to a zero or a one
 // all of the ones are then added up to create the Fibonacci number:
-// fibo(4) =   fibo(3)             + fibo(2)
-//         =  (fibo(2) + fibo(1))  + (fibo(1) + fibo(0))
-//         =  (fibo(2) +    1   )  + (   1    +    0   )
-//         =  (fibo(2) +    1   )  + (   1    +    0   )
-//         = ((fibo(1) + fibo(0)   +    1   ) + (   1    +    0   )
-//         = (( 1      +    0   )  +    1   ) + (   1    +    0   )
+// fibo(4) =   fibo(3)                       +  fibo(2)
+//         =  (fibo(2)            + fibo(1)) + (fibo(1) + fibo(0))
+//         = ((fibo(1) + fibo(0)) +    1   ) + (   1    +    0   )
+//         = (( 1      +    0   ) +    1   ) + (   1    +    0   )
 // fibo(4) = 3
 
 var tally = 0
