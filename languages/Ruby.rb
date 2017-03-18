@@ -9838,10 +9838,33 @@ p injection_2  # 44
 p injection_3  # 55
 ____________________________
 
+# Use .store, .delete, .keep_if and .delete_if methods to add/remove key/value pairs in a hash
+# For non-destructive selection or rejection, use .select, .reject and .drop_while
 
+numbers = {}
 
+numbers.store("one", 1)
+numbers.store("two", 2)
+numbers.store("three", 3)
+numbers.store("four", 4)
+numbers.store("five", 5)
+numbers.store("six", 6)
+numbers.store("seven", 7)
+numbers.store("eight", 8)
 
+p numbers  # {"one"=>1, "two"=>2, "three"=>3, "four"=>4, "five"=>5, "six"=>6, "seven"=>7, "eight"=>8}
 
+numbers.delete("eight")
+
+p numbers  # {"one"=>1, "two"=>2, "three"=>3, "four"=>4, "five"=>5, "six"=>6, "seven"=>7}
+
+numbers.keep_if { |key, value| value % 2 == 1 }
+
+p numbers  # {"one"=>1, "three"=>3, "five"=>5, "seven"=>7}
+
+numbers.delete_if { |key, value| value > 4 }
+
+p numbers  # {"one"=>1, "three"=>3}
 ____________________________
 
 
