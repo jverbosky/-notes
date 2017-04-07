@@ -1,0 +1,205 @@
+Rules:
+
+1) Fake it!
+	- Need to build confidence in customer
+	- Even if you spend all day researching (Google), make customer feel they made the right choice
+
+2) Make it!
+	- Always have your code on the screen, no matter what
+		- Lets client see what you're working on
+	- Use another tab in your browser
+		- Don't look at your phone, looks shady
+
+----------------------
+
+Functional requirements:
+- What the application does
+	- Put in a ticket number, get results
+
+Non-functional requirements are the meta-data for software development:
+- Scalability
+	- How many concurrent connections do you anticipate
+- Maintainability
+- Testability
+	- What percent test coverage do you need)
+	- Costs money to have 100% testability
+		- Make customers see how much thought process goes into software dev
+- Extensibility
+	- Can build one long script or discrete modules
+	- Will it be grown or scaled in the future?
+- Readability
+	- Does the customer want to read/update their own code?
+	- If customer won't maintain, someone else will
+- Usability
+	- Has to have a good user experience
+- Security
+- Language
+	- If customers specify a language, find out why
+	- Can figure language details out later, figure out some way to add value to the conversation
+- Accessibility
+	- Who are the customers?
+	- Where will the app be used?
+- Price
+	- How important is the budget?
+	- When making tech decisions, they can influence the cost
+
+----------------------
+
+How do you make yourself valuable on a new team?
+- Ask the questions that no one else is asking
+
+----------------------
+
+The "whys" are very important
+- Customer wants to use JSON and F# - why? 
+
+----------------------
+
+Do you know what you want it to look like?
+- Ask for examples of what they are looking for
+
+Do you have a designer on staff?
+
+----------------------
+
+Being a software developer, you'll spend your entire career facing projects that require knowledge and tech
+that you aren't comfortable with.
+- It's a constant motion between anxiety, learning and competence
+
+----------------------
+
+Always let customers talk
+- The more they talk the better
+
+----------------------
+
+Show up
+- Be onsite everyday on time
+- If remote, connect on Zoom early every day
+
+----------------------
+
+The higher the fee, the more respect
+
+----------------------
+
+When answering the customer, never say "No"
+- Say "Yes and..." then pivot
+
+----------------------
+
+It's hard to know how something will take until you have context
+- Other aspects that maybe other estimates don't take into consideration
+
+----------------------
+
+What if you've made progress or you hit a blocker, and you're not where you estimated you'd be?
+- Know in advance that you won't meet expectations
+- Tell them in advance that you aren't there
+	- Don't wait until the demo
+	- Here's where we are, here's why
+	- Don't softball and don't pretend they won't notice
+	- Let them know what you're going to do to resolve
+	- If they ask about paying for it, say "we're partners, we'll work together on this"
+----------------------
+
+Role play:
+
+----------------------
+
+1) Client not happy with result
+	- Sometimes clients want stupid stuff
+		- Advise, but deliver
+
+2) Customer doesn't know what they want
+	- Ask them for examples
+	- If they don't have any, send them sites from their competitors
+	- Just be clear that if the design has the change (major), will cost
+
+3) Some clients are just tough on the design
+	- Need to stay positive and be flexible
+
+4) Some clients will offer funding/retainer upfront
+	- Very rarely give fixed prices (only for training)
+
+----------------------
+
+Angry client:
+
+We said we were going to accomplish A, B, C & D, but we only got to A, B...
+
+/Why didn't you get D done?
+
+We ran into a roadblock with the technology
+- We needed to insert tech C between tech A &B
+- I realize we had to spend more time 
+
+/Is this a one-time thing or should we expect this in the future?
+
+This is normal for the process and we want to make sure that your aware of the process
+
+----------------------
+
+Abusive Client:
+
+I understand that 
+- Maybe now isn't the best time to have this meeting, let's get it on the calendar for ____.
+
+/I'm going to do my absolute best to deliver __ on __ .
+
+That's not good enough, I need...
+
+/I'll deliver as much as I can of __ by __ .
+
+----------------------
+
+Focus on the app and their business
+- Business value of app
+- Will it make them money or save them money?
+- Will this feature make a different one way or the other?
+	- If not, push off for later
+- Research their business
+	- Be familiar with what they are doing
+	- Makes you look like you care
+
+----------------------
+
+Making progress
+- Do whatever you have to do to make some progress
+- If you get to 3PM without anything, put a few lines and commit to GitHub
+	- Even if it's not on the feature
+- If the feature is due tomorrow and you haven't made any progress, reach out
+	- Amanda and Jon are up until 4AM getting it done
+		- They need to learn the context and ramp up the same as anyone else
+
+----------------------
+
+Never ever, ever, ever say your sorry
+- Saying sorry means you were wrong
+- Everyone make mistakes
+- Everyone has to experiment and fail
+- Never have an excuse
+	- There is a purpose, know why you're doing what your doing
+	- Understand what rabbit hold you're going down and why you're doing it
+	- If you can't say out loud why you're doing something, don't do it
+	- Make sure that you can explain why you are doing something
+	- Need to make sure what you're doing is relevant to your end goal
+
+----------------------
+
+Never take a problem to a client
+- Take solutions to the client, not problems
+- Research and find a solution, then propose
+	- I need a printer, I researched and found one for $30, would that be acceptable
+
+----------------------
+
+Every meeting is an interview.
+
+Can solve anything, will solve anything.
+
+Care more about you than me.
+
+You may have generic questions when you first meet a client, but once you build a rapport.
+- All about picking up on queues and building a relationship
+

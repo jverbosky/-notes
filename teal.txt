@@ -1,0 +1,32 @@
+Management approach
+
+----------------------
+
+Project Description
+Technical Architecture
+Financials
+Client Particulars
+
+----------------------
+
+Project Teams
+
+----------------------
+
+2-person is a guideline
+- can potentially add a 3rd person
+
+Skills inventory so clear who knows what
+
+Team member availability
+- Team board for the standup board (global view)
+- Trello board for each project
+
+----------------------
+
+Outside of projects, there are other things to deal with
+
+----------------------
+
+Trying to get away from asking Amanda and Jonathan: "what should I do next?"
+- Look at open projects and required skills, find a good fit

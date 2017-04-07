@@ -456,6 +456,16 @@ https://devcenter.heroku.com/articles/heroku-cli
 12) At the end of the messages, you should see the address for your app that you can use to run it.
 ___________________________________________________________
 
+# View current files/directories for app on Heroku
+
+1) Open terminal and navigate to repository directory
+
+2) Run the Heroku bash shell:
+      heroku run bash
+
+3) Use cd and ls commands to navigate/browse directories and files
+___________________________________________________________
+
 # Heroku error - no default language
 
 Note - on pushing my hangman game, I ran into a "no default language could be detected for this app" error.
@@ -467,6 +477,8 @@ I did the following, but am not 100% sure about what got it working:
 2) Re-associated my remote with these commands:
       heroku git:remote -a herokuAppName
       git push heroku master
+    - may need to force:
+      git push heroku master --force
 
 3) Ran the following command to specify a buildpack:
       heroku buildpacks:set heroku/ruby
@@ -739,9 +751,23 @@ It''s the difference between building a hash inline of separately as a variable.
 than a hash even though it looks similar. JSON ID typically persisted to a file. It''s the typical way of
 passing data between systems. So api calls are typically json because all systems understand it (most all).
 So if you have a ruby program, it can send date to a lisp program or C#.
-
-
 ___________________________________________________________
+
+PostgreSQL
+
+Heroku article
+https://devcenter.heroku.com/articles/heroku-postgresql
+
+Installers
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+Windows - update PATH environment variable
+- Win x86
+  C:\Program Files\PostgreSQL\9.6\bin
+
+Ruby - install 'pg' gem
+- gem install pg
+
 
 
 
