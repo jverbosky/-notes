@@ -1,3 +1,6 @@
+# Ended up using mysql2 gem for remote connections
+
+
 PS C:\Users\something> gem install mysql
 Fetching: mysql-2.9.1-x86-mingw32.gem (100%)
 
