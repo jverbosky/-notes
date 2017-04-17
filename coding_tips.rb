@@ -272,6 +272,12 @@ ___________________________________________________________
 # that the function is working as you expect
 ___________________________________________________________
 
+# To force minitest to use a specific seed value (such as when one fails),
+# use the --seed option when running via terminal:
+
+ruby test_phonebook_ops.rb --seed 6666
+___________________________________________________________
+
 # It's always good to begin a function name with a verb, since it's doing something
 # And try to avoid using the same name for each variable and function
 # Helps you know what you are referring to, since it avoids ambiguity
