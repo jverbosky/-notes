@@ -1,0 +1,5 @@
+Logo colors according to MS Paint:
+
+darker blue: rgb(29, 41, 123) hex #1d297b 
+lighter blue: rgb(103, 104, 161) hex #6768a1 
+green: rgb(99, 197, 174) hex #63c5ae

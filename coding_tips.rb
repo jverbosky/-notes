@@ -766,6 +766,7 @@ https://devcenter.heroku.com/articles/heroku-postgresql
 
 Installers
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+________________________________
 
 Windows - update PATH environment variable
 - Win x86
@@ -773,16 +774,33 @@ Windows - update PATH environment variable
 
 Ruby - install 'pg' gem
 - gem install pg
+________________________________
 
+Mac - install postgresql-9.6.2-4-osx.dmg
 
+Update $PATH - where to find pg_config:
+sudo ln -s /Library/PostgreSQL/9.6/bin/pg_config /usr/local/bin/pg_config
 
-
-
-
+Ruby - install 'pg' gem with the following options:
+sudo ARCHFLAGS="-arch x86_64" gem install pg -- --with-pg-config=/Library/PostgreSQL/9.6/bin/pg_config
 ___________________________________________________________
 
+Cocoapods
+- the Swift version of Ruby gems
 
+sudo gem install cocoapods
 
+Some related gems that are installed:
+
+cocoapods (1.2.1)
+cocoapods-core (1.2.1)
+cocoapods-deintegrate (1.0.1)
+cocoapods-downloader (1.1.3)
+cocoapods-plugins (1.0.0)
+cocoapods-search (1.0.0)
+cocoapods-stats (1.0.0)
+cocoapods-trunk (1.2.0)
+cocoapods-try (1.1.0)
 
 
 ___________________________________________________________

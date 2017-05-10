@@ -1,0 +1,7 @@
+Branches, Masters & Merges
+
+Make sure you are in the master/branch you want to keep before you merge
+- Can always roll back, so don't worry too much
+
+git reset (head? and hash key)
+- Roll back
