@@ -9867,10 +9867,12 @@ numbers.delete_if { |key, value| value > 4 }
 p numbers  # {"one"=>1, "three"=>3}
 ____________________________
 
+# Extract a partial hash from an existing hash
 
+setup_hash = {"p1_type" => "Human", "p2_type" => "Random", "board_size" => "3"}
+players = setup_hash.select { |key, value| key != "board_size" }
 
-
-
+p players  # {"p1_type"=>"Human", "p2_type"=>"Random"}
 ____________________________
 
 
